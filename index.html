@@ -184,6 +184,10 @@
         function displayMonth(monthNum) {
             const month = dsaPlan[monthNum];
             const planBody = document.getElementById('plan-body');
+                    
+        // Update month title and description
+        document.getElementById('month-title').textContent = month.title;
+        document.getElementById('month-desc').textContent = month.description;
             
             let html = '';
             month.days.forEach(day => {

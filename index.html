@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Mastery Plan 2026 | 5-Month MAANG Prep</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-left">
+                <span class="logo-icon">[ DS ]</span>
+                <h1 class="app-title">DSA MASTERY PLAN</h1>
+                <span class="app-subtitle">2026</span>
+            </div>
+            <div class="header-right">
+                <div class="streak-badge" id="streak-badge">
+                    <span class="fire-icon">[ :fire: ]</span>
+                    <span id="streak-count">0</span> Day Streak
+                </div>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <section class="dashboard">
+                <div class="progress-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 36 36">
+                            <path class="progress-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor"></path>
+                            <path class="progress-fill" id="overall-progress" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831" fill="none" stroke="currentColor" stroke-dasharray="0, 100"></path>
+                        </svg>
+                        <span class="progress-text" id="progress-percent">0%</span>
+                    </div>
+                    <div class="progress-info">
+                        <h2>Overall Progress</h2>
+                        <p><span id="completed-tasks">0</span> of <span id="total-tasks">0</span> tasks completed</p>
+                        <div class="month-stats" id="month-stats"></div>
+                    </div>
+                </div>
+                <div class="quick-stats">
+                    <div class="stat-box" id="stat-m1">
+                        <span class="stat-num" id="m1-done">0</span>
+                        <span class="stat-label">Month 1 Done</span>
+                    </div>
+                    <div class="stat-box" id="stat-m2">
+                        <span class="stat-num" id="m2-done">0</span>
+                        <span class="stat-label">Month 2 Done</span>
+                    </div>
+                    <div class="stat-box" id="stat-m3">
+                        <span class="stat-num" id="m3-done">0</span>
+                        <span class="stat-label">Month 3 Done</span>
+                    </div>
+                    <div class="stat-box" id="stat-m4">
+                        <span class="stat-num" id="m4-done">0</span>
+                        <span class="stat-label">Month 4 Done</span>
+                    </div>
+                    <div class="stat-box" id="stat-m5">
+                        <span class="stat-num" id="m5-done">0</span>
+                        <span class="stat-label">Month 5 Done</span>
+                    </div>
+                </div>
+                <div class="today-card" id="today-card">
+                    <h3>Today's Task</h3>
+                    <div id="today-content"></div>
+                </div>
+            </section>
+
+            <nav class="month-nav">
+                <button class="nav-btn active" data-month="1">Month 1 - Foundations</button>
+                <button class="nav-btn" data-month="2">Month 2 - Data Structures</button>
+                <button class="nav-btn" data-month="3">Month 3 - Trees & Heaps</button>
+                <button class="nav-btn" data-month="4">Month 4 - Advanced</button>
+                <button class="nav-btn" data-month="5">Month 5 - Mastery</button>
+            </nav>
+
+            <section class="plan-content" id="plan-content">
+                <div class="plan-header">
+                    <h2 id="month-title">Month 1 - Foundations</h2>
+                    <p id="month-desc">Build a rock-solid foundation in programming basics, arrays, strings, sorting and searching.</p>
+                </div>
+                <div class="plan-body" id="plan-body">
+                    <div class="loading-spinner">Loading plan...</div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>Built from Striver's A2Z Sheet (474), SDE Sheet (191), NeetCode 150, Blind 75, Love Babbar 450 & GeeksforGeeks SDE</p>
+            <p>GitHub: <a href="https://github.com/RANJITHROSAN17/dsa-mastery-plan-2026" target="_blank">RANJITHROSAN17/dsa-mastery-plan-2026</a></p>
+        </footer>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

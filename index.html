@@ -92,7 +92,135 @@
         </footer>
     </div>
 
-    <script src="data.js"></script>
-    <script src="app.js"></script>
-</body>
+        <script>
+        // DSA Mastery Plan Data
+        const dsaPlan = {
+            1: {
+                title: 'Month 1 - Foundations',
+                description: 'Build a rock-solid foundation in programming basics, arrays, strings, sorting and searching.',
+                days: [
+                    {day: 1, topic: 'Arrays - Part I', problems: ['Set Matrix Zeroes', 'Pascal\'s Triangle', 'Next Permutation', 'Maximum Subarray (Kadane\'s)'], difficulty: 'Medium'},
+                    {day: 2, topic: 'Arrays - Part II', problems: ['Merge Overlapping Intervals', 'Merge Sorted Array', 'Find Duplicate', 'Repeat and Missing Number'], difficulty: 'Medium'},
+                    {day: 3, topic: 'Arrays - Part III', problems: ['Search in 2D Matrix', 'Pow(x, n)', 'Majority Element', 'Unique Paths'], difficulty: 'Medium'},
+                    {day: 4, topic: 'Arrays - Part IV', problems: ['2Sum', '4Sum', 'Longest Consecutive Sequence', 'Largest Subarray with 0 sum'], difficulty: 'Medium'},
+                    {day: 5, topic: 'Linked List - Part I', problems: ['Reverse Linked List', 'Middle of Linked List', 'Merge Two Sorted Lists', 'Remove Nth Node'], difficulty: 'Easy'},
+                    {day: 6, topic: 'Linked List - Part II', problems: ['Add Two Numbers', 'Delete Node', 'Intersection of Two Linked Lists', 'Detect Cycle'], difficulty: 'Medium'},
+                    {day: 7, topic: 'Linked List - Part III', problems: ['Reverse Nodes in k-Group', 'Palindrome Linked List', 'Starting Point of Loop', 'Flattening Linked List'], difficulty: 'Hard'},
+                    {day: 8, topic: 'Greedy - Part I', problems: ['N meetings in One Room', 'Minimum Platforms', 'Job Sequencing', 'Fractional Knapsack'], difficulty: 'Medium'},
+                    {day: 9, topic: 'Greedy - Part II', problems: ['Minimum Coins', 'Activity Selection', 'Assign Cookies', 'Lemonade Change'], difficulty: 'Easy'},
+                    {day: 10, topic: 'Recursion - Part I', problems: ['Subsets', 'Subsets II', 'Combination Sum', 'Combination Sum II'], difficulty: 'Medium'},
+                    {day: 11, topic: 'Recursion - Part II', problems: ['Palindrome Partitioning', 'K-th Permutation', 'Sudoku Solver', 'N Queens'], difficulty: 'Hard'},
+                    {day: 12, topic: 'Binary Search - Part I', problems: ['Binary Search', 'Search Insert Position', 'Median of Two Sorted Arrays', 'K-th Element'], difficulty: 'Hard'},
+                    {day: 13, topic: 'Binary Search - Part II', problems: ['Aggressive Cows', 'Allocate Books', 'Find Peak Element', 'Single Element in Sorted Array'], difficulty: 'Hard'},
+                    {day: 14, topic: 'Strings - Part I', problems: ['Reverse Words', 'Longest Palindrome Substring', 'Roman to Integer', 'String to Integer (atoi)'], difficulty: 'Medium'},
+                    {day: 15, topic: 'Strings - Part II', problems: ['Compare Version Numbers', 'Count and Say', 'Rabin Karp', 'KMP Algorithm'], difficulty: 'Hard'},
+                    {day: 16, topic: 'Revision', problems: ['Review all arrays problems'], difficulty: 'Mixed'},
+                    {day: 17, topic: 'Revision', problems: ['Review all linked list problems'], difficulty: 'Mixed'},
+                    {day: 18, topic: 'Revision', problems: ['Review greedy and recursion'], difficulty: 'Mixed'},
+                    {day: 19, topic: 'Revision', problems: ['Review binary search problems'], difficulty: 'Mixed'},
+                    {day: 20, topic: 'Revision & Contest', problems: ['Practice contest problems'], difficulty: 'Mixed'}
+                ]
+            },
+            2: {
+                title: 'Month 2 - Data Structures',
+                description: 'Master stacks, queues, heaps and hashing for efficient problem solving.',
+                days: [
+                    {day: 21, topic: 'Stack & Queue - I', problems: ['Implement Stack using Arrays', 'Implement Queue using Arrays', 'Valid Parentheses', 'Next Greater Element'], difficulty: 'Easy'},
+                    {day: 22, topic: 'Stack & Queue - II', problems: ['LRU Cache', 'LFU Cache', 'Largest Rectangle in Histogram', 'Sliding Window Maximum'], difficulty: 'Hard'},
+                    {day: 23, topic: 'Heaps - Part I', problems: ['Max Heap Implementation', 'Min Heap', 'Kth Largest Element', 'Top K Frequent Elements'], difficulty: 'Medium'},
+                    {day: 24, topic: 'Heaps - Part II', problems: ['Merge K Sorted Lists', 'Find Median from Data Stream', 'K Closest Points'], difficulty: 'Hard'},
+                    {day: 25, topic: 'Hashing', problems: ['Two Sum', 'Four Sum', 'Longest Substring Without Repeating', 'Subarrays with XOR K'], difficulty: 'Medium'},
+                    {day: 26, topic: 'Revision', problems: ['Practice Stack and Queue'], difficulty: 'Mixed'},
+                    {day: 27, topic: 'Revision', problems: ['Practice Heap problems'], difficulty: 'Mixed'},
+                    {day: 28, topic: 'Contest Day', problems: ['Participate in live contests'], difficulty: 'Mixed'}
+                ]
+            },
+            3: {
+                title: 'Month 3 - Trees & Heaps',
+                description: 'Deep dive into binary trees, BSTs, and advanced heap problems.',
+                days: [
+                    {day: 29, topic: 'Binary Tree - I', problems: ['Inorder Traversal', 'Preorder Traversal', 'Postorder Traversal', 'Level Order'], difficulty: 'Easy'},
+                    {day: 30, topic: 'Binary Tree - II', problems: ['Height of Tree', 'Diameter of Tree', 'Max Path Sum', 'Check Balanced'], difficulty: 'Medium'},
+                    {day: 31, topic: 'Binary Tree - III', problems: ['Vertical Order Traversal', 'Top View', 'Bottom View', 'Zig Zag Traversal'], difficulty: 'Hard'},
+                    {day: 32, topic: 'BST - Part I', problems: ['Search in BST', 'Ceil in BST', 'Floor in BST', 'Insert in BST'], difficulty: 'Easy'},
+                    {day: 33, topic: 'BST - Part II', problems: ['Validate BST', 'LCA in BST', 'Construct BST from Preorder', 'Inorder Successor'], difficulty: 'Medium'},
+                    {day: 34, topic: 'Revision', problems: ['Practice Binary Tree problems'], difficulty: 'Mixed'},
+                    {day: 35, topic: 'Contest Day', problems: ['Participate in live contests'], difficulty: 'Mixed'}
+                ]
+            },
+            4: {
+                title: 'Month 4 - Advanced',
+                description: 'Master graphs, dynamic programming and tries.',
+                days: [
+                    {day: 36, topic: 'Graph - Part I', problems: ['BFS', 'DFS', 'Number of Islands', 'Clone Graph'], difficulty: 'Medium'},
+                    {day: 37, topic: 'Graph - Part II', problems: ['Topological Sort', 'Course Schedule', 'Dijkstra Algorithm', 'Bellman Ford'], difficulty: 'Hard'},
+                    {day: 38, topic: 'DP - Part I', problems: ['Climbing Stairs', 'Coin Change', '0/1 Knapsack', 'Subset Sum'], difficulty: 'Medium'},
+                    {day: 39, topic: 'DP - Part II', problems: ['LCS', 'LIS', 'Edit Distance', 'Matrix Chain Multiplication'], difficulty: 'Hard'},
+                    {day: 40, topic: 'Trie', problems: ['Implement Trie', 'Insert and Search', 'Word Break', 'Auto Complete'], difficulty: 'Medium'},
+                    {day: 41, topic: 'Revision', problems: ['Practice Graph problems'], difficulty: 'Mixed'},
+                    {day: 42, topic: 'Contest Day', problems: ['Participate in live contests'], difficulty: 'Mixed'}
+                ]
+            },
+            5: {
+                title: 'Month 5 - Mastery',
+                description: 'Advanced topics, system design and interview preparation.',
+                days: [
+                    {day: 43, topic: 'Bit Manipulation', problems: ['Single Number', 'Power Set', 'Count Set Bits', 'XOR Queries'], difficulty: 'Medium'},
+                    {day: 44, topic: 'Advanced DP', problems: ['Egg Drop', 'Burst Balloons', 'Palindrome Partitioning', 'Word Break II'], difficulty: 'Hard'},
+                    {day: 45, topic: 'Advanced Graphs', problems: ['Bridges in Graph', 'Articulation Point', 'Kosaraju Algorithm', 'Tarjan Algorithm'], difficulty: 'Hard'},
+                    {day: 46, topic: 'Mock Interviews', problems: ['Practice with peers'], difficulty: 'Mixed'},
+                    {day: 47, topic: 'Contest Day', problems: ['Final contest preparation'], difficulty: 'Mixed'}
+                ]
+            }
+        };
+
+        // Initialize the dashboard
+        function initDashboard() {
+            displayMonth(1);
+            setupEventListeners();
+        }
+
+        // Display month content
+        function displayMonth(monthNum) {
+            const month = dsaPlan[monthNum];
+            const planBody = document.getElementById('plan-body');
+            
+            let html = '';
+            month.days.forEach(day => {
+                const problems = day.problems.join(', ');
+                html += `
+                    <div class="day-card">
+                        <div class="day-header">
+                            <h3>Day ${day.day}: ${day.topic}</h3>
+                            <span class="difficulty difficulty-${day.difficulty.toLowerCase()}">${day.difficulty}</span>
+                        </div>
+                        <div class="problems">
+                            <strong>Problems:</strong> ${problems}
+                        </div>
+                        <button class="mark-complete" data-day="${day.day}">Mark Complete</button>
+                    </div>
+                `;
+            });
+            
+            planBody.innerHTML = html;
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const month = parseInt(this.getAttribute('data-month'));
+                    displayMonth(month);
+                    
+                    // Update active state
+                    navButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        }
+
+        // Load dashboard on page load
+        window.addEventListener('DOMContentLoaded', initDashboard);
+    </script>dy>
 </html>

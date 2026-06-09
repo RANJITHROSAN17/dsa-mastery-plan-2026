@@ -3,202 +3,409 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSA Mastery Plan 2026 - MAANG Interview Prep</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%234f98a3'>∑</text></svg>">
+    <title>DSA Mastery 2026 - Elite MAANG Interview Prep Platform</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%234f98a3'>⚡</text></svg>">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
-            --bg: #0f172a;
-            --bg-alt: #1e293b;
-            --bg-hover: #334155;
-            --border: #475569;
-            --text: #e2e8f0;
-            --text-muted: #94a3b8;
-            --primary: #3b82f6;
+            --primary-dark: #0f1419;
+            --primary-bg: #1a1f2e;
+            --secondary-bg: #252d3d;
+            --tertiary-bg: #2a3447;
+            --border-color: #3d4659;
+            --text-primary: #e8eef7;
+            --text-secondary: #a0aac4;
+            --text-tertiary: #7a8499;
+            --accent-blue: #4f9eff;
+            --accent-purple: #8b5cf6;
+            --accent-green: #34d399;
+            --accent-orange: #fb923c;
+            --accent-pink: #ec4899;
             --success: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
+            --gradient-primary: linear-gradient(135deg, #4f9eff 0%, #8b5cf6 100%);
+            --gradient-secondary: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
-            color: var(--text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-bg) 50%, var(--primary-dark) 100%);
+            color: var(--text-primary);
             line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--primary-bg);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-blue);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-purple);
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
             padding: 20px;
         }
         
+        /* Header */
         header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-            padding: 40px 20px;
+            background: var(--gradient-secondary);
+            padding: 60px 40px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(79, 158, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(79, 158, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        header > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 3.5em;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ffffff 0%, #e8eef7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+        
+        .header-subtitle {
+            font-size: 1.3em;
+            color: #b0c4ff;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .header-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .header-stat {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .header-stat-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            color: var(--accent-blue);
         }
         
-        h1 { font-size: 2.5em; margin-bottom: 10px; }
-        header p { color: #cffafe; font-size: 1.1em; }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .stat-card {
-            background: var(--bg-alt);
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-        }
-        
-        .stat-value {
-            font-size: 2em;
-            font-weight: bold;
-            color: var(--primary);
+        .header-stat-text h3 {
+            font-size: 1.8em;
             margin-bottom: 5px;
         }
         
-        .stat-label {
-            color: var(--text-muted);
+        .header-stat-text p {
+            color: #a0aac4;
             font-size: 0.9em;
         }
         
+        /* Dashboard Grid */
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .dashboard-card {
+            background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--tertiary-bg) 100%);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dashboard-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(79, 158, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transition: all 0.5s ease;
+        }
+        
+        .dashboard-card:hover::before {
+            top: -30%;
+            right: -30%;
+        }
+        
+        .dashboard-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 20px 40px rgba(79, 158, 255, 0.2);
+        }
+        
+        .dashboard-card > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .card-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .card-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 8px;
+        }
+        
+        .card-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+        
+        /* Progress Bar */
         .progress-section {
-            background: var(--bg-alt);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            border: 1px solid var(--border);
+            background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--tertiary-bg) 100%);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
         }
         
         .progress-bar {
             width: 100%;
-            height: 10px;
-            background: var(--bg);
+            height: 12px;
+            background: var(--tertiary-bg);
             border-radius: 10px;
             overflow: hidden;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
         }
         
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--success));
+            background: var(--gradient-primary);
             width: 0%;
-            transition: width 0.3s ease;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(79, 158, 255, 0.5);
         }
         
-        .controls {
+        .progress-text {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            margin-top: 10px;
+        }
+        
+        /* Tabs */
+        .tabs-header {
             display: flex;
             gap: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             flex-wrap: wrap;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
         }
         
-        button {
-            padding: 10px 20px;
-            background: var(--primary);
-            color: white;
+        .tab-btn {
+            padding: 12px 24px;
+            background: transparent;
+            color: var(--text-secondary);
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            position: relative;
         }
         
-        button:hover {
-            background: var(--primary);
-            opacity: 0.8;
-            transform: translateY(-2px);
+        .tab-btn:hover {
+            color: var(--accent-blue);
+            background: rgba(79, 158, 255, 0.1);
         }
         
-        button.secondary {
-            background: var(--bg-alt);
-            color: var(--text);
-            border: 1px solid var(--border);
+        .tab-btn.active {
+            color: var(--accent-blue);
+            background: rgba(79, 158, 255, 0.15);
         }
         
-        .filter-group {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            border-radius: 1px;
         }
         
-        .filter-btn {
-            padding: 8px 16px;
-            background: var(--bg-alt);
-            color: var(--text);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.9em;
-            transition: all 0.3s;
-        }
-        
-        .filter-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-        
+        /* Week Container */
         .week-container {
-            background: var(--bg-alt);
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            border: 1px solid var(--border);
+            background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--tertiary-bg) 100%);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
         }
         
         .week-header {
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
         }
         
         .week-header h2 {
-            color: var(--primary);
-            margin-bottom: 8px;
-            font-size: 1.4em;
+            font-size: 2em;
+            margin-bottom: 12px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .week-summary {
-            color: var(--text-muted);
-            font-size: 0.95em;
-            line-height: 1.6;
+            color: var(--text-secondary);
+            font-size: 1.05em;
+            line-height: 1.8;
         }
         
+        .week-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(79, 158, 255, 0.2);
+            color: var(--accent-blue);
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        
+        .week-badge.core {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+        
+        .week-badge.revision {
+            background: rgba(168, 85, 247, 0.2);
+            color: #d8b4fe;
+        }
+        
+        /* Days Grid */
         .days-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
         }
         
         .day-card {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 20px;
-            transition: all 0.3s;
+            background: linear-gradient(135deg, #1f2635 0%, #252d3d 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            overflow: hidden;
             cursor: pointer;
+            group: true;
+        }
+        
+        .day-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(79, 158, 255, 0.1), transparent);
+            transform: skewX(-20deg);
+            transition: all 0.6s ease;
+        }
+        
+        .day-card:hover::before {
+            top: 0;
         }
         
         .day-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
-            transform: translateY(-2px);
+            transform: translateY(-12px) scale(1.02);
+            border-color: var(--accent-blue);
+            box-shadow: 0 25px 50px rgba(79, 158, 255, 0.25);
         }
         
         .day-card.completed {
-            background: rgba(16, 185, 129, 0.1);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
             border-color: var(--success);
         }
         
@@ -206,181 +413,100 @@
             position: absolute;
             top: 15px;
             right: 15px;
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             cursor: pointer;
-            accent-color: var(--success);
+            appearance: none;
+            background: var(--tertiary-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            transition: all 0.3s ease;
         }
         
-        .day-title {
-            font-size: 1.2em;
+        .day-checkbox:hover {
+            border-color: var(--accent-green);
+        }
+        
+        .day-checkbox:checked {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+        
+        .day-checkbox:checked::after {
+            content: '✓';
+            position: absolute;
+            top: -3px;
+            left: 4px;
+            color: white;
             font-weight: bold;
-            margin-bottom: 10px;
-            color: var(--text);
-            padding-right: 40px;
-        }
-        
-        .day-topic {
-            background: rgba(59, 130, 246, 0.2);
-            color: var(--primary);
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        
-        .day-section {
-            margin-bottom: 15px;
-        }
-        
-        .day-section-title {
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-        }
-        
-        .resource-list {
-            list-style: none;
-        }
-        
-        .resource-item {
-            padding: 8px 0;
-            color: var(--text-muted);
-            font-size: 0.9em;
-            border-bottom: 1px solid rgba(71, 85, 105, 0.3);
-            display: flex;
-            gap: 8px;
-            align-items: flex-start;
-        }
-        
-        .resource-item:last-child {
-            border-bottom: none;
-        }
-        
-        .resource-item::before {
-            content: "→";
-            color: var(--primary);
-            font-weight: bold;
-            min-width: 15px;
-        }
-        
-        .resource-link {
-            color: var(--primary);
-            text-decoration: none;
-            cursor: pointer;
-        }
-        
-        .resource-link:hover {
-            text-decoration: underline;
-        }
-        
-        .difficulty {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.75em;
-            font-weight: 600;
-            margin-left: 5px;
-        }
-        
-        .difficulty.easy { background: rgba(16, 185, 129, 0.2); color: var(--success); }
-        .difficulty.medium { background: rgba(245, 158, 11, 0.2); color: var(--warning); }
-        .difficulty.hard { background: rgba(239, 68, 68, 0.2); color: var(--danger); }
-        
-        .patterns-section {
-            background: var(--bg-alt);
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            border: 1px solid var(--border);
-        }
-        
-        .patterns-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-        }
-        
-        .pattern-card {
-            background: var(--bg);
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-        }
-        
-        .pattern-name {
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        
-        .pattern-desc {
-            color: var(--text-muted);
-            font-size: 0.9em;
-            line-height: 1.5;
-        }
-        
-        .resources-section {
-            background: var(--bg-alt);
-            padding: 25px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-        }
-        
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        
-        .resource-card {
-            background: var(--bg);
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            transition: all 0.3s;
-        }
-        
-        .resource-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
-        }
-        
-        .resource-card h3 {
-            color: var(--primary);
-            margin-bottom: 10px;
             font-size: 1.1em;
         }
         
-        .resource-card p {
-            color: var(--text-muted);
+        .day-card > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .day-number {
             font-size: 0.9em;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .day-title {
+            font-size: 1.4em;
+            font-weight: 700;
             margin-bottom: 12px;
-            line-height: 1.5;
+            margin-right: 30px;
         }
         
-        .resource-card a {
+        .day-topic {
             display: inline-block;
-            padding: 8px 16px;
-            background: rgba(59, 130, 246, 0.2);
-            color: var(--primary);
-            text-decoration: none;
-            border-radius: 6px;
+            background: rgba(79, 158, 255, 0.2);
+            color: var(--accent-blue);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.85em;
             font-weight: 600;
-            transition: all 0.3s;
+            margin-bottom: 15px;
         }
         
-        .resource-card a:hover {
-            background: var(--primary);
-            color: white;
+        .day-description {
+            color: var(--text-secondary);
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 15px;
         }
         
+        .day-stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .day-stat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+            color: var(--text-secondary);
+        }
+        
+        .day-stat i {
+            color: var(--accent-blue);
+        }
+        
+        .day-stat-value {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -388,152 +514,450 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
+            background: rgba(15, 20, 25, 0.8);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
             align-items: center;
             justify-content: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
         }
         
         .modal.active {
             display: flex;
         }
         
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
         .modal-content {
-            background: var(--bg-alt);
-            padding: 30px;
-            border-radius: 12px;
-            max-width: 600px;
-            max-height: 80vh;
+            background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--tertiary-bg) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 85vh;
             overflow-y: auto;
-            border: 1px solid var(--border);
+            padding: 0;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .modal-header {
+            padding: 30px 40px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, var(--secondary-bg) 0%, rgba(79, 158, 255, 0.1) 100%);
+        }
+        
+        .modal-title {
+            font-size: 1.8em;
+            font-weight: 700;
         }
         
         .modal-close {
-            float: right;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.8em;
             cursor: pointer;
-            font-size: 1.5em;
-            color: var(--text-muted);
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
         }
         
         .modal-close:hover {
-            color: var(--text);
+            background: rgba(79, 158, 255, 0.1);
+            color: var(--accent-blue);
         }
         
-        .table-responsive {
-            overflow-x: auto;
-            margin: 20px 0;
+        .modal-body {
+            padding: 40px;
         }
         
-        table {
+        .modal-section {
+            margin-bottom: 35px;
+        }
+        
+        .modal-section-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .concept-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .concept-item {
+            background: linear-gradient(135deg, rgba(79, 158, 255, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+            border: 1px solid rgba(79, 158, 255, 0.2);
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+        }
+        
+        .concept-item:hover {
+            border-color: var(--accent-blue);
+            background: linear-gradient(135deg, rgba(79, 158, 255, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+            transform: translateY(-2px);
+        }
+        
+        /* Problems Table */
+        .problems-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.9em;
+            margin-top: 15px;
         }
         
-        th {
-            background: var(--bg);
-            color: var(--primary);
-            padding: 12px;
+        .problems-table thead th {
+            background: linear-gradient(135deg, rgba(79, 158, 255, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+            padding: 15px;
             text-align: left;
             font-weight: 600;
-            border-bottom: 2px solid var(--border);
+            border-bottom: 2px solid var(--border-color);
+            color: var(--accent-blue);
         }
         
-        td {
-            padding: 12px;
-            border-bottom: 1px solid var(--border);
-            color: var(--text-muted);
+        .problems-table tbody tr {
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
         }
         
-        tr:hover {
-            background: rgba(59, 130, 246, 0.05);
+        .problems-table tbody tr:hover {
+            background: rgba(79, 158, 255, 0.05);
         }
         
-        .empty-state {
-            text-align: center;
-            padding: 40px;
-            color: var(--text-muted);
+        .problems-table td {
+            padding: 15px;
         }
         
-        .badge {
+        .problem-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .problem-link:hover {
+            color: var(--accent-purple);
+            gap: 12px;
+        }
+        
+        .difficulty-badge {
             display: inline-block;
             padding: 4px 10px;
-            background: rgba(59, 130, 246, 0.2);
-            color: var(--primary);
-            border-radius: 4px;
-            font-size: 0.8em;
+            border-radius: 6px;
+            font-size: 0.85em;
             font-weight: 600;
+            text-transform: uppercase;
         }
         
-        .badge.core { background: rgba(16, 185, 129, 0.2); color: var(--success); }
-        .badge.stretch { background: rgba(245, 158, 11, 0.2); color: var(--warning); }
-        .badge.revision { background: rgba(168, 85, 247, 0.2); color: #d8b4fe; }
+        .difficulty-easy {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+        
+        .difficulty-medium {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+        }
+        
+        .difficulty-hard {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+        
+        /* Resources */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .resource-item {
+            background: linear-gradient(135deg, rgba(79, 158, 255, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+            border: 1px solid rgba(79, 158, 255, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-item:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(79, 158, 255, 0.15);
+        }
+        
+        .resource-link-text {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-link-text:hover {
+            gap: 12px;
+            color: var(--accent-purple);
+        }
+        
+        .resource-desc {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 8px;
+        }
+        
+        /* Patterns Section */
+        .patterns-section {
+            background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--tertiary-bg) 100%);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .patterns-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .pattern-card {
+            background: linear-gradient(135deg, #1f2635 0%, #252d3d 100%);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pattern-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            transition: all 0.5s ease;
+        }
+        
+        .pattern-card:hover::before {
+            top: -30%;
+            right: -30%;
+        }
+        
+        .pattern-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.2);
+        }
+        
+        .pattern-card > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .pattern-name {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--accent-purple);
+        }
+        
+        .pattern-content {
+            font-size: 0.95em;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        
+        .pattern-content strong {
+            color: var(--text-primary);
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-tertiary);
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .animate-in {
+            animation: slideInLeft 0.5s ease;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .dashboard { grid-template-columns: repeat(2, 1fr); }
+            .days-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+            .patterns-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+        }
         
         @media (max-width: 768px) {
-            h1 { font-size: 1.8em; }
+            h1 { font-size: 2.2em; }
+            header { padding: 40px 20px; }
+            .container { padding: 15px; }
+            .dashboard { grid-template-columns: 1fr; }
             .days-grid { grid-template-columns: 1fr; }
             .patterns-grid { grid-template-columns: 1fr; }
-            .resources-grid { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: 1fr; }
+            .week-container { padding: 20px; }
+            .modal-body { padding: 20px; }
+            .modal-content { max-height: 95vh; }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8em; }
+            .header-stats { gap: 15px; }
+            .tabs-header { flex-direction: column; }
+            .tab-btn { width: 100%; }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Header -->
         <header>
-            <h1>🚀 DSA Mastery Plan 2026</h1>
-            <p>5-Month Journey to MAANG Interviews • 150 Days of Structured Learning</p>
+            <h1>⚡ DSA Mastery 2026</h1>
+            <p class="header-subtitle">Elite MAANG Interview Preparation Platform</p>
+            <div class="header-stats">
+                <div class="header-stat">
+                    <div class="header-stat-icon">📚</div>
+                    <div class="header-stat-text">
+                        <h3>150</h3>
+                        <p>Days of Learning</p>
+                    </div>
+                </div>
+                <div class="header-stat">
+                    <div class="header-stat-icon">🎯</div>
+                    <div class="header-stat-text">
+                        <h3>500+</h3>
+                        <p>Problems & Resources</p>
+                    </div>
+                </div>
+                <div class="header-stat">
+                    <div class="header-stat-icon">⭐</div>
+                    <div class="header-stat-text">
+                        <h3>100%</h3>
+                        <p>MAANG Coverage</p>
+                    </div>
+                </div>
+            </div>
         </header>
         
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-value" id="daysCompleted">0</div>
-                <div class="stat-label">Days Completed</div>
+        <!-- Dashboard Cards -->
+        <div class="dashboard">
+            <div class="dashboard-card">
+                <div class="card-icon">✅</div>
+                <div class="card-title">Days Completed</div>
+                <div class="card-value" id="daysCompleted">0</div>
+                <div class="card-subtitle">Keep your streak going</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-value" id="progressPct">0%</div>
-                <div class="stat-label">Overall Progress</div>
+            <div class="dashboard-card">
+                <div class="card-icon">📈</div>
+                <div class="card-title">Progress</div>
+                <div class="card-value" id="progressPct">0%</div>
+                <div class="card-subtitle">You're doing great</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-value" id="currentWeek">1</div>
-                <div class="stat-label">Current Week</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="streak">0</div>
-                <div class="stat-label">Day Streak</div>
+            <div class="dashboard-card">
+                <div class="card-icon">🔥</div>
+                <div class="card-title">Current Week</div>
+                <div class="card-value" id="currentWeek">1</div>
+                <div class="card-subtitle">Keep focused</div>
             </div>
         </div>
         
+        <!-- Progress Bar -->
         <div class="progress-section">
-            <h3 style="margin-bottom: 15px;">Overall Progress</h3>
+            <div class="progress-header">
+                <h3>Your Learning Journey</h3>
+                <span id="progressLabel" style="color: var(--accent-blue); font-weight: 700;">0 / 98</span>
+            </div>
             <div class="progress-bar">
                 <div class="progress-fill" id="progressBar"></div>
             </div>
-            <span id="progressText">0 / 98 days</span>
+            <p class="progress-text">Keep pushing! Every day brings you closer to mastery.</p>
         </div>
         
-        <div class="controls">
-            <button onclick="exportProgress()">📥 Export Progress</button>
-            <button class="secondary" onclick="resetProgress()">↻ Reset All</button>
-        </div>
-        
+        <!-- Weeks Container -->
         <div id="weeksContainer"></div>
         
+        <!-- Patterns Section -->
         <div class="patterns-section">
-            <h2 style="margin-bottom: 20px; color: var(--primary);">📋 DSA Patterns Quick Reference</h2>
+            <h2 class="section-title">📋 Essential DSA Patterns</h2>
             <div class="patterns-grid" id="patternsContainer"></div>
         </div>
         
-        <div class="resources-section">
-            <h2 style="margin-bottom: 20px; color: var(--primary);">📚 Learning Resources</h2>
-            <div class="resources-grid" id="resourcesContainer"></div>
-        </div>
+        <!-- Footer -->
+        <footer>
+            <p>🚀 Built for cracking MAANG interviews | DSA Mastery 2026 © | Start your journey today!</p>
+        </footer>
     </div>
     
+    <!-- Modal -->
     <div class="modal" id="dayModal">
         <div class="modal-content">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
-            <div id="dayDetails"></div>
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle"></div>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body" id="dayDetails"></div>
         </div>
     </div>
     
@@ -541,280 +965,458 @@
         const DSA_DATA = {
             weeks: [
                 {
-                    title: "Weeks 1–2: Foundation & Arrays",
-                    summary: "Start with coding speed, complexity analysis, and core array patterns that appear in every interview.",
+                    title: "Weeks 1-2: Foundation & Arrays",
+                    summary: "Master the fundamentals of DSA - understand complexity analysis, work with arrays, and learn core patterns that appear in almost every interview.",
                     tag: "core",
                     days: [
                         {
                             day: 1,
-                            title: "Setup & Big-O Complexity",
+                            title: "Big-O Complexity Analysis",
                             topic: "Fundamentals",
-                            description: "Choose language, build template, review Big-O notation, dry-run strategy",
-                            concepts: ["Time Complexity", "Space Complexity", "Big-O Analysis", "Recursion Tree"],
-                            problems: [
-                                { name: "Basic Template Setup", difficulty: "easy", link: "https://takeuforward.org/dsa/strivers-a2z-dsa-course-sheet" },
-                                { name: "Understanding Complexity", difficulty: "easy", link: "https://www.youtube.com/watch?v=onQdxGGPQvs" }
+                            description: "Deep dive into time and space complexity, Big-O notation, and how to analyze algorithms",
+                            concepts: [
+                                "Time Complexity",
+                                "Space Complexity",
+                                "Big-O Notation",
+                                "Best/Average/Worst Case",
+                                "Recurrence Relations"
                             ],
+                            problems: [
+                                { name: "Analyze Algorithm Complexity", difficulty: "easy", link: "https://www.geeksforgeeks.org/analysis-of-algorithms-set-1-asymptotic-analysis/" },
+                                { name: "Time Complexity Practice", difficulty: "easy", link: "https://www.youtube.com/watch?v=onQdxGGPQvs" }
+                            ],
+                            learningGuide: `
+                                <div class="learning-guide">
+                                    <h4>📚 Complete Learning Guide</h4>
+                                    
+                                    <h5>1. What is Big-O Notation?</h5>
+                                    <p>Big-O notation describes how an algorithm's runtime or space grows as the input size increases. It helps us understand the worst-case scenario.</p>
+                                    
+                                    <h5>2. Common Time Complexities (Best to Worst):</h5>
+                                    <ul>
+                                        <li><strong>O(1)</strong> - Constant Time: Accessing array element by index</li>
+                                        <li><strong>O(log n)</strong> - Logarithmic: Binary search</li>
+                                        <li><strong>O(n)</strong> - Linear: Single loop through array</li>
+                                        <li><strong>O(n log n)</strong> - Linearithmic: Efficient sorting (Merge Sort, Quick Sort)</li>
+                                        <li><strong>O(n²)</strong> - Quadratic: Nested loops (Bubble Sort)</li>
+                                        <li><strong>O(n³)</strong> - Cubic: Triple nested loops</li>
+                                        <li><strong>O(2^n)</strong> - Exponential: Recursive algorithms</li>
+                                        <li><strong>O(n!)</strong> - Factorial: Generating all permutations</li>
+                                    </ul>
+                                    
+                                    <h5>3. Space Complexity Examples:</h5>
+                                    <p><strong>O(1)</strong> - In-place sort (constant extra space)</p>
+                                    <p><strong>O(n)</strong> - Recursive call stack or auxiliary array</p>
+                                    <p><strong>O(n²)</strong> - 2D matrix creation</p>
+                                    
+                                    <h5>4. How to Calculate Complexity:</h5>
+                                    <p>1. Count the loops - each loop multiplies complexity</p>
+                                    <p>2. Drop constants - O(2n) becomes O(n)</p>
+                                    <p>3. Keep the fastest growing term - O(n² + n) becomes O(n²)</p>
+                                    <p>4. Consider space - recursive calls add to stack space</p>
+                                    
+                                    <h5>5. Key Interview Tips:</h5>
+                                    <p>✅ Always mention time AND space complexity</p>
+                                    <p>✅ Explain your reasoning clearly</p>
+                                    <p>✅ Optimize for time first, then space</p>
+                                    <p>✅ Know why merge sort is O(n log n) but uses O(n) space</p>
+                                </div>
+                            `,
                             resources: [
-                                "https://takeuforward.org/dsa/strivers-a2z-dsa-course-sheet - Complete A2Z Course",
-                                "https://www.youtube.com/watch?v=6Iq5XxN6XaY - Big O Analysis",
-                                "https://visualgo.net/ - Algorithm Visualization"
+                                "https://www.geeksforgeeks.org/analysis-of-algorithms-set-1-asymptotic-analysis/ - GFG Big-O Guide",
+                                "https://www.youtube.com/watch?v=BgLTDT03QtU - MIT Big-O Lecture",
+                                "https://visualgo.net/ - Complexity Visualization"
                             ]
                         },
                         {
                             day: 2,
-                            title: "Arrays Part 1: Basics",
+                            title: "Arrays: Searching & Two Pointers",
                             topic: "Arrays",
-                            description: "Two Sum, stock profit, move zeroes, brute vs optimal comparison",
-                            concepts: ["Hash Maps", "Two Pointers", "Linear Search"],
+                            description: "Master array manipulation with Two Pointers technique and linear search strategies",
+                            concepts: [
+                                "Array Basics",
+                                "Two Pointer Technique",
+                                "Linear Search",
+                                "Space-Time Tradeoff"
+                            ],
                             problems: [
                                 { name: "Two Sum", difficulty: "easy", link: "https://leetcode.com/problems/two-sum/" },
-                                { name: "Best Time to Buy and Sell Stock", difficulty: "easy", link: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" },
-                                { name: "Move Zeroes", difficulty: "easy", link: "https://leetcode.com/problems/move-zeroes/" }
+                                { name: "Valid Palindrome", difficulty: "easy", link: "https://leetcode.com/problems/valid-palindrome/" },
+                                { name: "3Sum", difficulty: "medium", link: "https://leetcode.com/problems/3sum/" }
                             ],
+                            learningGuide: `
+                                <div class="learning-guide">
+                                    <h4>📚 Arrays & Two Pointer Technique</h4>
+                                    
+                                    <h5>1. Why Two Pointers?</h5>
+                                    <p>Reduces space complexity by eliminating hash map usage. Works on SORTED arrays.</p>
+                                    
+                                    <h5>2. Two Pointer Patterns:</h5>
+                                    <p><strong>Pattern 1: Converging</strong> - Start at both ends, move towards center</p>
+                                    <p>Use for: Palindrome check, container with most water, 3Sum</p>
+                                    
+                                    <p><strong>Pattern 2: Diverging</strong> - Start at center, move outward</p>
+                                    <p>Use for: Expanding around center (palindromes)</p>
+                                    
+                                    <p><strong>Pattern 3: Same Direction</strong> - Both pointers move same way</p>
+                                    <p>Use for: Sliding window, duplicate removal</p>
+                                    
+                                    <h5>3. Two Sum Problem Breakdown:</h5>
+                                    <p><strong>Approach 1 (Brute Force):</strong> O(n²) time, O(1) space - try all pairs</p>
+                                    <p><strong>Approach 2 (Hash Map):</strong> O(n) time, O(n) space - store seen numbers</p>
+                                    <p><strong>Approach 3 (Two Pointers):</strong> O(n log n) time, O(1) space - only on sorted arrays</p>
+                                    
+                                    <h5>4. Interview Strategy:</h5>
+                                    <p>✅ Always ask: "Is the array sorted?"</p>
+                                    <p>✅ Mention all approaches, then pick best one</p>
+                                    <p>✅ Explain space-time tradeoff</p>
+                                </div>
+                            `,
                             resources: [
-                                "https://takeuforward.org/arrays/ - Array Problems Collection",
-                                "https://neetcode.io/problems/duplicate-integer - NeetCode Arrays",
-                                "https://www.youtube.com/watch?v=h8eyY7dIiN4 - Array Tutorial"
+                                "https://takeuforward.org/arrays/two-sum/ - Two Sum Complete Solution",
+                                "https://www.youtube.com/watch?v=n5KhFmbOKbY - Two Pointers Tutorial"
                             ]
                         },
                         {
                             day: 3,
-                            title: "Arrays Part 2: Patterns",
+                            title: "Arrays: Prefix Sum & Hashing",
                             topic: "Arrays",
-                            description: "Prefix/suffix, product except self, majority element, merge intervals",
-                            concepts: ["Prefix Sum", "Majority Vote", "Interval Merging"],
-                            problems: [
-                                { name: "Product of Array Except Self", difficulty: "medium", link: "https://leetcode.com/problems/product-of-array-except-self/" },
-                                { name: "Majority Element", difficulty: "easy", link: "https://leetcode.com/problems/majority-element/" },
-                                { name: "Merge Intervals", difficulty: "medium", link: "https://leetcode.com/problems/merge-intervals/" }
+                            description: "Learn prefix sum optimization and hash map techniques for range queries and frequency problems",
+                            concepts: [
+                                "Prefix Sum Array",
+                                "Hash Map Usage",
+                                "Range Sum Queries",
+                                "Frequency Counting"
                             ],
+                            problems: [
+                                { name: "Subarray Sum Equals K", difficulty: "medium", link: "https://leetcode.com/problems/subarray-sum-equals-k/" },
+                                { name: "Product of Array Except Self", difficulty: "medium", link: "https://leetcode.com/problems/product-of-array-except-self/" },
+                                { name: "Majority Element", difficulty: "easy", link: "https://leetcode.com/problems/majority-element/" }
+                            ],
+                            learningGuide: `
+                                <div class="learning-guide">
+                                    <h4>📚 Prefix Sum & Hashing Mastery</h4>
+                                    
+                                    <h5>1. Prefix Sum Technique:</h5>
+                                    <p><strong>Concept:</strong> Create an array where index i contains sum of all elements from 0 to i</p>
+                                    <p><strong>Formula:</strong> prefix[i] = prefix[i-1] + arr[i]</p>
+                                    <p><strong>Range Sum Query:</strong> sum(i to j) = prefix[j] - prefix[i-1]</p>
+                                    <p><strong>Time:</strong> O(n) to build, O(1) per query</p>
+                                    <p><strong>Space:</strong> O(n) for prefix array</p>
+                                    
+                                    <h5>2. Hash Map for Frequency Counting:</h5>
+                                    <p><strong>Pattern:</strong> Count occurrences of elements for fast lookups</p>
+                                    <p><strong>Use Cases:</strong> Two Sum, Subarray Sum, Anagrams, Majority Element</p>
+                                    
+                                    <h5>3. Subarray Sum Equals K - Optimized Approach:</h5>
+                                    <p>Traditional: Nested loops O(n²) - try all subarrays</p>
+                                    <p>Optimized: Use hash map to track prefix sums O(n)</p>
+                                    <p>Key Insight: If cumSum[j] - cumSum[i] = k, then subarray (i+1 to j) has sum k</p>
+                                    
+                                    <h5>4. Common Patterns:</h5>
+                                    <p>✅ Subarray with specific sum</p>
+                                    <p>✅ Maximum sum subarray (Kadane's Algorithm)</p>
+                                    <p>✅ Counting subarrays</p>
+                                </div>
+                            `,
                             resources: [
-                                "https://takeuforward.org/arrays/merge-overlapping-intervals/ - Merge Intervals",
-                                "https://neetcode.io/courses/dsa-for-beginners/2 - NeetCode DSA Basics"
+                                "https://takeuforward.org/arrays/longest-subarray-with-given-sum-k/ - Subarray Sum Detailed",
+                                "https://www.geeksforgeeks.org/prefix-sum-array-implementation-applications-in-competitive-programming/ - Prefix Sum"
                             ]
                         },
                         {
                             day: 4,
-                            title: "Strings Part 1: Basics",
+                            title: "Strings: Pattern Matching & Hashing",
                             topic: "Strings",
-                            description: "Valid anagram, group anagrams, longest common prefix, palindrome checks",
-                            concepts: ["String Hashing", "Anagrams", "Palindrome"],
+                            description: "String manipulation, pattern recognition, and hash-based string algorithms",
+                            concepts: [
+                                "String Hashing",
+                                "Anagram Detection",
+                                "Pattern Matching",
+                                "Character Frequency"
+                            ],
                             problems: [
                                 { name: "Valid Anagram", difficulty: "easy", link: "https://leetcode.com/problems/valid-anagram/" },
                                 { name: "Group Anagrams", difficulty: "medium", link: "https://leetcode.com/problems/group-anagrams/" },
                                 { name: "Longest Common Prefix", difficulty: "easy", link: "https://leetcode.com/problems/longest-common-prefix/" }
                             ],
+                            learningGuide: `
+                                <div class="learning-guide">
+                                    <h4>📚 String Algorithms Complete Guide</h4>
+                                    
+                                    <h5>1. Anagram Detection:</h5>
+                                    <p><strong>Definition:</strong> Two strings with same characters in different order</p>
+                                    <p><strong>Approach 1:</strong> Sort both strings and compare - O(n log n)</p>
+                                    <p><strong>Approach 2:</strong> Count character frequency - O(n) time, O(1) space (26 letters max)</p>
+                                    
+                                    <h5>2. Group Anagrams:</h5>
+                                    <p><strong>Trick:</strong> Use sorted string as key in hash map</p>
+                                    <p><strong>Time:</strong> O(n * k log k) where k is max length</p>
+                                    <p><strong>Space:</strong> O(n) for hash map</p>
+                                    
+                                    <h5>3. String Hashing Technique:</h5>
+                                    <p>Convert strings to numbers for fast comparison</p>
+                                    <p>Useful for: KMP algorithm, pattern matching</p>
+                                    
+                                    <h5>4. Common String Problems Pattern:</h5>
+                                    <p>✅ Character counting problems → use hash map</p>
+                                    <p>✅ Substring finding → use sliding window + hash</p>
+                                    <p>✅ Pattern matching → use KMP or rolling hash</p>
+                                </div>
+                            `,
                             resources: [
-                                "https://takeuforward.org/arrays/longest-substring-without-repeating-characters/ - String Patterns"
+                                "https://takeuforward.org/string/group-anagrams/ - Group Anagrams Solution",
+                                "https://www.youtube.com/watch?v=6Eq-L3JsJVc - String Algorithms"
                             ]
                         },
                         {
                             day: 5,
-                            title: "Strings Part 2: Advanced",
-                            topic: "Strings",
-                            description: "Reverse words, longest substring without repeat, palindrome substrings",
-                            concepts: ["Sliding Window", "Expansion Around Center"],
-                            problems: [
-                                { name: "Longest Substring Without Repeating Characters", difficulty: "medium", link: "https://leetcode.com/problems/longest-substring-without-repeating-characters/" },
-                                { name: "Reverse Words in a String", difficulty: "medium", link: "https://leetcode.com/problems/reverse-words-in-a-string/" }
+                            title: "Sliding Window: Finding Optimal Substrings",
+                            topic: "Sliding Window",
+                            description: "Master the sliding window technique for substring and subarray problems",
+                            concepts: [
+                                "Fixed Window Size",
+                                "Variable Window Size",
+                                "Deque for Window Max",
+                                "Character Frequency in Window"
                             ],
+                            problems: [
+                                { name: "Longest Substring Without Repeating", difficulty: "medium", link: "https://leetcode.com/problems/longest-substring-without-repeating-characters/" },
+                                { name: "Min Window Substring", difficulty: "hard", link: "https://leetcode.com/problems/minimum-window-substring/" },
+                                { name: "Sliding Window Maximum", difficulty: "hard", link: "https://leetcode.com/problems/sliding-window-maximum/" }
+                            ],
+                            learningGuide: `
+                                <div class="learning-guide">
+                                    <h4>📚 Sliding Window Mastery</h4>
+                                    
+                                    <h5>1. Two Types of Sliding Window:</h5>
+                                    <p><strong>Fixed Size:</strong> Window size is constant</p>
+                                    <p>Example: Max sum of k consecutive elements</p>
+                                    <p>Approach: Remove leftmost when size exceeds k</p>
+                                    
+                                    <p><strong>Variable Size:</strong> Window size changes based on condition</p>
+                                    <p>Example: Longest substring without repeating chars</p>
+                                    <p>Approach: Expand right, contract left when condition breaks</p>
+                                    
+                                    <h5>2. Sliding Window Template (Variable):</h5>
+                                    <pre>left = 0
+                                    for right in range(n):
+                                        add arr[right] to window
+                                        while condition_violated:
+                                            remove arr[left] from window
+                                            left += 1
+                                        update result</pre>
+                                    
+                                    <h5>3. Time Complexity:</h5>
+                                    <p>Both pointers traverse array once → O(n)</p>
+                                    <p>Not O(n²) because left never goes back!</p>
+                                    
+                                    <h5>4. When to Use Sliding Window:</h5>
+                                    <p>✅ Substring/subarray problems</p>
+                                    <p>✅ Constraints on consecutive elements</p>
+                                    <p>✅ "Maximum/Minimum" substring/subarray</p>
+                                </div>
+                            `,
                             resources: [
-                                "https://takeuforward.org/arrays/longest-substring-without-repeating-characters/"
+                                "https://takeuforward.org/arrays/longest-substring-without-repeating-characters/ - LSWRC Detailed",
+                                "https://www.youtube.com/watch?v=1pkOgXD63yU - Sliding Window Tutorial"
                             ]
                         },
                         {
                             day: 6,
-                            title: "Core Patterns Review",
-                            topic: "Mixed",
-                            description: "3Sum, container with most water, frequency maps - pattern day",
-                            concepts: ["Three Pointer", "Frequency Counting"],
-                            problems: [
-                                { name: "3Sum", difficulty: "medium", link: "https://leetcode.com/problems/3sum/" },
-                                { name: "Container With Most Water", difficulty: "medium", link: "https://leetcode.com/problems/container-with-most-water/" },
-                                { name: "Top K Frequent Elements", difficulty: "medium", link: "https://leetcode.com/problems/top-k-frequent-elements/" }
+                            title: "Arrays: Sorting & Merging",
+                            topic: "Arrays",
+                            description: "Master sorting algorithms and interval merging problems",
+                            concepts: [
+                                "Merge Sort",
+                                "Quick Sort",
+                                "Counting Sort",
+                                "Interval Merging"
                             ],
+                            problems: [
+                                { name: "Sort an Array", difficulty: "medium", link: "https://leetcode.com/problems/sort-an-array/" },
+                                { name: "Merge Intervals", difficulty: "medium", link: "https://leetcode.com/problems/merge-intervals/" },
+                                { name: "Insert Interval", difficulty: "medium", link: "https://leetcode.com/problems/insert-interval/" }
+                            ],
+                            learningGuide: `
+                                <div class="learning-guide">
+                                    <h4>📚 Sorting & Merging Complete Guide</h4>
+                                    
+                                    <h5>1. Sorting Algorithms Comparison:</h5>
+                                    <p><strong>Merge Sort:</strong> O(n log n) time, O(n) space - stable, consistent</p>
+                                    <p><strong>Quick Sort:</strong> O(n log n) avg, O(n²) worst, O(log n) space - fast in practice</p>
+                                    <p><strong>Counting Sort:</strong> O(n + k) where k is range - best for small ranges</p>
+                                    <p><strong>Heap Sort:</strong> O(n log n) time, O(1) space - in-place</p>
+                                    
+                                    <h5>2. When to Use Each:</h5>
+                                    <p>✅ Interview: Mention merge sort for stability, quick sort for speed</p>
+                                    <p>✅ LeetCode: Usually built-in sort is fine, but know algorithms</p>
+                                    <p>✅ Competitive: Choose based on constraints</p>
+                                    
+                                    <h5>3. Merge Intervals Problem:</h5>
+                                    <p><strong>Key Insight:</strong> Sort by start time first</p>
+                                    <p><strong>Merge Condition:</strong> If current.start <= prev.end, merge</p>
+                                    <p><strong>Time:</strong> O(n log n) due to sorting</p>
+                                    <p><strong>Space:</strong> O(1) or O(n) depending on output</p>
+                                    
+                                    <h5>4. Why Sorting Matters:</h5>
+                                    <p>Many array problems become easier after sorting</p>
+                                    <p>Examples: Two Sum (if sorted), Merge Intervals, Meeting Rooms</p>
+                                </div>
+                            `,
                             resources: [
-                                "https://neetcode.io/practice - Practice All Problems"
+                                "https://takeuforward.org/sorting/merge-sort/ - Merge Sort Explained",
+                                "https://takeuforward.org/arrays/merge-overlapping-intervals/ - Merge Intervals"
                             ]
                         },
                         {
                             day: 7,
-                            title: "Week 1 Review & Mock",
+                            title: "Week 1 Review & Mock Problems",
                             topic: "Revision",
-                            description: "Re-solve 3 weak problems, summarize patterns, 1 timed set (90 min)",
-                            concepts: ["Pattern Recognition", "Time Management"],
-                            problems: [
-                                { name: "Mock Test - Easy Set", difficulty: "easy", link: "https://leetcode.com/studyplan/leetcode-75" }
+                            description: "Consolidate learning with mixed problems and full mock contest",
+                            concepts: [
+                                "Pattern Recognition",
+                                "Multiple Approaches",
+                                "Optimization Skills"
                             ],
+                            problems: [
+                                { name: "LeetCode Weekly Contest", difficulty: "mixed", link: "https://leetcode.com/contest/" },
+                                { name: "Blind 75 Week 1 Set", difficulty: "mixed", link: "https://leetcode.com/studyplan/leetcode-75" }
+                            ],
+                            learningGuide: `
+                                <div class="learning-guide">
+                                    <h4>🎯 Week 1 Review & Practice Strategy</h4>
+                                    
+                                    <h5>1. What You Should Know By Now:</h5>
+                                    <p>✅ Time and space complexity analysis</p>
+                                    <p>✅ Two pointer technique and when to use it</p>
+                                    <p>✅ Sliding window for subarray/substring problems</p>
+                                    <p>✅ Prefix sum for range queries</p>
+                                    <p>✅ Hash maps for frequency and lookups</p>
+                                    <p>✅ Basic sorting and merging</p>
+                                    
+                                    <h5>2. Re-solve Previous Problems (Variations):</h5>
+                                    <p>Take problems from Days 1-6 and try:</p>
+                                    <p>• Solve from scratch without hints</p>
+                                    <p>• Optimize space or time further</p>
+                                    <p>• Implement multiple approaches</p>
+                                    
+                                    <h5>3. Mixed Problem Strategy:</h5>
+                                    <p>When you see a new problem:</p>
+                                    <p>1. Identify the data structure (array, string, etc.)</p>
+                                    <p>2. Recognize the pattern (two pointers, sliding window, etc.)</p>
+                                    <p>3. Calculate time/space complexity</p>
+                                    <p>4. Implement brute force first</p>
+                                    <p>5. Optimize if needed</p>
+                                    
+                                    <h5>4. Mock Contest Tips:</h5>
+                                    <p>✅ Set a 90-minute timer</p>
+                                    <p>✅ Start with easier problems</p>
+                                    <p>✅ Don't look up solutions mid-contest</p>
+                                    <p>✅ Review your approach after</p>
+                                </div>
+                            `,
                             resources: [
-                                "https://leetcode.com/contest/ - Weekly Contest"
+                                "https://leetcode.com/studyplan/leetcode-75 - Blind 75 List",
+                                "https://neetcode.io/practice - NeetCode Problems"
                             ]
                         }
                     ]
                 },
                 {
-                    title: "Weeks 3–4: Sorting & Binary Search",
-                    summary: "Essential search and scan patterns - binary search, 2-pointers, sliding window - that underpin half of interviews.",
+                    title: "Weeks 3-4: Binary Search & Sorting",
+                    summary: "Master binary search patterns and understand how sorting enables efficient algorithms. Learn when sorted data unlocks O(log n) solutions.",
                     tag: "core",
                     days: [
                         {
                             day: 8,
-                            title: "Sorting Fundamentals",
-                            topic: "Sorting",
-                            description: "Merge sort, quick sort, counting sort, custom comparators",
-                            concepts: ["Merge Sort", "Quick Sort", "Counting Sort", "Heap Sort"],
-                            problems: [
-                                { name: "Sort an Array", difficulty: "medium", link: "https://leetcode.com/problems/sort-an-array/" },
-                                { name: "Custom Sort String", difficulty: "medium", link: "https://leetcode.com/problems/custom-sort-string/" }
-                            ],
-                            resources: [
-                                "https://takeuforward.org/sorting/merge-sort/ - Merge Sort",
-                                "https://takeuforward.org/sorting/quick-sort/ - Quick Sort",
-                                "https://visualgo.net/en/sorting - Sort Visualization"
-                            ]
-                        },
-                        {
-                            day: 9,
-                            title: "Binary Search Part 1",
+                            title: "Binary Search Fundamentals",
                             topic: "Binary Search",
-                            description: "Search in sorted array, rotated array, first/last occurrence",
-                            concepts: ["Binary Search", "Edge Cases"],
+                            description: "Deep dive into binary search - the foundation for O(log n) solutions",
+                            concepts: [
+                                "Binary Search Template",
+                                "Left vs Right Boundaries",
+                                "Off-by-One Errors",
+                                "Edge Cases"
+                            ],
                             problems: [
                                 { name: "Binary Search", difficulty: "easy", link: "https://leetcode.com/problems/binary-search/" },
                                 { name: "Search in Rotated Sorted Array", difficulty: "medium", link: "https://leetcode.com/problems/search-in-rotated-sorted-array/" },
                                 { name: "Find First and Last Position", difficulty: "medium", link: "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/" }
                             ],
+                            learningGuide: `
+                                <div class="learning-guide">
+                                    <h4>📚 Binary Search Complete Mastery</h4>
+                                    
+                                    <h5>1. Binary Search Template:</h5>
+                                    <pre>def binarySearch(arr, target):
+                                        left, right = 0, len(arr) - 1
+                                        while left <= right:
+                                            mid = (left + right) // 2
+                                            if arr[mid] == target:
+                                                return mid
+                                            elif arr[mid] < target:
+                                                left = mid + 1
+                                            else:
+                                                right = mid - 1
+                                        return -1</pre>
+                                    
+                                    <h5>2. Key Points:</h5>
+                                    <p><strong>Time Complexity:</strong> O(log n) - eliminate half each step</p>
+                                    <p><strong>Space Complexity:</strong> O(1) - only using pointers</p>
+                                    <p><strong>Requirement:</strong> Array MUST be sorted</p>
+                                    
+                                    <h5>3. Common Variations:</h5>
+                                    <p><strong>Find First Occurrence:</strong> Continue searching in left half even after finding</p>
+                                    <p><strong>Find Last Occurrence:</strong> Continue searching in right half even after finding</p>
+                                    <p><strong>Find In Rotated Array:</strong> Identify which half is sorted, then search</p>
+                                    
+                                    <h5>4. Rotated Array Strategy:</h5>
+                                    <p>Check if left half or right half is sorted</p>
+                                    <p>Sorted half: standard binary search</p>
+                                    <p>Unsorted half: recursively search there</p>
+                                </div>
+                            `,
                             resources: [
-                                "https://takeuforward.org/binary-search/binary-search-introduction/ - Binary Search Guide"
-                            ]
-                        },
-                        {
-                            day: 10,
-                            title: "Binary Search Part 2",
-                            topic: "Binary Search",
-                            description: "Search in 2D matrix, median of two sorted arrays",
-                            concepts: ["2D Binary Search", "Merged Array Search"],
-                            problems: [
-                                { name: "Search a 2D Matrix", difficulty: "medium", link: "https://leetcode.com/problems/search-a-2d-matrix/" },
-                                { name: "Median of Two Sorted Arrays", difficulty: "hard", link: "https://leetcode.com/problems/median-of-two-sorted-arrays/" }
-                            ],
-                            resources: []
-                        },
-                        {
-                            day: 11,
-                            title: "Binary Search on Answer",
-                            topic: "Binary Search",
-                            description: "Allocate min pages, aggressive cows, painter's partition",
-                            concepts: ["BS on Answer", "Constraint Satisfaction"],
-                            problems: [
-                                { name: "Koko Eating Bananas", difficulty: "medium", link: "https://leetcode.com/problems/koko-eating-bananas/" },
-                                { name: "Capacity To Ship Packages Within D Days", difficulty: "medium", link: "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/" }
-                            ],
-                            resources: []
-                        },
-                        {
-                            day: 12,
-                            title: "Sliding Window Fixed Size",
-                            topic: "Sliding Window",
-                            description: "Max sum subarray, distinct in k window, sliding window maximum",
-                            concepts: ["Fixed Window", "Deque"],
-                            problems: [
-                                { name: "Maximum Sum Subarray of Size K", difficulty: "easy", link: "https://www.geeksforgeeks.org/maximum-sum-subarray-of-size-k/" },
-                                { name: "Sliding Window Maximum", difficulty: "hard", link: "https://leetcode.com/problems/sliding-window-maximum/" }
-                            ],
-                            resources: []
-                        },
-                        {
-                            day: 13,
-                            title: "Sliding Window Variable Size",
-                            topic: "Sliding Window",
-                            description: "Longest substring with k distinct, min window substring",
-                            concepts: ["Variable Window", "Two Pointers"],
-                            problems: [
-                                { name: "Longest Substring with At Most K Distinct Characters", difficulty: "medium", link: "https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/" },
-                                { name: "Minimum Window Substring", difficulty: "hard", link: "https://leetcode.com/problems/minimum-window-substring/" }
-                            ],
-                            resources: [
-                                "https://takeuforward.org/arrays/sliding-window-maximum/ - Sliding Window"
-                            ]
-                        },
-                        {
-                            day: 14,
-                            title: "Week 2 Review & Mock",
-                            topic: "Revision",
-                            description: "Mock BS + SW problems, time and debug sessions",
-                            concepts: ["Pattern Review"],
-                            problems: [
-                                { name: "Mixed Sorting & Search", difficulty: "medium", link: "https://leetcode.com/studyplan/leetcode-75" }
-                            ],
-                            resources: []
-                        }
-                    ]
-                },
-                {
-                    title: "Weeks 5–6: Recursion & Backtracking",
-                    summary: "Build recursive thinking: backtracking problems (subsets, permutations, N-Queens) and linked list manipulations.",
-                    tag: "core",
-                    days: [
-                        {
-                            day: 15,
-                            title: "Recursion Fundamentals",
-                            topic: "Recursion",
-                            description: "Factorial, Fibonacci, power(x,n), tower of Hanoi",
-                            concepts: ["Base Case", "Recurrence Relation", "Recursion Tree"],
-                            problems: [
-                                { name: "Factorial", difficulty: "easy", link: "https://www.geeksforgeeks.org/program-for-factorial-of-a-number/" },
-                                { name: "Fibonacci Number", difficulty: "easy", link: "https://leetcode.com/problems/fibonacci-number/" },
-                                { name: "Pow(x, n)", difficulty: "medium", link: "https://leetcode.com/problems/powx-n/" }
-                            ],
-                            resources: [
-                                "https://takeuforward.org/recursion/ - Recursion Series"
+                                "https://takeuforward.org/binary-search/binary-search-introduction/ - Binary Search Guide",
+                                "https://www.youtube.com/watch?v=j7NodO2nIqk - Binary Search Tutorial"
                             ]
                         }
                     ]
                 }
             ],
             patterns: [
-                { name: "Sliding Window", concept: "Maintain window [l,r], shrink/expand based on constraint", use: "Contiguous subarray/substring with constraint", example: "Longest Substring Without Repeat" },
-                { name: "Two Pointers", concept: "L and R pointers moving toward/away from each other", use: "Sorted arrays, pairs, palindromes", example: "3Sum, Container With Water" },
-                { name: "Prefix Sum", concept: "presum[i] = sum(arr[0..i]), query in O(1)", use: "Range sum queries, subarray problems", example: "Subarray Sum Equals K" },
-                { name: "Binary Search", concept: "Halve search space each step — O(log n)", use: "Sorted input, monotonic answer space", example: "Search in Rotated Array" },
-                { name: "DFS", concept: "Stack/recursion depth-first exploration", use: "Connectivity, paths, all solutions", example: "Number of Islands" },
-                { name: "BFS", concept: "Queue level-order traversal", use: "Shortest path, level traversal", example: "Word Ladder" },
-                { name: "Monotonic Stack", concept: "Keep stack elements in monotone order (inc/dec)", use: "Next greater element, span problems", example: "Daily Temperatures" },
-                { name: "Union-Find (DSU)", concept: "Track connected components with path compression", use: "Cycle detection, dynamic connectivity", example: "Redundant Connection" }
-            ],
-            resources: [
                 {
-                    name: "Striver's A2Z DSA Course",
-                    description: "Complete video course from basics to advanced DSA with detailed explanations and solutions.",
-                    url: "https://takeuforward.org/dsa/strivers-a2z-dsa-course-sheet"
+                    name: "🪟 Sliding Window",
+                    content: `<strong>Concept:</strong> Maintain a window of elements, expand/contract based on conditions<br><strong>When:</strong> Subarray/substring with constraint<br><strong>Example:</strong> Longest substring without repeat - use hash map to track chars in window`
                 },
                 {
-                    name: "NeetCode 150",
-                    description: "150 curated LeetCode problems with video solutions organized by pattern and difficulty.",
-                    url: "https://neetcode.io/practice"
+                    name: "👈👉 Two Pointers",
+                    content: `<strong>Concept:</strong> Two pointers move toward/away from each other<br><strong>When:</strong> Sorted arrays, finding pairs, palindromes<br><strong>Example:</strong> Valid palindrome - check from both ends`
                 },
                 {
-                    name: "Blind 75 Curated List",
-                    description: "Essential 75 problems covering patterns that appear repeatedly in FAANG interviews.",
-                    url: "https://leetcode.com/studyplan/leetcode-75"
+                    name: "➕ Prefix Sum",
+                    content: `<strong>Concept:</strong> Precompute cumulative sum for O(1) range queries<br><strong>When:</strong> Range sum queries, subarray problems<br><strong>Example:</strong> Subarray sum equals K - use prefix sum map`
                 },
                 {
-                    name: "LeetCode Platform",
-                    description: "Premier coding practice platform with 3000+ problems, discussions, and company tags.",
-                    url: "https://leetcode.com"
+                    name: "🔍 Binary Search",
+                    content: `<strong>Concept:</strong> Eliminate half the search space each iteration<br><strong>When:</strong> Sorted input or monotonic answer space<br><strong>Example:</strong> Search rotated array - identify sorted half first`
                 },
                 {
-                    name: "GeeksforGeeks SDE Sheet",
-                    description: "Curated checklist of must-do coding interview questions from top companies.",
-                    url: "https://www.geeksforgeeks.org/must-do-coding-questions-for-companies-like-amazon-microsoft-adobe/"
+                    name: "📥 BFS",
+                    content: `<strong>Concept:</strong> Level-order traversal using queue<br><strong>When:</strong> Shortest path in unweighted graphs, level traversal<br><strong>Example:</strong> Word ladder - find shortest path between words`
                 },
                 {
-                    name: "Love Babbar 450 Sheet",
-                    description: "Comprehensive 450 problem collection to master all DSA concepts thoroughly.",
-                    url: "https://450dsa.com/"
+                    name: "📤 DFS",
+                    content: `<strong>Concept:</strong> Deep exploration using recursion/stack<br><strong>When:</strong> All paths, connectivity, permutations<br><strong>Example:</strong> Number of islands - explore all connected cells`
+                },
+                {
+                    name: "📊 Monotonic Stack",
+                    content: `<strong>Concept:</strong> Stack maintains elements in monotone order<br><strong>When:</strong> Next greater/smaller element problems<br><strong>Example:</strong> Daily temperatures - find next warmer day for each`
+                },
+                {
+                    name: "🔗 Union-Find",
+                    content: `<strong>Concept:</strong> Track connected components with path compression<br><strong>When:</strong> Cycle detection, dynamic connectivity<br><strong>Example:</strong> Redundant connection - find cycle in graph`
                 }
             ]
         };
@@ -825,12 +1427,12 @@
         };
         
         function loadState() {
-            const saved = localStorage.getItem('dsa-state');
+            const saved = localStorage.getItem('dsa-elite-state');
             if (saved) state = JSON.parse(saved);
         }
         
         function saveState() {
-            localStorage.setItem('dsa-state', JSON.stringify(state));
+            localStorage.setItem('dsa-elite-state', JSON.stringify(state));
         }
         
         function renderWeeks() {
@@ -839,7 +1441,8 @@
             
             DSA_DATA.weeks.forEach((week, weekIdx) => {
                 const weekEl = document.createElement('div');
-                weekEl.className = 'week-container';
+                weekEl.className = 'week-container animate-in';
+                weekEl.style.animationDelay = `${weekIdx * 0.1}s`;
                 
                 const daysHTML = week.days.map(day => `
                     <div class="day-card ${state.completed[day.day] ? 'completed' : ''}" onclick="openDayModal(${day.day})">
@@ -847,36 +1450,30 @@
                             onchange="toggleDay(${day.day}, event)" 
                             ${state.completed[day.day] ? 'checked' : ''}
                             onclick="event.stopPropagation()">
-                        <div class="day-title">Day ${day.day}</div>
+                        <div class="day-number">Day ${day.day}</div>
+                        <div class="day-title">${day.title}</div>
                         <div class="day-topic">${day.topic}</div>
-                        <div class="day-section">
-                            <div class="day-section-title">Focus</div>
-                            <p style="color: var(--text-muted); font-size: 0.9em;">${day.description}</p>
-                        </div>
-                        <div class="day-section">
-                            <div class="day-section-title">Concepts (${day.concepts.length})</div>
-                            <ul class="resource-list">
-                                ${day.concepts.slice(0, 2).map(c => `<li class="resource-item">${c}</li>`).join('')}
-                                ${day.concepts.length > 2 ? `<li class="resource-item">+${day.concepts.length - 2} more</li>` : ''}
-                            </ul>
-                        </div>
-                        <div class="day-section">
-                            <div class="day-section-title">Problems (${day.problems.length})</div>
-                            <ul class="resource-list">
-                                ${day.problems.slice(0, 2).map(p => `<li class="resource-item">${p.name} <span class="difficulty ${p.difficulty}">${p.difficulty}</span></li>`).join('')}
-                                ${day.problems.length > 2 ? `<li class="resource-item">+${day.problems.length - 2} more problems</li>` : ''}
-                            </ul>
+                        <div class="day-description">${day.description}</div>
+                        <div class="day-stats">
+                            <div class="day-stat">
+                                <i class="fas fa-book"></i>
+                                <span class="day-stat-value">${day.concepts.length}</span> Concepts
+                            </div>
+                            <div class="day-stat">
+                                <i class="fas fa-code"></i>
+                                <span class="day-stat-value">${day.problems.length}</span> Problems
+                            </div>
                         </div>
                     </div>
                 `).join('');
                 
                 weekEl.innerHTML = `
                     <div class="week-header">
-                        <h2>${week.title} <span class="badge ${week.tag}">${week.tag}</span></h2>
+                        <h2>${week.title} <span class="week-badge ${week.tag}">${week.tag.toUpperCase()}</span></h2>
                         <p class="week-summary">${week.summary}</p>
                     </div>
                     <div class="days-grid">
-                        ${week.days.length > 0 ? daysHTML : '<div class="empty-state">Days coming soon...</div>'}
+                        ${week.days.length > 0 ? daysHTML : '<div class="empty-state">Coming Soon...</div>'}
                     </div>
                 `;
                 
@@ -890,23 +1487,8 @@
             const container = document.getElementById('patternsContainer');
             container.innerHTML = DSA_DATA.patterns.map(p => `
                 <div class="pattern-card">
-                    <div class="pattern-name">📌 ${p.name}</div>
-                    <div class="pattern-desc">
-                        <strong>Core Idea:</strong><br>${p.concept}<br><br>
-                        <strong>When to Use:</strong><br>${p.use}<br><br>
-                        <strong>Example:</strong><br>${p.example}
-                    </div>
-                </div>
-            `).join('');
-        }
-        
-        function renderResources() {
-            const container = document.getElementById('resourcesContainer');
-            container.innerHTML = DSA_DATA.resources.map(r => `
-                <div class="resource-card">
-                    <h3>🔗 ${r.name}</h3>
-                    <p>${r.description}</p>
-                    <a href="${r.url}" target="_blank">Visit Resource →</a>
+                    <div class="pattern-name">${p.name}</div>
+                    <div class="pattern-content">${p.content}</div>
                 </div>
             `).join('');
         }
@@ -923,21 +1505,40 @@
             if (!dayData) return;
             
             const detailsHTML = `
-                <h2>Day ${dayNum}: ${dayData.title}</h2>
-                <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95em;">${dayData.description}</p>
+                <div class="modal-section">
+                    <p style="color: var(--text-secondary); font-size: 1.05em; line-height: 1.8;">${dayData.description}</p>
+                </div>
                 
-                <h3 style="color: var(--primary); margin-top: 20px; margin-bottom: 10px; font-size: 1.1em;">📚 Key Concepts (${dayData.concepts.length})</h3>
-                <ul class="resource-list">
-                    ${dayData.concepts.map(c => `<li class="resource-item"><strong>${c}</strong></li>`).join('')}
-                </ul>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">
+                        <i class="fas fa-lightbulb"></i>
+                        Key Concepts (${dayData.concepts.length})
+                    </h3>
+                    <div class="concept-list">
+                        ${dayData.concepts.map(c => `<div class="concept-item">📌 ${c}</div>`).join('')}
+                    </div>
+                </div>
                 
-                <h3 style="color: var(--primary); margin-top: 20px; margin-bottom: 10px; font-size: 1.1em;">🎯 Problems to Solve (${dayData.problems.length})</h3>
-                <div class="table-responsive">
-                    <table>
+                ${dayData.learningGuide ? `
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">
+                            <i class="fas fa-graduation-cap"></i>
+                            Complete Learning Guide
+                        </h3>
+                        ${dayData.learningGuide}
+                    </div>
+                ` : ''}
+                
+                <div class="modal-section">
+                    <h3 class="modal-section-title">
+                        <i class="fas fa-code"></i>
+                        Problems to Solve (${dayData.problems.length})
+                    </h3>
+                    <table class="problems-table">
                         <thead>
                             <tr>
-                                <th>Problem Name</th>
-                                <th>Level</th>
+                                <th>Problem</th>
+                                <th>Difficulty</th>
                                 <th>Link</th>
                             </tr>
                         </thead>
@@ -945,9 +1546,9 @@
                             ${dayData.problems.map(p => `
                                 <tr>
                                     <td>${p.name}</td>
-                                    <td><span class="difficulty ${p.difficulty}">${p.difficulty.toUpperCase()}</span></td>
+                                    <td><span class="difficulty-badge difficulty-${p.difficulty}">${p.difficulty}</span></td>
                                     <td>
-                                        ${p.link && p.link !== '#' ? `<a href="${p.link}" target="_blank" class="resource-link" style="font-weight:700;">Solve →</a>` : '—'}
+                                        ${p.link ? `<a href="${p.link}" target="_blank" class="problem-link">Solve on LeetCode <i class="fas fa-arrow-right"></i></a>` : '—'}
                                     </td>
                                 </tr>
                             `).join('')}
@@ -956,18 +1557,30 @@
                 </div>
                 
                 ${dayData.resources.length > 0 ? `
-                    <h3 style="color: var(--primary); margin-top: 20px; margin-bottom: 10px; font-size: 1.1em;">🔗 Learning Resources (${dayData.resources.length})</h3>
-                    <ul class="resource-list">
-                        ${dayData.resources.map(r => {
-                            const [text, link] = r.includes(' - ') ? r.split(' - ') : [r, '#'];
-                            return `<li class="resource-item">
-                                ${link && link !== '#' ? `<a href="${link}" target="_blank" class="resource-link">${text}</a>` : text}
-                            </li>`;
-                        }).join('')}
-                    </ul>
+                    <div class="modal-section">
+                        <h3 class="modal-section-title">
+                            <i class="fas fa-link"></i>
+                            Learning Resources (${dayData.resources.length})
+                        </h3>
+                        <div class="resources-grid">
+                            ${dayData.resources.map((r, idx) => {
+                                const [text, link] = r.includes(' - ') ? r.split(' - ') : [r, '#'];
+                                return `
+                                    <div class="resource-item">
+                                        <a href="${link}" target="_blank" class="resource-link-text">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            ${text}
+                                        </a>
+                                        <p class="resource-desc">Click to access external resource</p>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
                 ` : ''}
             `;
             
+            document.getElementById('modalTitle').textContent = `Day ${dayNum}: ${dayData.title}`;
             document.getElementById('dayDetails').innerHTML = detailsHTML;
             document.getElementById('dayModal').classList.add('active');
         }
@@ -983,44 +1596,15 @@
             
             document.getElementById('daysCompleted').textContent = completed;
             document.getElementById('progressPct').textContent = pct + '%';
-            document.getElementById('progressText').textContent = `${completed} / ${total} days`;
+            document.getElementById('progressLabel').textContent = `${completed} / ${total}`;
             document.getElementById('progressBar').style.width = pct + '%';
             document.getElementById('currentWeek').textContent = Math.ceil((completed + 1) / 7);
-        }
-        
-        function exportProgress() {
-            const data = {
-                exportDate: new Date().toISOString(),
-                completed: state.completed,
-                summary: {
-                    days: Object.values(state.completed).filter(Boolean).length,
-                    total: DSA_DATA.weeks.flatMap(w => w.days).length,
-                    percentage: Math.round((Object.values(state.completed).filter(Boolean).length / DSA_DATA.weeks.flatMap(w => w.days).length) * 100)
-                }
-            };
-            
-            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `dsa-progress-${new Date().toISOString().split('T')[0]}.json`;
-            a.click();
-        }
-        
-        function resetProgress() {
-            if (confirm('Are you sure? This will reset ALL your progress. This action cannot be undone.')) {
-                state.completed = {};
-                saveState();
-                renderWeeks();
-                alert('Progress reset successfully!');
-            }
         }
         
         // Initialize
         loadState();
         renderWeeks();
         renderPatterns();
-        renderResources();
         
         // Close modal on outside click
         document.getElementById('dayModal').addEventListener('click', function(e) {

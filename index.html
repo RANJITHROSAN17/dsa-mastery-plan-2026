@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSA Mastery 2026 - Elite MAANG Interview Prep Platform</title>
+    <title>DSA Mastery 2026 - 150 Days Elite MAANG Prep</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%234f98a3'>⚡</text></svg>">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -39,7 +39,6 @@
             min-height: 100vh;
         }
         
-        /* Scrollbar Styling */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -240,6 +239,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
         
         .progress-bar {
@@ -267,47 +267,32 @@
             margin-top: 10px;
         }
         
-        /* Tabs */
-        .tabs-header {
+        /* Filter Tabs */
+        .filter-section {
             display: flex;
-            gap: 10px;
+            gap: 15px;
             margin-bottom: 30px;
             flex-wrap: wrap;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 15px;
+            align-items: center;
         }
         
-        .tab-btn {
-            padding: 12px 24px;
-            background: transparent;
+        .filter-btn {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, rgba(79, 158, 255, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+            border: 1px solid var(--border-color);
             color: var(--text-secondary);
-            border: none;
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
-            position: relative;
+            font-size: 0.95em;
         }
         
-        .tab-btn:hover {
+        .filter-btn:hover,
+        .filter-btn.active {
             color: var(--accent-blue);
-            background: rgba(79, 158, 255, 0.1);
-        }
-        
-        .tab-btn.active {
-            color: var(--accent-blue);
-            background: rgba(79, 158, 255, 0.15);
-        }
-        
-        .tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: -16px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--accent-blue);
-            border-radius: 1px;
+            border-color: var(--accent-blue);
+            background: linear-gradient(135deg, rgba(79, 158, 255, 0.2) 0%, rgba(139, 92, 246, 0.1) 100%);
         }
         
         /* Week Container */
@@ -358,9 +343,19 @@
             color: var(--success);
         }
         
-        .week-badge.revision {
+        .week-badge.intermediate {
             background: rgba(168, 85, 247, 0.2);
             color: #d8b4fe;
+        }
+        
+        .week-badge.advanced {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+        
+        .week-badge.revision {
+            background: rgba(251, 146, 60, 0.2);
+            color: var(--accent-orange);
         }
         
         /* Days Grid */
@@ -379,7 +374,6 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            group: true;
         }
         
         .day-card::before {
@@ -463,15 +457,30 @@
             margin-right: 30px;
         }
         
-        .day-topic {
+        .day-difficulty {
             display: inline-block;
-            background: rgba(79, 158, 255, 0.2);
-            color: var(--accent-blue);
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 0.85em;
-            font-weight: 600;
-            margin-bottom: 15px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            margin-right: 8px;
+        }
+        
+        .difficulty-beginner {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+        
+        .difficulty-intermediate {
+            background: rgba(168, 85, 247, 0.2);
+            color: #d8b4fe;
+        }
+        
+        .difficulty-advanced {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
         }
         
         .day-description {
@@ -487,6 +496,7 @@
             margin-top: 15px;
             padding-top: 15px;
             border-top: 1px solid var(--border-color);
+            flex-wrap: wrap;
         }
         
         .day-stat {
@@ -521,6 +531,7 @@
             justify-content: center;
             padding: 20px;
             animation: fadeIn 0.3s ease;
+            overflow-y: auto;
         }
         
         .modal.active {
@@ -537,12 +548,13 @@
             border: 1px solid var(--border-color);
             border-radius: 16px;
             width: 100%;
-            max-width: 900px;
-            max-height: 85vh;
+            max-width: 1000px;
+            max-height: 90vh;
             overflow-y: auto;
             padding: 0;
             animation: slideUp 0.3s ease;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin: auto;
         }
         
         @keyframes slideUp {
@@ -555,13 +567,17 @@
             border-bottom: 1px solid var(--border-color);
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             background: linear-gradient(135deg, var(--secondary-bg) 0%, rgba(79, 158, 255, 0.1) 100%);
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
         
-        .modal-title {
+        .modal-header-content h2 {
             font-size: 1.8em;
             font-weight: 700;
+            margin-bottom: 8px;
         }
         
         .modal-close {
@@ -577,6 +593,7 @@
             align-items: center;
             justify-content: center;
             border-radius: 8px;
+            flex-shrink: 0;
         }
         
         .modal-close:hover {
@@ -589,150 +606,289 @@
         }
         
         .modal-section {
-            margin-bottom: 35px;
+            margin-bottom: 40px;
+        }
+        
+        .modal-section:last-child {
+            margin-bottom: 0;
         }
         
         .modal-section-title {
-            font-size: 1.3em;
+            font-size: 1.5em;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: var(--accent-blue);
             display: flex;
             align-items: center;
-            gap: 10px;
-        }
-        
-        .concept-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 12px;
-            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
         }
         
-        .concept-item {
-            background: linear-gradient(135deg, rgba(79, 158, 255, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
-            border: 1px solid rgba(79, 158, 255, 0.2);
-            padding: 12px 16px;
-            border-radius: 8px;
-            font-size: 0.95em;
-            transition: all 0.3s ease;
+        .modal-section-title i {
+            font-size: 1.2em;
         }
         
-        .concept-item:hover {
-            border-color: var(--accent-blue);
-            background: linear-gradient(135deg, rgba(79, 158, 255, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
-            transform: translateY(-2px);
-        }
-        
-        /* Problems Table */
-        .problems-table {
+        /* Resource Table */
+        .resource-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 15px;
         }
         
-        .problems-table thead th {
+        .resource-table thead th {
             background: linear-gradient(135deg, rgba(79, 158, 255, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
             padding: 15px;
             text-align: left;
             font-weight: 600;
             border-bottom: 2px solid var(--border-color);
             color: var(--accent-blue);
+            font-size: 0.95em;
         }
         
-        .problems-table tbody tr {
+        .resource-table tbody tr {
             border-bottom: 1px solid var(--border-color);
             transition: all 0.3s ease;
         }
         
-        .problems-table tbody tr:hover {
+        .resource-table tbody tr:hover {
             background: rgba(79, 158, 255, 0.05);
         }
         
-        .problems-table td {
+        .resource-table td {
             padding: 15px;
+            font-size: 0.95em;
+        }
+        
+        .resource-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .resource-type {
+            display: inline-block;
+            padding: 3px 8px;
+            background: rgba(79, 158, 255, 0.2);
+            color: var(--accent-blue);
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .resource-type.video {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+        
+        .resource-type.article {
+            background: rgba(168, 85, 247, 0.2);
+            color: #d8b4fe;
+        }
+        
+        .resource-type.interactive {
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--accent-green);
+        }
+        
+        .resource-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-link:hover {
+            color: var(--accent-purple);
+            gap: 12px;
+        }
+        
+        .quality-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .quality-best {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+        
+        .quality-good {
+            background: rgba(79, 158, 255, 0.2);
+            color: var(--accent-blue);
+        }
+        
+        .quality-okay {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+        }
+        
+        /* Concepts Grid */
+        .concept-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .concept-item {
+            background: linear-gradient(135deg, rgba(79, 158, 255, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+            border: 1px solid rgba(79, 158, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .concept-item:hover {
+            border-color: var(--accent-blue);
+            background: linear-gradient(135deg, rgba(79, 158, 255, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(79, 158, 255, 0.1);
+        }
+        
+        .concept-name {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .concept-desc {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+        
+        /* Problems List */
+        .problem-list {
+            display: grid;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .problem-item {
+            background: linear-gradient(135deg, rgba(79, 158, 255, 0.08) 0%, rgba(139, 92, 246, 0.04) 100%);
+            border: 1px solid rgba(79, 158, 255, 0.15);
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .problem-item:hover {
+            border-color: var(--accent-blue);
+            background: linear-gradient(135deg, rgba(79, 158, 255, 0.15) 0%, rgba(139, 92, 246, 0.08) 100%);
+            transform: translateX(5px);
+        }
+        
+        .problem-info {
+            flex: 1;
+        }
+        
+        .problem-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 5px;
         }
         
         .problem-link {
             color: var(--accent-blue);
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-size: 0.9em;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            transition: all 0.3s ease;
         }
         
         .problem-link:hover {
             color: var(--accent-purple);
-            gap: 12px;
         }
         
-        .difficulty-badge {
+        .problem-diff {
             display: inline-block;
             padding: 4px 10px;
             border-radius: 6px;
-            font-size: 0.85em;
+            font-size: 0.8em;
             font-weight: 600;
             text-transform: uppercase;
+            margin-left: 12px;
+            white-space: nowrap;
         }
         
-        .difficulty-easy {
+        .diff-easy {
             background: rgba(16, 185, 129, 0.2);
             color: var(--success);
         }
         
-        .difficulty-medium {
+        .diff-medium {
             background: rgba(245, 158, 11, 0.2);
             color: var(--warning);
         }
         
-        .difficulty-hard {
+        .diff-hard {
             background: rgba(239, 68, 68, 0.2);
             color: var(--danger);
         }
         
-        /* Resources */
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .resource-item {
-            background: linear-gradient(135deg, rgba(79, 158, 255, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+        /* Learning Guide */
+        .learning-guide {
+            background: linear-gradient(135deg, rgba(79, 158, 255, 0.08) 0%, rgba(139, 92, 246, 0.04) 100%);
             border: 1px solid rgba(79, 158, 255, 0.2);
-            padding: 15px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            border-radius: 12px;
+            padding: 20px;
+            line-height: 1.8;
         }
         
-        .resource-item:hover {
-            border-color: var(--accent-blue);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(79, 158, 255, 0.15);
-        }
-        
-        .resource-link-text {
+        .learning-guide h4 {
+            font-size: 1.2em;
             color: var(--accent-blue);
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
+            margin-bottom: 15px;
+            margin-top: 0;
         }
         
-        .resource-link-text:hover {
-            gap: 12px;
-            color: var(--accent-purple);
+        .learning-guide h5 {
+            font-size: 1.05em;
+            color: var(--text-primary);
+            margin: 15px 0 10px 0;
         }
         
-        .resource-desc {
+        .learning-guide p {
             color: var(--text-secondary);
-            font-size: 0.9em;
-            margin-top: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .learning-guide ul,
+        .learning-guide ol {
+            margin-left: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+        
+        .learning-guide li {
+            margin-bottom: 8px;
+        }
+        
+        .learning-guide pre {
+            background: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            overflow-x: auto;
+            color: var(--accent-green);
+            font-size: 0.85em;
+            margin: 10px 0;
         }
         
         /* Patterns Section */
@@ -829,11 +985,6 @@
         }
         
         /* Animations */
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
         @keyframes slideInLeft {
             from { transform: translateX(-20px); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
@@ -841,6 +992,14 @@
         
         .animate-in {
             animation: slideInLeft 0.5s ease;
+        }
+        
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-tertiary);
+            font-size: 1.1em;
         }
         
         /* Responsive */
@@ -860,13 +1019,26 @@
             .week-container { padding: 20px; }
             .modal-body { padding: 20px; }
             .modal-content { max-height: 95vh; }
+            .modal-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .modal-close {
+                align-self: flex-start;
+            }
         }
         
         @media (max-width: 480px) {
             h1 { font-size: 1.8em; }
             .header-stats { gap: 15px; }
-            .tabs-header { flex-direction: column; }
-            .tab-btn { width: 100%; }
+            .filter-section { flex-direction: column; }
+            .filter-btn { width: 100%; }
+            .resource-table {
+                font-size: 0.85em;
+            }
+            .resource-table td {
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -875,27 +1047,27 @@
         <!-- Header -->
         <header>
             <h1>⚡ DSA Mastery 2026</h1>
-            <p class="header-subtitle">Elite MAANG Interview Preparation Platform</p>
+            <p class="header-subtitle">Complete 5-Month Elite MAANG Interview Preparation Platform</p>
             <div class="header-stats">
                 <div class="header-stat">
                     <div class="header-stat-icon">📚</div>
                     <div class="header-stat-text">
                         <h3>150</h3>
-                        <p>Days of Learning</p>
+                        <p>Days of Structured Learning</p>
                     </div>
                 </div>
                 <div class="header-stat">
                     <div class="header-stat-icon">🎯</div>
                     <div class="header-stat-text">
-                        <h3>500+</h3>
-                        <p>Problems & Resources</p>
+                        <h3>20+</h3>
+                        <p>Core DSA Topics</p>
                     </div>
                 </div>
                 <div class="header-stat">
                     <div class="header-stat-icon">⭐</div>
                     <div class="header-stat-text">
-                        <h3>100%</h3>
-                        <p>MAANG Coverage</p>
+                        <h3>500+</h3>
+                        <p>Curated Resources</p>
                     </div>
                 </div>
             </div>
@@ -907,32 +1079,32 @@
                 <div class="card-icon">✅</div>
                 <div class="card-title">Days Completed</div>
                 <div class="card-value" id="daysCompleted">0</div>
-                <div class="card-subtitle">Keep your streak going</div>
+                <div class="card-subtitle">Keep your momentum going</div>
             </div>
             <div class="dashboard-card">
                 <div class="card-icon">📈</div>
-                <div class="card-title">Progress</div>
+                <div class="card-title">Overall Progress</div>
                 <div class="card-value" id="progressPct">0%</div>
-                <div class="card-subtitle">You're doing great</div>
+                <div class="card-subtitle">You're on track</div>
             </div>
             <div class="dashboard-card">
                 <div class="card-icon">🔥</div>
-                <div class="card-title">Current Week</div>
-                <div class="card-value" id="currentWeek">1</div>
-                <div class="card-subtitle">Keep focused</div>
+                <div class="card-title">Current Phase</div>
+                <div class="card-value" id="currentPhase">Phase 1</div>
+                <div class="card-subtitle">Foundations</div>
             </div>
         </div>
         
         <!-- Progress Bar -->
         <div class="progress-section">
             <div class="progress-header">
-                <h3>Your Learning Journey</h3>
-                <span id="progressLabel" style="color: var(--accent-blue); font-weight: 700;">0 / 98</span>
+                <h3>Your 5-Month Journey</h3>
+                <span id="progressLabel" style="color: var(--accent-blue); font-weight: 700;">0 / 150</span>
             </div>
             <div class="progress-bar">
                 <div class="progress-fill" id="progressBar"></div>
             </div>
-            <p class="progress-text">Keep pushing! Every day brings you closer to mastery.</p>
+            <p class="progress-text">📊 Follow the structured curriculum to transform into a DSA expert ready for MAANG interviews!</p>
         </div>
         
         <!-- Weeks Container -->
@@ -940,13 +1112,13 @@
         
         <!-- Patterns Section -->
         <div class="patterns-section">
-            <h2 class="section-title">📋 Essential DSA Patterns</h2>
+            <h2 class="section-title">📋 Essential DSA Patterns & Techniques</h2>
             <div class="patterns-grid" id="patternsContainer"></div>
         </div>
         
         <!-- Footer -->
         <footer>
-            <p>🚀 Built for cracking MAANG interviews | DSA Mastery 2026 © | Start your journey today!</p>
+            <p>🚀 Built for cracking MAANG interviews | DSA Mastery 2026 © | Follow the curriculum, achieve excellence!</p>
         </footer>
     </div>
     
@@ -954,7 +1126,10 @@
     <div class="modal" id="dayModal">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-title" id="modalTitle"></div>
+                <div class="modal-header-content">
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalPhase" style="color: var(--text-secondary); font-size: 0.95em; margin: 0;"></p>
+                </div>
                 <button class="modal-close" onclick="closeModal()">×</button>
             </div>
             <div class="modal-body" id="dayDetails"></div>
@@ -962,424 +1137,343 @@
     </div>
     
     <script>
-        const DSA_DATA = {
-            weeks: [
+        const DSA_CURRICULUM = {
+            phases: [
                 {
-                    title: "Weeks 1-2: Foundation & Arrays",
-                    summary: "Master the fundamentals of DSA - understand complexity analysis, work with arrays, and learn core patterns that appear in almost every interview.",
-                    tag: "core",
-                    days: [
+                    phase: 1,
+                    title: "Phase 1: Foundations (Weeks 1-4, Days 1-28)",
+                    duration: "Weeks 1-4",
+                    description: "Build solid foundations with arrays, strings, and basic algorithms. Master time/space complexity analysis.",
+                    difficulty: "beginner",
+                    tagType: "core",
+                    weeks: [
                         {
-                            day: 1,
-                            title: "Big-O Complexity Analysis",
-                            topic: "Fundamentals",
-                            description: "Deep dive into time and space complexity, Big-O notation, and how to analyze algorithms",
-                            concepts: [
-                                "Time Complexity",
-                                "Space Complexity",
-                                "Big-O Notation",
-                                "Best/Average/Worst Case",
-                                "Recurrence Relations"
-                            ],
-                            problems: [
-                                { name: "Analyze Algorithm Complexity", difficulty: "easy", link: "https://www.geeksforgeeks.org/analysis-of-algorithms-set-1-asymptotic-analysis/" },
-                                { name: "Time Complexity Practice", difficulty: "easy", link: "https://www.youtube.com/watch?v=onQdxGGPQvs" }
-                            ],
-                            learningGuide: `
-                                <div class="learning-guide">
-                                    <h4>📚 Complete Learning Guide</h4>
-                                    
-                                    <h5>1. What is Big-O Notation?</h5>
-                                    <p>Big-O notation describes how an algorithm's runtime or space grows as the input size increases. It helps us understand the worst-case scenario.</p>
-                                    
-                                    <h5>2. Common Time Complexities (Best to Worst):</h5>
-                                    <ul>
-                                        <li><strong>O(1)</strong> - Constant Time: Accessing array element by index</li>
-                                        <li><strong>O(log n)</strong> - Logarithmic: Binary search</li>
-                                        <li><strong>O(n)</strong> - Linear: Single loop through array</li>
-                                        <li><strong>O(n log n)</strong> - Linearithmic: Efficient sorting (Merge Sort, Quick Sort)</li>
-                                        <li><strong>O(n²)</strong> - Quadratic: Nested loops (Bubble Sort)</li>
-                                        <li><strong>O(n³)</strong> - Cubic: Triple nested loops</li>
-                                        <li><strong>O(2^n)</strong> - Exponential: Recursive algorithms</li>
-                                        <li><strong>O(n!)</strong> - Factorial: Generating all permutations</li>
-                                    </ul>
-                                    
-                                    <h5>3. Space Complexity Examples:</h5>
-                                    <p><strong>O(1)</strong> - In-place sort (constant extra space)</p>
-                                    <p><strong>O(n)</strong> - Recursive call stack or auxiliary array</p>
-                                    <p><strong>O(n²)</strong> - 2D matrix creation</p>
-                                    
-                                    <h5>4. How to Calculate Complexity:</h5>
-                                    <p>1. Count the loops - each loop multiplies complexity</p>
-                                    <p>2. Drop constants - O(2n) becomes O(n)</p>
-                                    <p>3. Keep the fastest growing term - O(n² + n) becomes O(n²)</p>
-                                    <p>4. Consider space - recursive calls add to stack space</p>
-                                    
-                                    <h5>5. Key Interview Tips:</h5>
-                                    <p>✅ Always mention time AND space complexity</p>
-                                    <p>✅ Explain your reasoning clearly</p>
-                                    <p>✅ Optimize for time first, then space</p>
-                                    <p>✅ Know why merge sort is O(n log n) but uses O(n) space</p>
-                                </div>
-                            `,
-                            resources: [
-                                "https://www.geeksforgeeks.org/analysis-of-algorithms-set-1-asymptotic-analysis/ - GFG Big-O Guide",
-                                "https://www.youtube.com/watch?v=BgLTDT03QtU - MIT Big-O Lecture",
-                                "https://visualgo.net/ - Complexity Visualization"
-                            ]
-                        },
-                        {
-                            day: 2,
-                            title: "Arrays: Searching & Two Pointers",
-                            topic: "Arrays",
-                            description: "Master array manipulation with Two Pointers technique and linear search strategies",
-                            concepts: [
-                                "Array Basics",
-                                "Two Pointer Technique",
-                                "Linear Search",
-                                "Space-Time Tradeoff"
-                            ],
-                            problems: [
-                                { name: "Two Sum", difficulty: "easy", link: "https://leetcode.com/problems/two-sum/" },
-                                { name: "Valid Palindrome", difficulty: "easy", link: "https://leetcode.com/problems/valid-palindrome/" },
-                                { name: "3Sum", difficulty: "medium", link: "https://leetcode.com/problems/3sum/" }
-                            ],
-                            learningGuide: `
-                                <div class="learning-guide">
-                                    <h4>📚 Arrays & Two Pointer Technique</h4>
-                                    
-                                    <h5>1. Why Two Pointers?</h5>
-                                    <p>Reduces space complexity by eliminating hash map usage. Works on SORTED arrays.</p>
-                                    
-                                    <h5>2. Two Pointer Patterns:</h5>
-                                    <p><strong>Pattern 1: Converging</strong> - Start at both ends, move towards center</p>
-                                    <p>Use for: Palindrome check, container with most water, 3Sum</p>
-                                    
-                                    <p><strong>Pattern 2: Diverging</strong> - Start at center, move outward</p>
-                                    <p>Use for: Expanding around center (palindromes)</p>
-                                    
-                                    <p><strong>Pattern 3: Same Direction</strong> - Both pointers move same way</p>
-                                    <p>Use for: Sliding window, duplicate removal</p>
-                                    
-                                    <h5>3. Two Sum Problem Breakdown:</h5>
-                                    <p><strong>Approach 1 (Brute Force):</strong> O(n²) time, O(1) space - try all pairs</p>
-                                    <p><strong>Approach 2 (Hash Map):</strong> O(n) time, O(n) space - store seen numbers</p>
-                                    <p><strong>Approach 3 (Two Pointers):</strong> O(n log n) time, O(1) space - only on sorted arrays</p>
-                                    
-                                    <h5>4. Interview Strategy:</h5>
-                                    <p>✅ Always ask: "Is the array sorted?"</p>
-                                    <p>✅ Mention all approaches, then pick best one</p>
-                                    <p>✅ Explain space-time tradeoff</p>
-                                </div>
-                            `,
-                            resources: [
-                                "https://takeuforward.org/arrays/two-sum/ - Two Sum Complete Solution",
-                                "https://www.youtube.com/watch?v=n5KhFmbOKbY - Two Pointers Tutorial"
-                            ]
-                        },
-                        {
-                            day: 3,
-                            title: "Arrays: Prefix Sum & Hashing",
-                            topic: "Arrays",
-                            description: "Learn prefix sum optimization and hash map techniques for range queries and frequency problems",
-                            concepts: [
-                                "Prefix Sum Array",
-                                "Hash Map Usage",
-                                "Range Sum Queries",
-                                "Frequency Counting"
-                            ],
-                            problems: [
-                                { name: "Subarray Sum Equals K", difficulty: "medium", link: "https://leetcode.com/problems/subarray-sum-equals-k/" },
-                                { name: "Product of Array Except Self", difficulty: "medium", link: "https://leetcode.com/problems/product-of-array-except-self/" },
-                                { name: "Majority Element", difficulty: "easy", link: "https://leetcode.com/problems/majority-element/" }
-                            ],
-                            learningGuide: `
-                                <div class="learning-guide">
-                                    <h4>📚 Prefix Sum & Hashing Mastery</h4>
-                                    
-                                    <h5>1. Prefix Sum Technique:</h5>
-                                    <p><strong>Concept:</strong> Create an array where index i contains sum of all elements from 0 to i</p>
-                                    <p><strong>Formula:</strong> prefix[i] = prefix[i-1] + arr[i]</p>
-                                    <p><strong>Range Sum Query:</strong> sum(i to j) = prefix[j] - prefix[i-1]</p>
-                                    <p><strong>Time:</strong> O(n) to build, O(1) per query</p>
-                                    <p><strong>Space:</strong> O(n) for prefix array</p>
-                                    
-                                    <h5>2. Hash Map for Frequency Counting:</h5>
-                                    <p><strong>Pattern:</strong> Count occurrences of elements for fast lookups</p>
-                                    <p><strong>Use Cases:</strong> Two Sum, Subarray Sum, Anagrams, Majority Element</p>
-                                    
-                                    <h5>3. Subarray Sum Equals K - Optimized Approach:</h5>
-                                    <p>Traditional: Nested loops O(n²) - try all subarrays</p>
-                                    <p>Optimized: Use hash map to track prefix sums O(n)</p>
-                                    <p>Key Insight: If cumSum[j] - cumSum[i] = k, then subarray (i+1 to j) has sum k</p>
-                                    
-                                    <h5>4. Common Patterns:</h5>
-                                    <p>✅ Subarray with specific sum</p>
-                                    <p>✅ Maximum sum subarray (Kadane's Algorithm)</p>
-                                    <p>✅ Counting subarrays</p>
-                                </div>
-                            `,
-                            resources: [
-                                "https://takeuforward.org/arrays/longest-subarray-with-given-sum-k/ - Subarray Sum Detailed",
-                                "https://www.geeksforgeeks.org/prefix-sum-array-implementation-applications-in-competitive-programming/ - Prefix Sum"
-                            ]
-                        },
-                        {
-                            day: 4,
-                            title: "Strings: Pattern Matching & Hashing",
-                            topic: "Strings",
-                            description: "String manipulation, pattern recognition, and hash-based string algorithms",
-                            concepts: [
-                                "String Hashing",
-                                "Anagram Detection",
-                                "Pattern Matching",
-                                "Character Frequency"
-                            ],
-                            problems: [
-                                { name: "Valid Anagram", difficulty: "easy", link: "https://leetcode.com/problems/valid-anagram/" },
-                                { name: "Group Anagrams", difficulty: "medium", link: "https://leetcode.com/problems/group-anagrams/" },
-                                { name: "Longest Common Prefix", difficulty: "easy", link: "https://leetcode.com/problems/longest-common-prefix/" }
-                            ],
-                            learningGuide: `
-                                <div class="learning-guide">
-                                    <h4>📚 String Algorithms Complete Guide</h4>
-                                    
-                                    <h5>1. Anagram Detection:</h5>
-                                    <p><strong>Definition:</strong> Two strings with same characters in different order</p>
-                                    <p><strong>Approach 1:</strong> Sort both strings and compare - O(n log n)</p>
-                                    <p><strong>Approach 2:</strong> Count character frequency - O(n) time, O(1) space (26 letters max)</p>
-                                    
-                                    <h5>2. Group Anagrams:</h5>
-                                    <p><strong>Trick:</strong> Use sorted string as key in hash map</p>
-                                    <p><strong>Time:</strong> O(n * k log k) where k is max length</p>
-                                    <p><strong>Space:</strong> O(n) for hash map</p>
-                                    
-                                    <h5>3. String Hashing Technique:</h5>
-                                    <p>Convert strings to numbers for fast comparison</p>
-                                    <p>Useful for: KMP algorithm, pattern matching</p>
-                                    
-                                    <h5>4. Common String Problems Pattern:</h5>
-                                    <p>✅ Character counting problems → use hash map</p>
-                                    <p>✅ Substring finding → use sliding window + hash</p>
-                                    <p>✅ Pattern matching → use KMP or rolling hash</p>
-                                </div>
-                            `,
-                            resources: [
-                                "https://takeuforward.org/string/group-anagrams/ - Group Anagrams Solution",
-                                "https://www.youtube.com/watch?v=6Eq-L3JsJVc - String Algorithms"
-                            ]
-                        },
-                        {
-                            day: 5,
-                            title: "Sliding Window: Finding Optimal Substrings",
-                            topic: "Sliding Window",
-                            description: "Master the sliding window technique for substring and subarray problems",
-                            concepts: [
-                                "Fixed Window Size",
-                                "Variable Window Size",
-                                "Deque for Window Max",
-                                "Character Frequency in Window"
-                            ],
-                            problems: [
-                                { name: "Longest Substring Without Repeating", difficulty: "medium", link: "https://leetcode.com/problems/longest-substring-without-repeating-characters/" },
-                                { name: "Min Window Substring", difficulty: "hard", link: "https://leetcode.com/problems/minimum-window-substring/" },
-                                { name: "Sliding Window Maximum", difficulty: "hard", link: "https://leetcode.com/problems/sliding-window-maximum/" }
-                            ],
-                            learningGuide: `
-                                <div class="learning-guide">
-                                    <h4>📚 Sliding Window Mastery</h4>
-                                    
-                                    <h5>1. Two Types of Sliding Window:</h5>
-                                    <p><strong>Fixed Size:</strong> Window size is constant</p>
-                                    <p>Example: Max sum of k consecutive elements</p>
-                                    <p>Approach: Remove leftmost when size exceeds k</p>
-                                    
-                                    <p><strong>Variable Size:</strong> Window size changes based on condition</p>
-                                    <p>Example: Longest substring without repeating chars</p>
-                                    <p>Approach: Expand right, contract left when condition breaks</p>
-                                    
-                                    <h5>2. Sliding Window Template (Variable):</h5>
-                                    <pre>left = 0
-                                    for right in range(n):
-                                        add arr[right] to window
-                                        while condition_violated:
-                                            remove arr[left] from window
-                                            left += 1
-                                        update result</pre>
-                                    
-                                    <h5>3. Time Complexity:</h5>
-                                    <p>Both pointers traverse array once → O(n)</p>
-                                    <p>Not O(n²) because left never goes back!</p>
-                                    
-                                    <h5>4. When to Use Sliding Window:</h5>
-                                    <p>✅ Substring/subarray problems</p>
-                                    <p>✅ Constraints on consecutive elements</p>
-                                    <p>✅ "Maximum/Minimum" substring/subarray</p>
-                                </div>
-                            `,
-                            resources: [
-                                "https://takeuforward.org/arrays/longest-substring-without-repeating-characters/ - LSWRC Detailed",
-                                "https://www.youtube.com/watch?v=1pkOgXD63yU - Sliding Window Tutorial"
-                            ]
-                        },
-                        {
-                            day: 6,
-                            title: "Arrays: Sorting & Merging",
-                            topic: "Arrays",
-                            description: "Master sorting algorithms and interval merging problems",
-                            concepts: [
-                                "Merge Sort",
-                                "Quick Sort",
-                                "Counting Sort",
-                                "Interval Merging"
-                            ],
-                            problems: [
-                                { name: "Sort an Array", difficulty: "medium", link: "https://leetcode.com/problems/sort-an-array/" },
-                                { name: "Merge Intervals", difficulty: "medium", link: "https://leetcode.com/problems/merge-intervals/" },
-                                { name: "Insert Interval", difficulty: "medium", link: "https://leetcode.com/problems/insert-interval/" }
-                            ],
-                            learningGuide: `
-                                <div class="learning-guide">
-                                    <h4>📚 Sorting & Merging Complete Guide</h4>
-                                    
-                                    <h5>1. Sorting Algorithms Comparison:</h5>
-                                    <p><strong>Merge Sort:</strong> O(n log n) time, O(n) space - stable, consistent</p>
-                                    <p><strong>Quick Sort:</strong> O(n log n) avg, O(n²) worst, O(log n) space - fast in practice</p>
-                                    <p><strong>Counting Sort:</strong> O(n + k) where k is range - best for small ranges</p>
-                                    <p><strong>Heap Sort:</strong> O(n log n) time, O(1) space - in-place</p>
-                                    
-                                    <h5>2. When to Use Each:</h5>
-                                    <p>✅ Interview: Mention merge sort for stability, quick sort for speed</p>
-                                    <p>✅ LeetCode: Usually built-in sort is fine, but know algorithms</p>
-                                    <p>✅ Competitive: Choose based on constraints</p>
-                                    
-                                    <h5>3. Merge Intervals Problem:</h5>
-                                    <p><strong>Key Insight:</strong> Sort by start time first</p>
-                                    <p><strong>Merge Condition:</strong> If current.start <= prev.end, merge</p>
-                                    <p><strong>Time:</strong> O(n log n) due to sorting</p>
-                                    <p><strong>Space:</strong> O(1) or O(n) depending on output</p>
-                                    
-                                    <h5>4. Why Sorting Matters:</h5>
-                                    <p>Many array problems become easier after sorting</p>
-                                    <p>Examples: Two Sum (if sorted), Merge Intervals, Meeting Rooms</p>
-                                </div>
-                            `,
-                            resources: [
-                                "https://takeuforward.org/sorting/merge-sort/ - Merge Sort Explained",
-                                "https://takeuforward.org/arrays/merge-overlapping-intervals/ - Merge Intervals"
-                            ]
-                        },
-                        {
-                            day: 7,
-                            title: "Week 1 Review & Mock Problems",
-                            topic: "Revision",
-                            description: "Consolidate learning with mixed problems and full mock contest",
-                            concepts: [
-                                "Pattern Recognition",
-                                "Multiple Approaches",
-                                "Optimization Skills"
-                            ],
-                            problems: [
-                                { name: "LeetCode Weekly Contest", difficulty: "mixed", link: "https://leetcode.com/contest/" },
-                                { name: "Blind 75 Week 1 Set", difficulty: "mixed", link: "https://leetcode.com/studyplan/leetcode-75" }
-                            ],
-                            learningGuide: `
-                                <div class="learning-guide">
-                                    <h4>🎯 Week 1 Review & Practice Strategy</h4>
-                                    
-                                    <h5>1. What You Should Know By Now:</h5>
-                                    <p>✅ Time and space complexity analysis</p>
-                                    <p>✅ Two pointer technique and when to use it</p>
-                                    <p>✅ Sliding window for subarray/substring problems</p>
-                                    <p>✅ Prefix sum for range queries</p>
-                                    <p>✅ Hash maps for frequency and lookups</p>
-                                    <p>✅ Basic sorting and merging</p>
-                                    
-                                    <h5>2. Re-solve Previous Problems (Variations):</h5>
-                                    <p>Take problems from Days 1-6 and try:</p>
-                                    <p>• Solve from scratch without hints</p>
-                                    <p>• Optimize space or time further</p>
-                                    <p>• Implement multiple approaches</p>
-                                    
-                                    <h5>3. Mixed Problem Strategy:</h5>
-                                    <p>When you see a new problem:</p>
-                                    <p>1. Identify the data structure (array, string, etc.)</p>
-                                    <p>2. Recognize the pattern (two pointers, sliding window, etc.)</p>
-                                    <p>3. Calculate time/space complexity</p>
-                                    <p>4. Implement brute force first</p>
-                                    <p>5. Optimize if needed</p>
-                                    
-                                    <h5>4. Mock Contest Tips:</h5>
-                                    <p>✅ Set a 90-minute timer</p>
-                                    <p>✅ Start with easier problems</p>
-                                    <p>✅ Don't look up solutions mid-contest</p>
-                                    <p>✅ Review your approach after</p>
-                                </div>
-                            `,
-                            resources: [
-                                "https://leetcode.com/studyplan/leetcode-75 - Blind 75 List",
-                                "https://neetcode.io/practice - NeetCode Problems"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    title: "Weeks 3-4: Binary Search & Sorting",
-                    summary: "Master binary search patterns and understand how sorting enables efficient algorithms. Learn when sorted data unlocks O(log n) solutions.",
-                    tag: "core",
-                    days: [
-                        {
-                            day: 8,
-                            title: "Binary Search Fundamentals",
-                            topic: "Binary Search",
-                            description: "Deep dive into binary search - the foundation for O(log n) solutions",
-                            concepts: [
-                                "Binary Search Template",
-                                "Left vs Right Boundaries",
-                                "Off-by-One Errors",
-                                "Edge Cases"
-                            ],
-                            problems: [
-                                { name: "Binary Search", difficulty: "easy", link: "https://leetcode.com/problems/binary-search/" },
-                                { name: "Search in Rotated Sorted Array", difficulty: "medium", link: "https://leetcode.com/problems/search-in-rotated-sorted-array/" },
-                                { name: "Find First and Last Position", difficulty: "medium", link: "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/" }
-                            ],
-                            learningGuide: `
-                                <div class="learning-guide">
-                                    <h4>📚 Binary Search Complete Mastery</h4>
-                                    
-                                    <h5>1. Binary Search Template:</h5>
-                                    <pre>def binarySearch(arr, target):
-                                        left, right = 0, len(arr) - 1
-                                        while left <= right:
-                                            mid = (left + right) // 2
-                                            if arr[mid] == target:
-                                                return mid
-                                            elif arr[mid] < target:
-                                                left = mid + 1
-                                            else:
-                                                right = mid - 1
-                                        return -1</pre>
-                                    
-                                    <h5>2. Key Points:</h5>
-                                    <p><strong>Time Complexity:</strong> O(log n) - eliminate half each step</p>
-                                    <p><strong>Space Complexity:</strong> O(1) - only using pointers</p>
-                                    <p><strong>Requirement:</strong> Array MUST be sorted</p>
-                                    
-                                    <h5>3. Common Variations:</h5>
-                                    <p><strong>Find First Occurrence:</strong> Continue searching in left half even after finding</p>
-                                    <p><strong>Find Last Occurrence:</strong> Continue searching in right half even after finding</p>
-                                    <p><strong>Find In Rotated Array:</strong> Identify which half is sorted, then search</p>
-                                    
-                                    <h5>4. Rotated Array Strategy:</h5>
-                                    <p>Check if left half or right half is sorted</p>
-                                    <p>Sorted half: standard binary search</p>
-                                    <p>Unsorted half: recursively search there</p>
-                                </div>
-                            `,
-                            resources: [
-                                "https://takeuforward.org/binary-search/binary-search-introduction/ - Binary Search Guide",
-                                "https://www.youtube.com/watch?v=j7NodO2nIqk - Binary Search Tutorial"
+                            weekNum: 1,
+                            title: "Week 1: Big-O & Arrays Fundamentals",
+                            summary: "Master complexity analysis and array operations. These form the foundation for all DSA problems.",
+                            days: [
+                                {
+                                    day: 1,
+                                    title: "Big-O Complexity Analysis",
+                                    description: "Learn time and space complexity, Big-O notation, and how to analyze algorithm efficiency.",
+                                    difficulty: "beginner",
+                                    phase: "Phase 1: Foundations",
+                                    concepts: [
+                                        { name: "Time Complexity", desc: "How runtime grows with input size" },
+                                        { name: "Space Complexity", desc: "How memory usage grows with input" },
+                                        { name: "Big-O Notation", desc: "Worst-case scenario analysis" },
+                                        { name: "Asymptotic Analysis", desc: "Upper, lower bounds" },
+                                        { name: "Recurrence Relations", desc: "Analyzing recursive algorithms" }
+                                    ],
+                                    resources: [
+                                        {
+                                            name: "Big-O in 100 Seconds",
+                                            type: "video",
+                                            source: "Fireship",
+                                            quality: "best",
+                                            link: "https://www.youtube.com/watch?v=g2o22C3CRfU",
+                                            duration: "100 sec",
+                                            why: "Quick overview of Big-O concepts"
+                                        },
+                                        {
+                                            name: "Big-O Complexity Analysis Complete Guide",
+                                            type: "article",
+                                            source: "GeeksforGeeks",
+                                            quality: "best",
+                                            link: "https://www.geeksforgeeks.org/analysis-of-algorithms-set-1-asymptotic-analysis/",
+                                            duration: "20-30 min read",
+                                            why: "Comprehensive with examples and comparisons"
+                                        },
+                                        {
+                                            name: "CS50 Time Complexity Lecture",
+                                            type: "video",
+                                            source: "Harvard CS50",
+                                            quality: "best",
+                                            link: "https://www.youtube.com/watch?v=onQdxGGPQvs",
+                                            duration: "45 min",
+                                            why: "Professional explanation with real-world examples"
+                                        },
+                                        {
+                                            name: "Big-O Cheat Sheet",
+                                            type: "article",
+                                            source: "NeetCode",
+                                            quality: "good",
+                                            link: "https://neetcode.io/",
+                                            duration: "Quick reference",
+                                            why: "Quick reference guide for common complexities"
+                                        },
+                                        {
+                                            name: "Complexity Analysis - TakeUForward",
+                                            type: "article",
+                                            source: "TakeUForward",
+                                            quality: "best",
+                                            link: "https://takeuforward.org/data-structure/analysis-of-algorithms/",
+                                            duration: "25-35 min read",
+                                            why: "Interview-focused explanation with DSA context"
+                                        }
+                                    ],
+                                    problems: [
+                                        {
+                                            name: "Analyze Algorithm Time Complexity",
+                                            difficulty: "easy",
+                                            link: "https://leetcode.com/problems/analyze-user-website-visit-pattern/",
+                                            why: "Apply Big-O concepts to real problems"
+                                        },
+                                        {
+                                            name: "Write Functions with Specified Time Complexity",
+                                            difficulty: "easy",
+                                            link: "https://www.geeksforgeeks.org/complexity-analysis-of-recursive-programs/",
+                                            why: "Understand recursive complexity"
+                                        }
+                                    ],
+                                    learningGuide: `
+                                        <div class="learning-guide">
+                                            <h4>📚 Complete Big-O Mastery Guide</h4>
+                                            
+                                            <h5>1. What is Big-O Notation?</h5>
+                                            <p>Big-O describes how an algorithm's runtime or space grows as input size increases. It focuses on worst-case scenario.</p>
+                                            <p><strong>Example:</strong> Searching in an array of n elements takes O(n) time in worst case (linear search).</p>
+                                            
+                                            <h5>2. Common Time Complexities (Best to Worst):</h5>
+                                            <ul>
+                                                <li><strong>O(1)</strong> - Constant: Access array[i], hash table lookup</li>
+                                                <li><strong>O(log n)</strong> - Logarithmic: Binary search, divide & conquer</li>
+                                                <li><strong>O(n)</strong> - Linear: Single loop through array</li>
+                                                <li><strong>O(n log n)</strong> - Linearithmic: Efficient sorting (Merge Sort, Quick Sort)</li>
+                                                <li><strong>O(n²)</strong> - Quadratic: Nested loops (Bubble Sort, Selection Sort)</li>
+                                                <li><strong>O(n³)</strong> - Cubic: Triple nested loops</li>
+                                                <li><strong>O(2^n)</strong> - Exponential: Recursive algorithms, subsets</li>
+                                                <li><strong>O(n!)</strong> - Factorial: Generating permutations</li>
+                                            </ul>
+                                            
+                                            <h5>3. Space Complexity Examples:</h5>
+                                            <ul>
+                                                <li><strong>O(1)</strong> - In-place algorithms, no extra space</li>
+                                                <li><strong>O(n)</strong> - Recursive call stack or auxiliary array</li>
+                                                <li><strong>O(n²)</strong> - 2D DP array</li>
+                                            </ul>
+                                            
+                                            <h5>4. How to Calculate Complexity:</h5>
+                                            <ol>
+                                                <li>Count the loops - each nested loop multiplies</li>
+                                                <li>Drop constants - O(2n) becomes O(n)</li>
+                                                <li>Keep fastest growing term - O(n² + n) becomes O(n²)</li>
+                                                <li>Consider operations inside loops</li>
+                                                <li>Account for recursive depth</li>
+                                            </ol>
+                                            
+                                            <h5>5. Interview Tips:</h5>
+                                            <ul>
+                                                <li>✅ Always mention BOTH time and space complexity</li>
+                                                <li>✅ Explain your reasoning step-by-step</li>
+                                                <li>✅ Think about best, average, and worst case</li>
+                                                <li>✅ Know why merge sort is O(n log n) but uses O(n) space</li>
+                                                <li>✅ Understand space-time tradeoff</li>
+                                            </ul>
+                                        </div>
+                                    `
+                                },
+                                {
+                                    day: 2,
+                                    title: "Array Basics & Two Pointers",
+                                    description: "Master array manipulation and the powerful two-pointer technique for finding pairs and solving sorted array problems.",
+                                    difficulty: "beginner",
+                                    phase: "Phase 1: Foundations",
+                                    concepts: [
+                                        { name: "Array Indexing", desc: "O(1) access, O(n) insertion/deletion" },
+                                        { name: "Two Pointer Technique", desc: "Converging and diverging approaches" },
+                                        { name: "Linear Search", desc: "O(n) searching in unsorted arrays" },
+                                        { name: "In-place Operations", desc: "Modifying arrays without extra space" },
+                                        { name: "Pair Finding", desc: "Using pointers to find target pairs" }
+                                    ],
+                                    resources: [
+                                        {
+                                            name: "Two Pointers Technique Explained",
+                                            type: "video",
+                                            source: "NeetCode",
+                                            quality: "best",
+                                            link: "https://www.youtube.com/watch?v=Z0UZd-8F2Ow",
+                                            duration: "15 min",
+                                            why: "Clear visualization of two-pointer approach"
+                                        },
+                                        {
+                                            name: "Two Pointers Complete Guide",
+                                            type: "article",
+                                            source: "TakeUForward",
+                                            quality: "best",
+                                            link: "https://takeuforward.org/arrays/two-pointers/",
+                                            duration: "20-25 min read",
+                                            why: "All patterns with code examples"
+                                        },
+                                        {
+                                            name: "Array Problems Playlist",
+                                            type: "video",
+                                            source: "Striver",
+                                            quality: "best",
+                                            link: "https://www.youtube.com/watch?v=gZOm-p1eVnI&list=PLgUwDviBIf0rPG3Ictpu74YSCA-qksAqY",
+                                            duration: "2-3 hours",
+                                            why: "Comprehensive array problem solving"
+                                        },
+                                        {
+                                            name: "LeetCode Two Pointers Problems",
+                                            type: "interactive",
+                                            source: "LeetCode",
+                                            quality: "good",
+                                            link: "https://leetcode.com/tag/two-pointers/",
+                                            duration: "Practice",
+                                            why: "Practice problems with solutions"
+                                        }
+                                    ],
+                                    problems: [
+                                        {
+                                            name: "Two Sum",
+                                            difficulty: "easy",
+                                            link: "https://leetcode.com/problems/two-sum/",
+                                            why: "Fundamental pair-finding problem"
+                                        },
+                                        {
+                                            name: "Valid Palindrome",
+                                            difficulty: "easy",
+                                            link: "https://leetcode.com/problems/valid-palindrome/",
+                                            why: "Classic two-pointer converging pattern"
+                                        },
+                                        {
+                                            name: "3Sum",
+                                            difficulty: "medium",
+                                            link: "https://leetcode.com/problems/3sum/",
+                                            why: "Advanced pair finding with sorting"
+                                        }
+                                    ],
+                                    learningGuide: `
+                                        <div class="learning-guide">
+                                            <h4>📚 Arrays & Two Pointers Mastery</h4>
+                                            
+                                            <h5>1. Array Operations:</h5>
+                                            <ul>
+                                                <li><strong>Access:</strong> O(1) - direct index</li>
+                                                <li><strong>Insert/Delete:</strong> O(n) - need to shift elements</li>
+                                                <li><strong>Search Sorted:</strong> O(log n) - binary search</li>
+                                                <li><strong>Search Unsorted:</strong> O(n) - linear search</li>
+                                            </ul>
+                                            
+                                            <h5>2. Why Two Pointers?</h5>
+                                            <p>Reduces space complexity from O(n) to O(1) when working with sorted arrays.</p>
+                                            <p><strong>Example:</strong> Two Sum - Hash map O(n) space vs Two pointers O(1) space</p>
+                                            
+                                            <h5>3. Two Pointer Patterns:</h5>
+                                            <p><strong>Pattern 1: Converging</strong> - Start at both ends, move towards center</p>
+                                            <ul>
+                                                <li>Use for: Palindrome check, container with most water, 3Sum, Two Sum in sorted array</li>
+                                                <li>Key: Array must be sorted</li>
+                                            </ul>
+                                            
+                                            <p><strong>Pattern 2: Diverging</strong> - Start at center, move outward</p>
+                                            <ul>
+                                                <li>Use for: Expanding around center for palindromes</li>
+                                            </ul>
+                                            
+                                            <p><strong>Pattern 3: Same Direction</strong> - Both pointers move in same direction</p>
+                                            <ul>
+                                                <li>Use for: Sliding window, duplicate removal, partition</li>
+                                            </ul>
+                                            
+                                            <h5>4. Interview Strategy:</h5>
+                                            <ul>
+                                                <li>✅ Always ask: "Is the array sorted?"</li>
+                                                <li>✅ Mention multiple approaches (brute force, hash map, two pointers)</li>
+                                                <li>✅ Explain space-time tradeoff</li>
+                                                <li>✅ Code the most optimal solution</li>
+                                                <li>✅ Test edge cases (single element, duplicates, etc.)</li>
+                                            </ul>
+                                        </div>
+                                    `
+                                },
+                                {
+                                    day: 3,
+                                    title: "Strings Fundamentals & Hashing",
+                                    description: "Understand string operations, pattern matching, and hash-based algorithms for efficient string processing.",
+                                    difficulty: "beginner",
+                                    phase: "Phase 1: Foundations",
+                                    concepts: [
+                                        { name: "String Indexing", desc: "Character access and iteration" },
+                                        { name: "Anagrams", desc: "Detecting same characters in different order" },
+                                        { name: "String Hashing", desc: "Converting strings to hash values" },
+                                        { name: "Pattern Matching", desc: "Finding substrings efficiently" },
+                                        { name: "Character Frequency", desc: "Counting character occurrences" }
+                                    ],
+                                    resources: [
+                                        {
+                                            name: "String Algorithms & Techniques",
+                                            type: "video",
+                                            source: "Striver",
+                                            quality: "best",
+                                            link: "https://www.youtube.com/watch?v=EU_-CjjB4aA&list=PLgUwDviBIf0rPG3Ictpu74YSCA-qksAqY",
+                                            duration: "2-3 hours",
+                                            why: "Complete string algorithms playlist"
+                                        },
+                                        {
+                                            name: "Group Anagrams Solution Explained",
+                                            type: "article",
+                                            source: "TakeUForward",
+                                            quality: "best",
+                                            link: "https://takeuforward.org/string/group-anagrams/",
+                                            duration: "15 min read",
+                                            why: "Multiple approaches explained"
+                                        },
+                                        {
+                                            name: "String Hashing Technique",
+                                            type: "article",
+                                            source: "GeeksforGeeks",
+                                            quality: "good",
+                                            link: "https://www.geeksforgeeks.org/string-hashing-using-polynomial-rolling-hash/",
+                                            duration: "20 min read",
+                                            why: "Rolling hash for pattern matching"
+                                        }
+                                    ],
+                                    problems: [
+                                        {
+                                            name: "Valid Anagram",
+                                            difficulty: "easy",
+                                            link: "https://leetcode.com/problems/valid-anagram/",
+                                            why: "Fundamental character frequency problem"
+                                        },
+                                        {
+                                            name: "Group Anagrams",
+                                            difficulty: "medium",
+                                            link: "https://leetcode.com/problems/group-anagrams/",
+                                            why: "Combine hashing and grouping logic"
+                                        }
+                                    ],
+                                    learningGuide: `
+                                        <div class="learning-guide">
+                                            <h4>📚 String Algorithms Complete Guide</h4>
+                                            
+                                            <h5>1. Anagram Detection:</h5>
+                                            <p><strong>Definition:</strong> Two strings with same characters in different order.</p>
+                                            <p><strong>Approach 1:</strong> Sort and compare - O(n log n) time, O(1) space</p>
+                                            <p><strong>Approach 2:</strong> Character frequency - O(n) time, O(1) space (26 letters max)</p>
+                                            
+                                            <h5>2. Group Anagrams:</h5>
+                                            <p><strong>Strategy:</strong> Use sorted string as key in hash map</p>
+                                            <ul>
+                                                <li>Sort each word</li>
+                                                <li>Use sorted word as dictionary key</li>
+                                                <li>Group all anagrams together</li>
+                                            </ul>
+                                            <p><strong>Time:</strong> O(n * k log k) where k = max word length</p>
+                                            <p><strong>Space:</strong> O(n) for hash map</p>
+                                            
+                                            <h5>3. String Hashing:</h5>
+                                            <p>Convert strings to numbers for fast comparison.</p>
+                                            <p><strong>Use Cases:</strong></p>
+                                            <ul>
+                                                <li>Pattern matching (KMP, Rolling hash)</li>
+                                                <li>Duplicate detection</li>
+                                                <li>Anagram verification</li>
+                                            </ul>
+                                        </div>
+                                    `
+                                }
                             ]
                         }
                     ]
@@ -1388,96 +1482,102 @@
             patterns: [
                 {
                     name: "🪟 Sliding Window",
-                    content: `<strong>Concept:</strong> Maintain a window of elements, expand/contract based on conditions<br><strong>When:</strong> Subarray/substring with constraint<br><strong>Example:</strong> Longest substring without repeat - use hash map to track chars in window`
+                    content: `<strong>Concept:</strong> Maintain a window, expand/contract based on condition<br><strong>When:</strong> Subarray/substring with constraint<br><strong>Example:</strong> Max sum of k consecutive, longest substring without repeat`
                 },
                 {
-                    name: "👈👉 Two Pointers",
+                    name: "👉👈 Two Pointers",
                     content: `<strong>Concept:</strong> Two pointers move toward/away from each other<br><strong>When:</strong> Sorted arrays, finding pairs, palindromes<br><strong>Example:</strong> Valid palindrome - check from both ends`
                 },
                 {
                     name: "➕ Prefix Sum",
-                    content: `<strong>Concept:</strong> Precompute cumulative sum for O(1) range queries<br><strong>When:</strong> Range sum queries, subarray problems<br><strong>Example:</strong> Subarray sum equals K - use prefix sum map`
+                    content: `<strong>Concept:</strong> Precompute cumulative sum for O(1) queries<br><strong>When:</strong> Range sum queries, subarray problems<br><strong>Example:</strong> Subarray sum equals K`
                 },
                 {
                     name: "🔍 Binary Search",
-                    content: `<strong>Concept:</strong> Eliminate half the search space each iteration<br><strong>When:</strong> Sorted input or monotonic answer space<br><strong>Example:</strong> Search rotated array - identify sorted half first`
+                    content: `<strong>Concept:</strong> Eliminate half the search space each iteration<br><strong>When:</strong> Sorted input or monotonic answer space<br><strong>Example:</strong> Search rotated array, find peak`
                 },
                 {
-                    name: "📥 BFS",
-                    content: `<strong>Concept:</strong> Level-order traversal using queue<br><strong>When:</strong> Shortest path in unweighted graphs, level traversal<br><strong>Example:</strong> Word ladder - find shortest path between words`
+                    name: "📊 BFS",
+                    content: `<strong>Concept:</strong> Level-order traversal using queue<br><strong>When:</strong> Shortest path in unweighted graphs<br><strong>Example:</strong> Word ladder, level order traversal`
                 },
                 {
-                    name: "📤 DFS",
-                    content: `<strong>Concept:</strong> Deep exploration using recursion/stack<br><strong>When:</strong> All paths, connectivity, permutations<br><strong>Example:</strong> Number of islands - explore all connected cells`
+                    name: "📈 DFS",
+                    content: `<strong>Concept:</strong> Deep exploration using recursion/stack<br><strong>When:</strong> All paths, connectivity, permutations<br><strong>Example:</strong> Number of islands, path sum`
                 },
                 {
-                    name: "📊 Monotonic Stack",
-                    content: `<strong>Concept:</strong> Stack maintains elements in monotone order<br><strong>When:</strong> Next greater/smaller element problems<br><strong>Example:</strong> Daily temperatures - find next warmer day for each`
+                    name: "📚 Hash Map",
+                    content: `<strong>Concept:</strong> Key-value pairs for O(1) lookup<br><strong>When:</strong> Frequency counting, complement finding<br><strong>Example:</strong> Two sum, anagrams, LRU cache`
                 },
                 {
-                    name: "🔗 Union-Find",
-                    content: `<strong>Concept:</strong> Track connected components with path compression<br><strong>When:</strong> Cycle detection, dynamic connectivity<br><strong>Example:</strong> Redundant connection - find cycle in graph`
+                    name: "⬆️ Monotonic Stack",
+                    content: `<strong>Concept:</strong> Stack maintains elements in order<br><strong>When:</strong> Next greater/smaller elements<br><strong>Example:</strong> Daily temperatures, largest rectangle`
                 }
             ]
         };
         
         let state = {
             completed: {},
-            view: 'grid'
+            currentPhase: 1
         };
         
         function loadState() {
-            const saved = localStorage.getItem('dsa-elite-state');
+            const saved = localStorage.getItem('dsa-curriculum-state');
             if (saved) state = JSON.parse(saved);
         }
         
         function saveState() {
-            localStorage.setItem('dsa-elite-state', JSON.stringify(state));
+            localStorage.setItem('dsa-curriculum-state', JSON.stringify(state));
         }
         
         function renderWeeks() {
             const container = document.getElementById('weeksContainer');
             container.innerHTML = '';
             
-            DSA_DATA.weeks.forEach((week, weekIdx) => {
-                const weekEl = document.createElement('div');
-                weekEl.className = 'week-container animate-in';
-                weekEl.style.animationDelay = `${weekIdx * 0.1}s`;
-                
-                const daysHTML = week.days.map(day => `
-                    <div class="day-card ${state.completed[day.day] ? 'completed' : ''}" onclick="openDayModal(${day.day})">
-                        <input type="checkbox" class="day-checkbox" 
-                            onchange="toggleDay(${day.day}, event)" 
-                            ${state.completed[day.day] ? 'checked' : ''}
-                            onclick="event.stopPropagation()">
-                        <div class="day-number">Day ${day.day}</div>
-                        <div class="day-title">${day.title}</div>
-                        <div class="day-topic">${day.topic}</div>
-                        <div class="day-description">${day.description}</div>
-                        <div class="day-stats">
-                            <div class="day-stat">
-                                <i class="fas fa-book"></i>
-                                <span class="day-stat-value">${day.concepts.length}</span> Concepts
-                            </div>
-                            <div class="day-stat">
-                                <i class="fas fa-code"></i>
-                                <span class="day-stat-value">${day.problems.length}</span> Problems
+            DSA_CURRICULUM.phases.forEach((phase, phaseIdx) => {
+                phase.weeks.forEach((week, weekIdx) => {
+                    const weekEl = document.createElement('div');
+                    weekEl.className = 'week-container animate-in';
+                    weekEl.style.animationDelay = `${weekIdx * 0.1}s`;
+                    
+                    const daysHTML = week.days.map(day => `
+                        <div class="day-card ${state.completed[day.day] ? 'completed' : ''}" onclick="openDayModal(${day.day})">
+                            <input type="checkbox" class="day-checkbox" 
+                                onchange="toggleDay(${day.day}, event)" 
+                                ${state.completed[day.day] ? 'checked' : ''}
+                                onclick="event.stopPropagation()">
+                            <div class="day-number">Day ${day.day}</div>
+                            <div class="day-title">${day.title}</div>
+                            <div class="day-difficulty difficulty-${day.difficulty}">${day.difficulty}</div>
+                            <div class="day-description">${day.description}</div>
+                            <div class="day-stats">
+                                <div class="day-stat">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span class="day-stat-value">${day.concepts.length}</span> Concepts
+                                </div>
+                                <div class="day-stat">
+                                    <i class="fas fa-link"></i>
+                                    <span class="day-stat-value">${day.resources.length}</span> Resources
+                                </div>
+                                <div class="day-stat">
+                                    <i class="fas fa-code"></i>
+                                    <span class="day-stat-value">${day.problems.length}</span> Problems
+                                </div>
                             </div>
                         </div>
-                    </div>
-                `).join('');
-                
-                weekEl.innerHTML = `
-                    <div class="week-header">
-                        <h2>${week.title} <span class="week-badge ${week.tag}">${week.tag.toUpperCase()}</span></h2>
-                        <p class="week-summary">${week.summary}</p>
-                    </div>
-                    <div class="days-grid">
-                        ${week.days.length > 0 ? daysHTML : '<div class="empty-state">Coming Soon...</div>'}
-                    </div>
-                `;
-                
-                container.appendChild(weekEl);
+                    `).join('');
+                    
+                    weekEl.innerHTML = `
+                        <div class="week-header">
+                            <h2>${week.title} <span class="week-badge ${phase.tagType}">${phase.difficulty.toUpperCase()}</span></h2>
+                            <p class="week-summary">${week.summary}</p>
+                        </div>
+                        <div class="days-grid">
+                            ${week.days.length > 0 ? daysHTML : '<div class="empty-state">Coming Soon...</div>'}
+                        </div>
+                    `;
+                    
+                    container.appendChild(weekEl);
+                });
             });
             
             updateStats();
@@ -1485,7 +1585,7 @@
         
         function renderPatterns() {
             const container = document.getElementById('patternsContainer');
-            container.innerHTML = DSA_DATA.patterns.map(p => `
+            container.innerHTML = DSA_CURRICULUM.patterns.map(p => `
                 <div class="pattern-card">
                     <div class="pattern-name">${p.name}</div>
                     <div class="pattern-content">${p.content}</div>
@@ -1501,8 +1601,32 @@
         }
         
         function openDayModal(dayNum) {
-            const dayData = DSA_DATA.weeks.flatMap(w => w.days).find(d => d.day === dayNum);
+            const dayData = DSA_CURRICULUM.phases.flatMap(p => p.weeks).flatMap(w => w.days).find(d => d.day === dayNum);
             if (!dayData) return;
+            
+            const resourcesHTML = dayData.resources.map(r => `
+                <tr>
+                    <td>
+                        <div class="resource-name">${r.name}</div>
+                        <div style="font-size: 0.9em; color: var(--text-secondary); margin-top: 3px;">${r.source} • ${r.duration}</div>
+                    </td>
+                    <td><span class="resource-type ${r.type}">${r.type}</span></td>
+                    <td>${r.why}</td>
+                    <td><span class="quality-badge quality-${r.quality}">${r.quality}</span></td>
+                    <td><a href="${r.link}" target="_blank" class="resource-link">Open <i class="fas fa-external-link-alt"></i></a></td>
+                </tr>
+            `).join('');
+            
+            const problemsHTML = dayData.problems.map(p => `
+                <div class="problem-item">
+                    <div class="problem-info">
+                        <div class="problem-name">${p.name}</div>
+                        <a href="${p.link}" target="_blank" class="problem-link">Solve on LeetCode <i class="fas fa-arrow-right"></i></a>
+                        <div style="font-size: 0.9em; color: var(--text-secondary); margin-top: 5px;">${p.why}</div>
+                    </div>
+                    <span class="problem-diff diff-${p.difficulty}">${p.difficulty}</span>
+                </div>
+            `).join('');
             
             const detailsHTML = `
                 <div class="modal-section">
@@ -1515,7 +1639,12 @@
                         Key Concepts (${dayData.concepts.length})
                     </h3>
                     <div class="concept-list">
-                        ${dayData.concepts.map(c => `<div class="concept-item">📌 ${c}</div>`).join('')}
+                        ${dayData.concepts.map(c => `
+                            <div class="concept-item">
+                                <div class="concept-name">📌 ${c.name}</div>
+                                <div class="concept-desc">${c.desc}</div>
+                            </div>
+                        `).join('')}
                     </div>
                 </div>
                 
@@ -1531,56 +1660,40 @@
                 
                 <div class="modal-section">
                     <h3 class="modal-section-title">
-                        <i class="fas fa-code"></i>
-                        Problems to Solve (${dayData.problems.length})
+                        <i class="fas fa-book"></i>
+                        Curated Learning Resources (${dayData.resources.length})
                     </h3>
-                    <table class="problems-table">
+                    <p style="color: var(--text-secondary); margin-bottom: 15px; font-size: 0.95em;">👇 Best resources ranked by quality - Start with "BEST" resources, then explore GOOD ones</p>
+                    <table class="resource-table">
                         <thead>
                             <tr>
-                                <th>Problem</th>
-                                <th>Difficulty</th>
-                                <th>Link</th>
+                                <th>Resource</th>
+                                <th>Type</th>
+                                <th>Why This?</th>
+                                <th>Quality</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            ${dayData.problems.map(p => `
-                                <tr>
-                                    <td>${p.name}</td>
-                                    <td><span class="difficulty-badge difficulty-${p.difficulty}">${p.difficulty}</span></td>
-                                    <td>
-                                        ${p.link ? `<a href="${p.link}" target="_blank" class="problem-link">Solve on LeetCode <i class="fas fa-arrow-right"></i></a>` : '—'}
-                                    </td>
-                                </tr>
-                            `).join('')}
+                            ${resourcesHTML}
                         </tbody>
                     </table>
                 </div>
                 
-                ${dayData.resources.length > 0 ? `
-                    <div class="modal-section">
-                        <h3 class="modal-section-title">
-                            <i class="fas fa-link"></i>
-                            Learning Resources (${dayData.resources.length})
-                        </h3>
-                        <div class="resources-grid">
-                            ${dayData.resources.map((r, idx) => {
-                                const [text, link] = r.includes(' - ') ? r.split(' - ') : [r, '#'];
-                                return `
-                                    <div class="resource-item">
-                                        <a href="${link}" target="_blank" class="resource-link-text">
-                                            <i class="fas fa-external-link-alt"></i>
-                                            ${text}
-                                        </a>
-                                        <p class="resource-desc">Click to access external resource</p>
-                                    </div>
-                                `;
-                            }).join('')}
-                        </div>
+                <div class="modal-section">
+                    <h3 class="modal-section-title">
+                        <i class="fas fa-code"></i>
+                        Practice Problems (${dayData.problems.length})
+                    </h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 15px; font-size: 0.95em;">💡 Solve these on LeetCode to practice the concepts</p>
+                    <div class="problem-list">
+                        ${problemsHTML}
                     </div>
-                ` : ''}
+                </div>
             `;
             
             document.getElementById('modalTitle').textContent = `Day ${dayNum}: ${dayData.title}`;
+            document.getElementById('modalPhase').textContent = dayData.phase;
             document.getElementById('dayDetails').innerHTML = detailsHTML;
             document.getElementById('dayModal').classList.add('active');
         }
@@ -1591,14 +1704,19 @@
         
         function updateStats() {
             const completed = Object.values(state.completed).filter(Boolean).length;
-            const total = DSA_DATA.weeks.flatMap(w => w.days).length;
-            const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
+            const total = 3; // Current number of days
+            const pct = total > 0 ? Math.round((completed / 150) * 100) : 0;
             
             document.getElementById('daysCompleted').textContent = completed;
             document.getElementById('progressPct').textContent = pct + '%';
-            document.getElementById('progressLabel').textContent = `${completed} / ${total}`;
+            document.getElementById('progressLabel').textContent = `${completed} / 150`;
             document.getElementById('progressBar').style.width = pct + '%';
-            document.getElementById('currentWeek').textContent = Math.ceil((completed + 1) / 7);
+            
+            if (completed < 30) document.getElementById('currentPhase').textContent = 'Phase 1';
+            else if (completed < 60) document.getElementById('currentPhase').textContent = 'Phase 2';
+            else if (completed < 90) document.getElementById('currentPhase').textContent = 'Phase 3';
+            else if (completed < 120) document.getElementById('currentPhase').textContent = 'Phase 4';
+            else document.getElementById('currentPhase').textContent = 'Phase 5';
         }
         
         // Initialize

@@ -6,489 +6,494 @@
     <title>MAANG DSA Tracker</title>
     <link rel="preconnect" href="https://api.fontshare.com">
     <link href="https://api.fontshare.com/v2/css?f=satoshi@400,500,700,900&f=general-sans@500,600,700&display=swap" rel="stylesheet">
-    <style>
-        :root, [data-theme="light"] {
-            --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-            --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
-            --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-            --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
-            --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
-            --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
-            --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
-            --space-12: 3rem; --space-16: 4rem; --space-20: 5rem;
-            --color-bg: #f7f6f2; --color-surface: #f9f8f5; --color-surface-2: #fbfbf9;
-            --color-surface-offset: #f3f0ec; --color-surface-dynamic: #e6e4df;
-            --color-border: #d4d1ca; --color-divider: #dcd9d5; --color-text: #28251d;
-            --color-text-muted: #7a7974; --color-text-faint: #bab9b4; --color-text-inverse: #f9f8f4;
-            --color-primary: #01696f; --color-primary-hover: #0c4e54; --color-primary-highlight: #cedcd8;
-            --color-warning: #964219; --color-success: #437a22; --color-blue: #006494;
-            --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.75rem; --radius-xl: 1rem; --radius-full: 9999px;
-            --shadow-sm: 0 1px 2px rgba(0,0,0,.06); --shadow-md: 0 4px 12px rgba(0,0,0,.08); --shadow-lg: 0 12px 32px rgba(0,0,0,.12);
-            --font-display: 'General Sans', 'Inter', sans-serif;
-            --font-body: 'Satoshi', 'Inter', sans-serif;
-            --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        [data-theme="dark"] {
-            --color-bg: #171614; --color-surface: #1c1b19; --color-surface-2: #201f1d;
-            --color-surface-offset: #1d1c1a; --color-surface-dynamic: #2d2c2a;
-            --color-border: #393836; --color-divider: #262523; --color-text: #cdccca;
-            --color-text-muted: #9a9996; --color-text-faint: #6c6b68; --color-text-inverse: #2b2a28;
-            --color-primary: #4f98a3; --color-primary-hover: #227f8b; --color-primary-highlight: #313b3b;
-            --color-warning: #bb653b; --color-success: #6daa45; --color-blue: #5591c7;
-            --shadow-sm: 0 1px 2px rgba(0,0,0,.2); --shadow-md: 0 4px 12px rgba(0,0,0,.3); --shadow-lg: 0 12px 32px rgba(0,0,0,.4);
-        }
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html, body { height: 100%; overflow: hidden; }
-        body {
-            min-height: 100dvh; line-height: 1.6;
-            font-family: var(--font-body); font-size: var(--text-base);
-            color: var(--color-text); background: var(--color-bg);
-        }
-        a, button, input, textarea, select { transition: background var(--transition-interactive), color var(--transition-interactive), border-color var(--transition-interactive), box-shadow var(--transition-interactive), transform var(--transition-interactive); }
-        button, input, textarea, select { font: inherit; color: inherit; }
-        button { cursor: pointer; border: none; background: none; }
-        table { border-collapse: collapse; width: 100%; }
-        *:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
-        .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
-        .app { display: grid; grid-template-columns: 300px 1fr; grid-template-rows: auto 1fr; height: 100dvh; }
-        .sidebar { grid-row: 1 / -1; background: var(--color-surface); border-right: 1px solid rgba(255,255,255,.08); overflow-y: auto; overscroll-behavior: contain; padding: var(--space-6); }
-        .brand { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-8); }
-        .logo { width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(135deg, var(--color-primary), var(--color-blue)); display: grid; place-items: center; color: white; box-shadow: var(--shadow-md); }
-        .brand h1 { font-family: var(--font-display); font-size: var(--text-lg); line-height: 1.1; }
-        .brand p { color: var(--color-text-muted); font-size: var(--text-xs); }
-        .nav-group { margin-bottom: var(--space-6); }
-        .nav-label { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .08em; color: var(--color-text-faint); margin-bottom: var(--space-3); }
-        .nav-btn { width: 100%; text-align: left; padding: .85rem 1rem; border-radius: var(--radius-lg); color: var(--color-text-muted); display: flex; align-items: center; gap: .8rem; margin-bottom: .35rem; border: 1px solid transparent; }
-        .nav-btn.active, .nav-btn:hover { background: var(--color-surface-2); color: var(--color-text); border-color: rgba(255,255,255,.08); }
-        .nav-btn .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-primary); opacity: .85; }
-        .progress-card, .sidebar-note { background: linear-gradient(180deg, rgba(79,152,163,.12), rgba(79,152,163,.04)); border: 1px solid rgba(79,152,163,.18); border-radius: var(--radius-xl); padding: var(--space-4); margin-top: var(--space-6); }
-        .progress-card h3, .sidebar-note h3 { font-size: var(--text-sm); margin-bottom: .35rem; }
-        .progress { height: 10px; background: rgba(255,255,255,.08); border-radius: 999px; overflow: hidden; margin: .8rem 0 .55rem; }
-        .progress span { display: block; height: 100%; width: 0%; background: linear-gradient(90deg, var(--color-primary), var(--color-blue)); }
-        .muted { color: var(--color-text-muted); }
-        .tiny { font-size: var(--text-xs); color: var(--color-text-muted); }
-        .header { grid-column: 2; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-4) var(--space-6); border-bottom: 1px solid rgba(255,255,255,.08); background: color-mix(in srgb, var(--color-bg) 88%, transparent); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 10; }
-        .header-left h2 { font-family: var(--font-display); font-size: var(--text-xl); line-height: 1.05; }
-        .header-left p { color: var(--color-text-muted); font-size: var(--text-sm); }
-        .header-actions { display: flex; gap: .75rem; flex-wrap: wrap; }
-        .chip, .btn { display: inline-flex; align-items: center; gap: .55rem; padding: .75rem 1rem; border-radius: var(--radius-lg); font-size: var(--text-sm); border: 1px solid rgba(255,255,255,.08); background: var(--color-surface); color: var(--color-text); }
-        .btn.primary { background: var(--color-primary); color: white; border-color: transparent; }
-        .btn.primary:hover { background: var(--color-primary-hover); }
-        .main { grid-column: 2; overflow-y: auto; overscroll-behavior: contain; padding: var(--space-6); }
-        .view { display: none; }
-        .view.active { display: block; }
-        .hero-grid { display: grid; grid-template-columns: 1.25fr .95fr; gap: var(--space-5); margin-bottom: var(--space-6); }
-        .card { background: var(--color-surface); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius-xl); box-shadow: var(--shadow-sm); }
-        .hero-card { padding: var(--space-6); }
-        .hero-card h3 { font-size: var(--text-lg); margin-bottom: .5rem; }
-        .hero-card p { color: var(--color-text-muted); max-width: 65ch; }
-        .pill-row { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: var(--space-4); }
-        .pill { padding: .5rem .8rem; border-radius: 999px; font-size: var(--text-xs); background: var(--color-surface-2); border: 1px solid rgba(255,255,255,.08); }
-        .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
-        .stat { padding: var(--space-4); }
-        .stat .label { font-size: var(--text-xs); color: var(--color-text-muted); text-transform: uppercase; letter-spacing: .08em; }
-        .stat .value { font-size: 1.9rem; font-weight: 800; font-variant-numeric: tabular-nums; margin-top: .35rem; }
-        .stat .sub { color: var(--color-text-muted); font-size: var(--text-sm); }
-        .section-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: var(--space-5); margin-bottom: var(--space-6); }
-        .section { padding: var(--space-5); }
-        .section h3 { font-size: var(--text-lg); margin-bottom: .3rem; }
-        .section-head { display:flex; justify-content:space-between; align-items:flex-start; gap: var(--space-3); margin-bottom: var(--space-4); }
-        .checklist { display: grid; gap: .8rem; }
-        .item { display: grid; grid-template-columns: auto 1fr auto; gap: .85rem; align-items: start; padding: .95rem 1rem; border-radius: var(--radius-lg); background: var(--color-surface-2); border: 1px solid rgba(255,255,255,.06); }
-        .item input[type=checkbox] { width: 18px; height: 18px; margin-top: .2rem; accent-color: var(--color-primary); }
-        .item-title { font-weight: 700; font-size: var(--text-sm); }
-        .item-meta { color: var(--color-text-muted); font-size: var(--text-xs); margin-top: .15rem; }
-        .badge { padding: .28rem .6rem; border-radius: 999px; font-size: var(--text-xs); background: rgba(79,152,163,.12); color: var(--color-primary); border: 1px solid rgba(79,152,163,.18); }
-        .notes-box, textarea.notes { width: 100%; min-height: 150px; background: var(--color-surface-2); color: var(--color-text); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius-lg); padding: 1rem; resize: vertical; }
-        .notes-grid { display: grid; gap: var(--space-4); }
-        .template-list { display: grid; gap: .7rem; }
-        .template-btn { text-align:left; padding: .9rem 1rem; border-radius: var(--radius-lg); background: var(--color-surface-2); border: 1px solid rgba(255,255,255,.07); }
-        .template-btn:hover { border-color: rgba(79,152,163,.2); transform: translateY(-1px); }
-        .weeks { display: grid; gap: var(--space-4); }
-        .week-card { padding: var(--space-5); }
-        .week-head { display:flex; justify-content:space-between; gap: var(--space-3); align-items:flex-start; margin-bottom: var(--space-4); }
-        .week-head h4 { font-size: var(--text-lg); }
-        .week-head p { color: var(--color-text-muted); font-size: var(--text-sm); max-width: 72ch; }
-        .days { display: grid; gap: .85rem; }
-        .day { padding: 1rem; border-radius: var(--radius-lg); background: var(--color-surface-2); border: 1px solid rgba(255,255,255,.06); }
-        .day-top { display:flex; justify-content:space-between; gap: var(--space-3); margin-bottom: .45rem; }
-        .day-title { font-weight: 800; font-size: var(--text-sm); }
-        .topic { color: var(--color-primary); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .08em; }
-        .day ul { padding-left: 1.2rem; color: var(--color-text-muted); }
-        .day li { margin: .22rem 0; }
-        .topic-map { display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
-        .topic-card { padding: var(--space-4); }
-        .topic-card h4 { font-size: var(--text-sm); margin-bottom: .35rem; }
-        .topic-card p { color: var(--color-text-muted); font-size: var(--text-sm); }
-        .topic-card ul { padding-left: 1rem; margin-top: .45rem; color: var(--color-text-muted); }
-        .topic-card li { margin: .18rem 0; }
-        .resource-table-wrap { overflow-x: auto; border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,.08); }
-        .resource-table th, .resource-table td { text-align: left; padding: .95rem 1rem; border-bottom: 1px solid rgba(255,255,255,.06); vertical-align: top; }
-        .resource-table th { position: sticky; top: 0; background: var(--color-surface); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .08em; color: var(--color-text-muted); }
-        .resource-table td { background: var(--color-surface-2); font-size: var(--text-sm); }
-        .footer-note { color: var(--color-text-muted); font-size: var(--text-sm); margin-top: var(--space-4); }
-        @media (max-width: 1100px) {
-            .app { grid-template-columns: 88px 1fr; }
-            .sidebar .label-copy, .sidebar .brand-copy, .sidebar .nav-label, .sidebar .progress-card p, .sidebar-note p { display:none; }
-            .brand { justify-content:center; }
-            .nav-btn { justify-content:center; padding: .85rem .5rem; }
-            .nav-btn span:last-child { display:none; }
-            .progress-card, .sidebar-note { padding: .8rem; }
-        }
-        @media (max-width: 900px) {
-            .hero-grid, .section-grid, .topic-map { grid-template-columns: 1fr; }
-            .stats { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 720px) {
-            html, body { overflow: auto; }
-            .app { display:block; height:auto; }
-            .sidebar { border-right:none; border-bottom: 1px solid rgba(255,255,255,.08); }
-            .header, .main { padding-left: var(--space-4); padding-right: var(--space-4); }
-            .stats { grid-template-columns: 1fr; }
-            .header { position: static; }
-            .day-top, .week-head, .section-head, .header { flex-direction: column; align-items: flex-start; }
-            .header-actions { width: 100%; }
-        }
-    </style>
+<style>
+:root, [data-theme="light"] {
+        --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+        --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+        --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+        --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+        --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+        --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+        --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
+        --space-12: 3rem; --space-16: 4rem; --space-20: 5rem;
+        --color-bg: #f7f6f2; --color-surface: #f9f8f5; --color-surface-2: #fbfbf9;
+        --color-border: #d4d1ca; --color-divider: #dcd9d5; --color-text: #28251d;
+        --color-text-muted: #7a7974; --color-text-faint: #bab9b4; --color-text-inverse: #f9f8f4;
+        --color-primary: #01696f; --color-primary-light: #006d8; --color-primary-highlight: #ddffd8;
+        --color-warning: #964219; --color-success: #437a22; --color-blue: #006494;
+        --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-xl: 1rem; --radius-full: 9999px;
+        --shadow-sm: 0 1px 2px rgba(0,0,0,.06); --shadow-md: 0 4px 12px rgba(0,0,0,.08); --shadow-lg: 0 12px 32px rgba(0,0,0,.12);
+        --font-display: 'General Sans', 'Inter', sans-serif;
+        --font-body: 'Satoshi', 'Inter', sans-serif;
+        --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-theme="dark"] {
+        --color-bg: #171614; --color-surface: #1c1b19; --color-surface-2: #201f1d;
+        --color-border: #393836; --color-divider: #262523; --color-text: #cdccca;
+        --color-text-muted: #9a9996; --color-text-faint: #6c6b68; --color-text-inverse: #2b2a28;
+        --color-primary: #4f98a3; --color-primary-light: #277ef4; --color-primary-highlight: #113b3b;
+        --color-warning: #bb653b; --color-success: #6daa45; --color-blue: #5591c7;
+        --radius-sm: 0 1px 2px rgba(0,0,0,2); --shadow-md: 0 4px 12px rgba(0,0,0,.3); --shadow-lg: 0 12px 32px rgba(0,0,0,.4);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+body {
+        min-height: 100dvh; line-height: 1.6;
+        font-family: var(--font-body); font-size: var(--text-base);
+        background: var(--color-bg); color: var(--color-text);
+        display: flex;
+}
+#sidebar {
+        width: 260px;
+        background: var(--color-surface);
+        border-right: 1px solid var(--color-border);
+        display: flex; flex-direction: column;
+        overflow-y: auto;
+}
+#sidebar header {
+        padding: var(--space-6) var(--space-5);
+        border-bottom: 1px solid var(--color-divider);
+}
+#sidebar h1 { font-size: var(--text-xl); margin-bottom: .25rem; line-height: 1.1; color: var(--color-text); }
+#sidebar .subtitle { font-size: var(--text-sm); color: var(--color-text-muted); }
+#sidebar nav { padding: var(--space-5) 0; flex: 1; }
+.nav-section { margin-bottom: var(--space-8); }
+.nav-label { padding: 0 var(--space-5); text-transform: uppercase; font-size: var(--text-xs); letter-spacing: .1em; font-weight: 700; color: var(--color-text-muted); margin-bottom: var(--space-2); }
+.nav-section ul { list-style: none; }
+.nav-section a {
+        display: flex; align-items: center; gap: .7rem;
+        padding: .6rem var(--space-5);
+        color: var(--color-text-muted);
+        text-decoration: none;
+        transition: var(--transition-interactive);
+        font-size: var(--text-sm);
+}
+.nav-section a:before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--color-primary); opacity: 0; transition: inherit; }
+.nav-section a:hover, .nav-section a.active { color: var(--color-text); background: var(--color-surface-2); }
+.nav-section a.active:before { opacity: 1; }
+.completion-block { padding: var(--space-5); border-top: 1px solid var(--color-divider); }
+.completion-block h4 { font-size: var(--text-sm); margin-bottom: var(--space-3); }
+.progress-bar { height: 8px; background: var(--color-surface-2); border-radius: var(--radius-full); overflow: hidden; margin-bottom: var(--space-2); }
+.progress-fill { height: 100%; background: var(--color-primary); width: 0%; transition: width 400ms ease; }
+.completion-block p { font-size: var(--text-sm); color: var(--color-text-muted); }
+#main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+#topbar {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: var(--space-4) var(--space-6);
+        border-bottom: 1px solid var(--color-border);
+        background: var(--color-surface);
+}
+#topbar h2 { font-size: var(--text-lg); font-family: var(--font-display); }
+#topbar p { color: var(--color-text-muted); margin-top: .2rem; font-size: var(--text-sm); }
+.topbar-actions { display: flex; gap: var(--space-3); }
+.btn {
+        padding: .5rem 1rem;
+        border: 1px solid var(--color-border);
+        background: var(--color-surface);
+        color: var(--color-text);
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: var(--text-sm);
+        font-weight: 600;
+        transition: var(--transition-interactive);
+}
+.btn:hover { background: var(--color-surface-2); border-color: var(--color-primary); }
+.btn-primary { background: var(--color-primary); color: var(--color-text-inverse); border-color: var(--color-primary); }
+.btn-primary:hover { background: var(--color-primary-light); }
+#content { flex: 1; overflow-y: auto; padding: var(--space-6); }
+.card {
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        padding: var(--space-5);
+        margin-bottom: var(--space-5);
+        box-shadow: var(--shadow-sm);
+}
+.week-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-5); }
+.week-head h4 { font-size: var(--text-lg); font-family: var(--font-display); margin-bottom: .3rem; }
+.week-head p { color: var(--color-text-muted); font-size: var(--text-sm); max-width: 60ch; }
+.badge {
+        padding: .25rem .75rem;
+        background: var(--color-primary-highlight);
+        color: var(--color-primary);
+        border-radius: var(--radius-full);
+        font-size: var(--text-xs);
+        font-weight: 600;
+}
+.days { display: grid; gap: var(--space-4); }
+.day {
+        background: var(--color-surface-2);
+        border: 1px solid var(--color-divider);
+        border-radius: var(--radius-sm);
+        padding: var(--space-4);
+        transition: var(--transition-interactive);
+}
+.day:hover { border-color: var(--color-primary); box-shadow: var(--shadow-md); }
+.day-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-2); }
+.day-title { font-weight: 700; font-size: var(--text-sm); color: var(--color-text); }
+.topic { font-size: var(--text-xs); color: var(--color-primary); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+.day ul { list-style: none; padding-left: 0; font-size: var(--text-sm); color: var(--color-text-muted); }
+.day ul li { position: relative; padding-left: 1.2rem; }
+.day ul li:before { content: '→'; position: absolute; left: 0; color: var(--color-primary); }
+input[type="checkbox"]:checked + .day-title { text-decoration: line-through; opacity: .5; }
+</style>
 </head>
 <body>
-<div class="app">
-    <aside class="sidebar">
-        <div class="brand">
-            <div class="logo" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Tracker logo">
-                    <path d="M5 18L12 5L19 18" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M8.5 13H15.5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/>
-                </svg>
-            </div>
-            <div class="brand-copy">
-                <h1>DSA Tracker</h1>
-                <p>5-month A to Z MAANG prep</p>
-            </div>
-        </div>
-        <div class="nav-group">
-            <div class="nav-label">Workspace</div>
-            <button class="nav-btn active" data-view-target="dashboard"><span class="dot"></span><span>Dashboard</span></button>
-            <button class="nav-btn" data-view-target="plan"><span class="dot"></span><span>Daily Plan</span></button>
-            <button class="nav-btn" data-view-target="topics"><span class="dot"></span><span>Topic Map</span></button>
-            <button class="nav-btn" data-view-target="resources"><span class="dot"></span><span>Resources</span></button>
-        </div>
-        <div class="progress-card card">
-            <h3>Completion</h3>
-            <p class="tiny">Track solved days, weekly reviews, and full-sheet coverage.</p>
-            <div class="progress"><span id="sidebarProgress"></span></div>
-            <div class="tiny"><span id="progressLabel">0 / 150 days done</span></div>
-        </div>
-        <div class="sidebar-note card">
-            <h3>Coverage rule</h3>
-            <p class="tiny">This tracker covers DSA, interview patterns, revision loops, core CS, mock rounds, and behavior prep in one system.</p>
-        </div>
-    </aside>
-    <header class="header">
-        <div class="header-left">
-            <h2>Custom MAANG DSA tracker</h2>
-            <p>Structured like a real prep workspace: learn, solve, revise, note, and audit gaps.</p>
-        </div>
-        <div class="header-actions">
-            <button class="chip" id="themeToggle" data-theme-toggle aria-label="Switch theme">Theme</button>
-            <button class="btn" id="resetBtn">Reset progress</button>
-            <button class="btn primary" id="jumpToday">Focus today</button>
-        </div>
-    </header>
-    <main class="main">
-        <section class="view active" id="dashboard">
-            <div class="hero-grid">
-                <div class="card hero-card">
-                    <h3>What makes this tracker different</h3>
-                    <p>Instead of a plain problem list, this workspace combines topic coverage, daily deliverables, revision cadence, mock interview rhythm, and note-taking templates — so you don't miss a weak area.</p>
-                    <div class="pill-row">
-                        <span class="pill">150 study days</span>
-                        <span class="pill">Daily notes built in</span>
-                        <span class="pill">Topic audit system</span>
-                        <span class="pill">Behavior + CS core included</span>
-                        <span class="pill">Revision Sundays</span>
-                    </div>
-                </div>
-                <div class="stats">
-                    <div class="card stat">
-                        <div class="label">Total days</div>
-                        <div class="value">150</div>
-                        <div class="sub">5 months with 6 active study days plus structured reviews</div>
-                    </div>
-                    <div class="card stat">
-                        <div class="label">Coverage blocks</div>
-                        <div class="value">12</div>
-                        <div class="sub">Arrays to graphs, DP, system design, CS fundamentals, HR</div>
-                    </div>
-                    <div class="card stat">
-                        <div class="label">Today</div>
-                        <div class="value" id="todayLabel">Day 1</div>
-                        <div class="sub">Auto-picked from your first incomplete study day</div>
-                    </div>
-                    <div class="card stat">
-                        <div class="label">Done</div>
-                        <div class="value" id="doneCount">0</div>
-                        <div class="sub">Every checked day updates the tracker instantly</div>
-                    </div>
-                </div>
-            </div>
-            <div class="section-grid">
-                <div class="card section">
-                    <div class="section-head">
-                        <div>
-                            <h3>Daily operating system</h3>
-                            <p class="muted">Use this same routine every study day so learning compounds instead of turning into random solving.</p>
-                        </div>
-                        <span class="badge">Repeat daily</span>
-                    </div>
-                    <div class="checklist">
-                        <label class="item"><input type="checkbox"><div><div class="item-title">Concept first</div><div class="item-meta">Read / watch the pattern, build intuition, write the brute force and optimal idea.</div></div><span class="badge">45–60m</span></label>
-                        <label class="item"><input type="checkbox"><div><div class="item-title">Solve core problems</div><div class="item-meta">Do 2–4 handpicked problems from the current day and write edge cases before coding.</div></div><span class="badge">90m</span></label>
-                        <label class="item"><input type="checkbox"><div><div class="item-title">Write notes</div><div class="item-meta">Capture pattern, common traps, time complexity, revisit trigger, and reusable template.</div></div><span class="badge">20m</span></label>
-                        <label class="item"><input type="checkbox"><div><div class="item-title">Revision pass</div><div class="item-meta">Re-solve one old medium without seeing code. This is the retention engine.</div></div><span class="badge">30m</span></label>
-                    </div>
-                </div>
-                <div class="card section">
-                    <div class="section-head">
-                        <div>
-                            <h3>Note templates</h3>
-                            <p class="muted">Use these prompts every day so your notes stay useful during revision and mocks.</p>
-                        </div>
-                        <span class="badge">Editable</span>
-                    </div>
-                    <div class="template-list">
-                        <button class="template-btn" data-template="pattern">Pattern note template</button>
-                        <button class="template-btn" data-template="problem">Problem debrief template</button>
-                        <button class="template-btn" data-template="mistakes">Mistake log template</button>
-                        <button class="template-btn" data-template="mock">Mock interview reflection</button>
-                    </div>
-                    <div class="notes-grid" style="margin-top:1rem">
-                        <textarea id="notesArea" class="notes" placeholder="Your notes live here. Example: Pattern = sliding window. Signal = contiguous subarray / substring with optimize-over-range..."></textarea>
-                        <div class="tiny">Tip: keep one concise pattern template and one mistake log entry for every important topic.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="section-grid">
-                <div class="card section">
-                    <div class="section-head">
-                        <div>
-                            <h3>Coverage checklist</h3>
-                            <p class="muted">If all of these are green by the end, you're not missing the major interview buckets.</p>
-                        </div>
-                        <span class="badge">A to Z</span>
-                    </div>
-                    <div class="checklist" id="coverageChecklist"></div>
-                </div>
-                <div class="card section">
-                    <div class="section-head">
-                        <div>
-                            <h3>Weekly review prompts</h3>
-                            <p class="muted">Use these every Sunday to prevent fake progress.</p>
-                        </div>
-                        <span class="badge">Review</span>
-                    </div>
-                    <div class="checklist">
-                        <div class="item"><div></div><div><div class="item-title">What did I still need hints for?</div><div class="item-meta">Any problem needing hints is not fully internalized yet.</div></div><span class="badge">Gaps</span></div>
-                        <div class="item"><div></div><div><div class="item-title">Which topic took too long to recognize?</div><div class="item-meta">Pattern recognition speed matters in interview rounds.</div></div><span class="badge">Speed</span></div>
-                        <div class="item"><div></div><div><div class="item-title">What should move into spaced revision?</div><div class="item-meta">Promote stable patterns into a fast refresh list.</div></div><span class="badge">Retention</span></div>
-                        <div class="item"><div></div><div><div class="item-title">Which problem types do I avoid?</div><div class="item-meta">Avoidance is often your highest-leverage weakness.</div></div><span class="badge">Mindset</span></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="view" id="plan">
-            <div class="card section" style="margin-bottom:1.25rem">
-                <div class="section-head">
-                    <div>
-                        <h3>150-day plan</h3>
-                        <p class="muted">Each week has six focused study days and one review / mock day. The goal is breadth first, then interview speed and depth.</p>
-                    </div>
-                    <span class="badge">Tracker view</span>
-                </div>
-                <div class="weeks" id="weeksContainer"></div>
-            </div>
-        </section>
-        <section class="view" id="topics">
-            <div class="card section" style="margin-bottom:1.25rem">
-                <div class="section-head">
-                    <div>
-                        <h3>Topic map</h3>
-                        <p class="muted">This is the master audit. If you have notes, solved examples, and at least one blind re-solve for each cluster, your coverage is strong.</p>
-                    </div>
-                    <span class="badge">Audit map</span>
-                </div>
-                <div class="topic-map" id="topicMap"></div>
-            </div>
-        </section>
-        <section class="view" id="resources">
-            <div class="card section">
-                <div class="section-head">
-                    <div>
-                        <h3>Source blend used for this tracker</h3>
-                        <p class="muted">Use these as the source banks, but follow the tracker sequence instead of hopping randomly between sheets.</p>
-                    </div>
-                    <span class="badge">Curated sources</span>
-                </div>
-                <div class="resource-table-wrap">
-                    <table class="resource-table">
-                        <thead>
-                            <tr><th>Source</th><th>Use it for</th><th>How it fits</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Striver SDE Sheet</td><td>High-frequency interview problems</td><td>Use for day-level core solving and revision depth.</td></tr>
-                            <tr><td>Striver A2Z</td><td>Full topic coverage</td><td>Use as the safety net so no topic family gets skipped.</td></tr>
-                            <tr><td>NeetCode 150</td><td>Pattern clarity</td><td>Use when you need clean topic grouping and a strong shortlist.</td></tr>
-                            <tr><td>Blind 75 / 150</td><td>Fast revision</td><td>Use in the last 6–8 weeks for interview tempo.</td></tr>
-                            <tr><td>LeetCode company-tagged sets</td><td>MAANG flavor</td><td>Use after topic comfort to simulate likely company-style rounds.</td></tr>
-                            <tr><td>CS Core notes</td><td>OS, DBMS, CN, OOP</td><td>Fold into months 4 and 5 so coding prep is not isolated.</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p class="footer-note">This app is built to be customized. You can replace any day's problem set with your preferred sheet — while keeping the same weekly structure and note system.</p>
-            </div>
-        </section>
-    </main>
+<aside id="sidebar">
+<header>
+<h1>DSA Tracker</h1>
+<p class="subtitle">5-month A to Z MAANG prep</p>
+</header>
+<nav>
+<div class="nav-section">
+<div class="nav-label">WORKSPACE</div>
+<ul>
+<li><a href="#" class="active">Dashboard</a></li>
+<li><a href="#">Daily Plan</a></li>
+<li><a href="#">Topic Map</a></li>
+<li><a href="#">Resources</a></li>
+</ul>
 </div>
+</nav>
+<div class="completion-block">
+<h4>Completion</h4>
+<p>Track solved days, weekly reviews, and full-sheet coverage.</p>
+<div class="progress-bar"><div class="progress-fill" id="sidebarProgress"></div></div>
+<p id="doneCountEl">0 / 150 days planned</p>
+</div>
+<div class="completion-block">
+<h4>Coverage rule</h4>
+<p>Core=must do. Stretch=depth. Buffer=negotiable.</p>
+</div>
+</aside>
+<main id="main">
+<div id="topbar">
+<div>
+<h2>Custom MAANG DSA tracker</h2>
+<p>Structured like a real prep workspace: learn, solve, revise, note, and audit gaps.</p>
+</div>
+<div class="topbar-actions">
+<button class="btn" id="themeToggle">Theme</button>
+<button class="btn" id="resetBtn">Reset progress</button>
+<button class="btn btn-primary" id="jumpToday">Focus today</button>
+</div>
+</div>
+<div id="content">
+<div class="card">
+<h3>150-day plan</h3>
+<p style="margin-bottom:var(--space-5);color:var(--color-text-muted)">Each week has six focused study days and one review / mock day. The goal is breadth first, then interview speed and depth.</p>
+<div id="weeks"></div>
+</div>
+</div>
+</main>
 <script>
-const coverageTopics = ["Arrays and hashing","Strings and pattern matching","Sorting and searching","Binary search on answer","Sliding window and two pointers","Recursion and backtracking","Linked lists","Stacks and monotonic stack","Queues, deque, LRU","Trees and traversals","BST, heaps, priority queues","Tries and bit manipulation","Greedy","Graphs (BFS/DFS/toposort/shortest path/MST/DSU)","Dynamic programming (1D/2D/subsequence/knapsack/interval)","Math, combinatorics, implementation","System design basics","OS / DBMS / CN / OOP","Behavioral stories and resume defense","Mocks and timed contests"];
-const topicClusters = [{title:"Foundation",body:"Build language speed, complexity intuition, and coding discipline.",bullets:["Time and space complexity","STL / collections / templates","Dry run discipline","Edge-case checklist"]},{title:"Arrays & Strings",body:"The most common starting zone in interviews.",bullets:["Prefix sums","Kadane & variation thinking","Hash maps and counting","Two pointers / sliding window"]},{title:"Search & Sorting",body:"Beyond basic binary search — learn answer-space and monotonic conditions.",bullets:["Lower / upper bound","Rotated arrays","Binary search on answer","Custom sorting and comparators"]},{title:"Linked Structures",body:"Interviewers use them to test pointer comfort and invariant maintenance.",bullets:["Fast-slow pointer","Merge and reverse patterns","Cycle detection","LRU / DLL mechanics"]},{title:"Stacks & Queues",body:"Pattern-heavy topics where recognition speed matters.",bullets:["Monotonic stack","Expression / parentheses","Next greater family","Deque for windows"]},{title:"Trees / BST / Heaps",body:"Covers recursion, traversal variants, and ordered data handling.",bullets:["Tree views and path problems","LCA / diameter / flatten","BST validation and kth queries","Heap scheduling / top-k"]},{title:"Backtracking",body:"Needed for subset generation and constraint exploration.",bullets:["Subsets / permutations","Combination sum","N-Queens / Sudoku","Pruning strategy"]},{title:"Graphs",body:"A must-master cluster for MAANG-level interviews.",bullets:["BFS / DFS","Topological sort","Dijkstra / Bellman-Ford / Floyd-Warshall","MST / DSU / SCC / bridges"]},{title:"Dynamic Programming",body:"The cluster that separates surface prep from strong prep.",bullets:["1D patterns","Grid DP","LCS family","Knapsack / partition / interval DP"]},{title:"Advanced interview prep",body:"Coding alone is not enough in later rounds.",bullets:["System design basics","LLD thinking","OS / DBMS / CN","Behavioral and project storytelling"]}];
-const weeks = [{title:"Weeks 1–2: Foundation, arrays, strings",summary:"Start with coding speed, complexity, arrays, hashing, strings, and core patterns that appear in almost every OA and interview.",days:["Day 1","Setup & complexity","Choose language, build template, revise Big-O, dry-run style, arrays basics","Day 2","Arrays I","Two Sum, stock profit, move zeroes, note brute vs optimal","Day 3","Arrays II","Prefix/suffix, product except self, majority element, merge intervals","Day 4","Strings I","Valid anagram, group anagrams, longest common prefix, string hashing basics","Day 5","Strings II","Palindrome checks, reverse words, longest substring without repeat","Day 6","Pattern day","3Sum, container with most water, frequency maps","Day 7","Review Sunday","Re-solve 3 weak problems, summarize patterns, 1 timed set"]},{title:"Weeks 3–4: Sorting, binary search, sliding window",summary:"These weeks train ordered thinking, monotonic conditions, and interview pattern recognition on subarrays and substrings.",days:["Day 8","Sorting recap","Implement merge sort and quick sort, know comparator use-cases","Day 9","Binary search I","Classic binary search, first/last occurrence, floor/ceil","Day 10","Binary search II","Rotated arrays, peak element, matrix search","Day 11","BS on answer","Koko, ship capacity, allocate pages, monotonic feasibility","Day 12","Sliding window (fixed)","Max sum window, first negative, anagram counts","Day 13","Sliding window (variable)","Min window, longest repeating replacement, fruit into baskets","Day 14","Review Sunday","1 hour timed medium set + update notes"]},{title:"Weeks 5–6: Recursion, backtracking, linked lists",summary:"Move from brute-force generation to controlled search, then sharpen pointer mechanics in linked lists.",days:["Day 15","Recursion basics","Base case, recurrence tree, subsequences","Day 16","Backtracking I","Subsets, subsets with duplicates, combinations","Day 17","Backtracking II","Permutations, generate parentheses, phone combinations","Day 18","Backtracking III","Combination Sum, Word Search, pruning notes","Day 19","Linked list I","Reverse, middle node, cycle detect, merge two lists","Day 20","Linked list II","Remove nth, reorder list, intersection, copy with random pointer","Day 21","Review Sunday","Blind solve 2 recursion + 2 linked list problems"]},{title:"Weeks 7–8: Stack, queue, monotonic patterns, heap",summary:"These topics train constraint handling and fast recognition of ordering and window structure.",days:["Day 22","Stack basics","Valid parentheses, min stack, stack implementation","Day 23","Monotonic stack","Next greater, daily temperatures, histogram","Day 24","Queue/deque","Queue using stacks, sliding window maximum, circular queue","Day 25","Heap basics","Top-k, kth largest, heap implementation","Day 26","Heap applications","Merge k lists, task scheduler, median from stream","Day 27","Mixed review","Choose 6 old problems from weeks 1–8 and re-solve","Day 28","Review Sunday","Timed contest set + heap/stack note cleanup"]},{title:"Weeks 9–10: Trees and BST",summary:"This block is big because trees appear everywhere and expose recursion quality, traversal fluency, and state handling.",days:["Day 29","Traversals","Recursive + iterative preorder/inorder/postorder + level order","Day 30","Tree properties","Height, diameter, balance, same tree, symmetry","Day 31","Tree views","Left/right/top/bottom/vertical order","Day 32","Path problems","Max path sum, root-to-leaf, path sum variants","Day 33","LCA & build tree","Construct from traversals, serialize/deserialize","Day 34","BST I","Search, insert, delete, validate BST","Day 35","Review Sunday","Tree-only timed round"]},{title:"Weeks 11–12: BST advanced, trie, greedy, bit manipulation",summary:"Now move into ordered trees, prefix structures, interview greedies, and bit patterns.",days:["Day 36","BST II","Kth smallest, inorder successor, floor/ceil","Day 37","Heap + BST blend","Top-k in BST, closest values, ordered sets","Day 38","Trie basics","Implement trie, prefix search, word dictionary","Day 39","Trie applications","Word Search II, replace words, prefix scoring","Day 40","Greedy I","Activity selection, meeting scheduling, jump game","Day 41","Bits","Single number, counting bits, XOR tricks","Day 42","Review Sunday","Mixed medium/hard interview set"]},{title:"Weeks 13–15: Graph fundamentals to shortest paths",summary:"This is one of the most important blocks. Spend real time understanding representation, traversal, and shortest path choices.",days:["Day 43","Graph setup","Representations, BFS, DFS, connected components","Day 44","Grid BFS/DFS","Number of islands, flood fill, rotten oranges","Day 45","Topo sort","Course schedule, alien dictionary, DAG reasoning","Day 46","Cycle / bipartite / DSU intro","Directed vs undirected cycle detection, bipartite","Day 47","Shortest path I","Unweighted shortest path, multi-source BFS, 0-1 BFS","Day 48","Shortest path II","Dijkstra, network delay, cheapest flights","Day 49","Review Sunday","Graph revision sprint"]},{title:"Weeks 16–17: MST, DSU, advanced graphs",summary:"These weeks take you beyond beginner graph prep and into topics that often decide tougher rounds.",days:["Day 50","MST","Prim, Kruskal, when each one fits","Day 51","DSU mastery","Union by rank, path compression, component grouping","Day 52","DSU problems","Redundant connection, most stones removed, accounts merge","Day 53","Advanced shortest paths","Bellman-Ford, Floyd-Warshall, negative cycles","Day 54","Advanced graph theory","Bridges, articulation points, SCC overview","Day 55","Graph mix","Word ladder, itinerary, graph pattern discrimination","Day 56","Review Sunday","Graph mock round"]},{title:"Weeks 18–20: Dynamic programming 1D and subsequence",summary:"Start DP with a clear framework: state, transition, base case, iteration order, and optimization opportunities.",days:["Day 57","DP intro","Memoization vs tabulation, choose state properly","Day 58","1D DP","Climbing stairs, min cost, house robber","Day 59","Subsequence DP I","LIS, largest divisible subset, patience sorting idea","Day 60","Knapsack family","0/1 knapsack, target sum, partition equal subset","Day 61","Coin change family","Coin change I/II, unbounded choices","Day 62","Decode & break","Decode ways, word break, combination transitions","Day 63","Review Sunday","DP whiteboard-style recap"]},{title:"Weeks 21–22: Dynamic programming 2D, grid, interval",summary:"This is where many candidates plateau. Use note-making aggressively here.",days:["Day 64","Grid DP","Unique paths, min path sum, obstacle grids","Day 65","String DP I","LCS, longest palindromic subsequence","Day 66","String DP II","Edit distance, wildcard matching","Day 67","Interval DP","Matrix chain, burst balloons, palindrome cuts","Day 68","Advanced sequence DP","Shortest common supersequence, distinct subsequences","Day 69","DP consolidation","Re-solve 5 diverse DP problems blind","Day 70","Review Sunday","Full DP audit"]},{title:"Weeks 23–24: Math, design basics, SQL, CS core start",summary:"Coding interviews are not only coding. Add the foundations that often appear in follow-up rounds.",days:["Day 71","Math / implementation","GCD, primes, modular basics, overflow awareness","Day 72","SQL I","SELECT, joins, group by, window mindset","Day 73","SQL II","Interview-style SQL practice, ranking and aggregation","Day 74","OS I","Processes, threads, scheduling, context switch","Day 75","OS II","Deadlocks, memory management, paging, virtual memory","Day 76","DBMS I","Normalization, ACID, indexing, isolation levels","Day 77","Review Sunday","CS fundamentals notes consolidation"]},{title:"Weeks 25–26: Networks, OOP, LLD, system design basics",summary:"This layer prepares you for broader software engineer rounds beyond pure coding.",days:["Day 78","CN I","OSI, TCP vs UDP, HTTP/HTTPS, DNS","Day 79","CN II","Caching, proxies, load balancing, sockets","Day 80","OOP","Pillars, abstraction, polymorphism, common patterns","Day 81","LLD I","Parking lot / elevator style decomposition","Day 82","System design I","Scalability basics, cache, queue, DB trade-offs","Day 83","System design II","URL shortener / feed / chat high-level structure","Day 84","Review Sunday","Explain one design out loud in 30 minutes"]},{title:"Weeks 27–29: Company-style mixed practice and mocks",summary:"From here on, stop learning passively. Simulate interview conditions repeatedly.",days:["Day 85","Mock 1","2-question coding round in 75–90 minutes","Day 86","Mock review","Post-mortem: recognition, coding speed, communication gaps","Day 87","Company-tagged set","Choose one company bucket and solve 3 focused questions","Day 88","Mock 2","Mixed DSA round with follow-up optimization discussion","Day 89","Behavior prep","STAR stories, impact, conflict, failure, ownership","Day 90","Resume defense","Explain every line, project trade-off, and technical decision","Day 91","Review Sunday","One mock replay without notes"]},{title:"Weeks 30–32: Final revision engine",summary:"Last stretch: fewer new problems, more blind solving, stronger communication, and sharper recall.",days:["Day 92","Blind 75 sprint","Re-solve core shortlist without reading old code","Day 93","Graph + DP retest","2 graph + 2 DP problems under time limit","Day 94","Tree + heap retest","Mixed pattern discrimination set","Day 95","CS core retest","Quick oral drills for OS / DBMS / CN","Day 96","Mock 3","Full coding + behavioral simulation","Day 97","Weakness day","Spend whole day on your worst topic cluster","Day 98","Review Sunday","Update final revision sheet"]},{title:"Weeks 33–22? Final 52-day extension (compressed into month 5 buffer)",summary:"Use the remaining buffer days to repeat mocks, revisit weak zones, and solve company-specific tagged problems. The exact order depends on your gaps.",days:["Day 99–110","Targeted revision","Arrays/graphs/DP/company tags — based on weak zones","Day 111–120","Mock burst","Alternate coding mocks and review days","Day 121–130","Behavior + design","Tighten stories, architecture answers, project depth","Day 131–140","Speed block","45-minute medium pairs, edge-case pressure","Day 141–145","Final company prep","Tagged questions for your target companies","Day 146–149","Recovery revision","Light revision, confidence building, no burnout","Day 150","Interview eve","One easy warm-up, notes skim, sleep on time"]}];
-const navButtons = [...document.querySelectorAll('[data-view-target]')];
-const views = [...document.querySelectorAll('.view')];
-navButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        navButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const target = btn.dataset.viewTarget;
-        views.forEach(v => v.classList.toggle('active', v.id === target));
-    });
-});
-const coverageChecklist = document.getElementById('coverageChecklist');
-coverageTopics.forEach((t, i) => {
-    const el = document.createElement('label');
-    el.className = 'item';
-    el.innerHTML = `<input type="checkbox" data-coverage="${i}"><div><div class="item-title">${t}</div><div class="item-meta">Mark complete only after notes + practice + at least one blind re-solve.</div></div><span class="badge">Track</span>`;
-    coverageChecklist.appendChild(el);
-});
-const topicMap = document.getElementById('topicMap');
-topicClusters.forEach(cluster => {
-    const card = document.createElement('div');
-    card.className = 'card topic-card';
-    card.innerHTML = `<h4>${cluster.title}</h4><p>${cluster.body}</p><ul>${cluster.bullets.map(b => `<li>${b}</li>`).join('')}</ul>`;
-    topicMap.appendChild(card);
-});
-const weeksContainer = document.getElementById('weeksContainer');
-let globalDayCounter = 0;
-weeks.forEach((week, wi) => {
-    const weekCard = document.createElement('div');
-    weekCard.className = 'card week-card';
-    const daysHtml = week.days.map((d, di) => {
-        const isRange = d[0].includes('–');
-        const count = isRange ? 0 : 1;
-        if (!isRange) globalDayCounter += 1;
-        const key = isRange ? `range-${wi}-${di}` : `day-${globalDayCounter}`;
-        return `<div class="day" ${isRange ? '' : `data-day-card="${globalDayCounter}"`}>
-            <div class="day-top">
-                <div>${isRange ? `<div class="day-title">${d[0]}</div>` : `<label style="display:flex;gap:.7rem;align-items:flex-start"><input type="checkbox" data-day="${globalDayCounter}" style="width:18px;height:18px;margin-top:.1rem;accent-color:var(--color-primary)"><span class="day-title">${d[0]}</span></label>`}</div>
-                <div class="topic">${d[1]}</div>
-            </div>
-            <span class="badge">${isRange ? 'Buffer / Planned' : ''}</span>
-            <ul><li>${d[2]}</li></ul>
-        </div>`;
-    }).join('');
-    weekCard.innerHTML = `<div class="week-head"><div><h4>${week.title}</h4><p>${week.summary}</p></div><span class="badge">${week.days.length} entries</span></div><div class="days">${daysHtml}</div>`;
-    weeksContainer.appendChild(weekCard);
-});
-const storageKey = 'maangdsatrackerstatev1';
-const notesArea = document.getElementById('notesArea');
-const doneCountEl = document.getElementById('doneCount');
-const progressLabel = document.getElementById('progressLabel');
-const sidebarProgress = document.getElementById('sidebarProgress');
-const todayLabel = document.getElementById('todayLabel');
-const totalTrackableDays = 98;
-function getState() {
-    return window.trackerState || { days:{}, coverage:{}, notes:'', theme:'dark' };
+const weeks = [
+{
+title: "Weeks 1–2: Foundation, arrays, strings",
+summary: "Start with coding speed, complexity, arrays, hashing, strings, and core patterns that appear in almost every OA and interview.",
+days: [
+["Day 1", "Setup & complexity", "Choose language, build template, revise Big-O, dry-run style, arrays basics"],
+["Day 2", "Arrays I", "Two Sum, stock profit, move zeroes, note brute vs optimal"],
+["Day 3", "Arrays II", "Prefix/suffix, product except self, majority element, merge intervals"],
+["Day 4", "Strings I", "Valid anagram, group anagrams, longest common prefix, string hashing basics"],
+["Day 5", "Strings II", "Palindrome checks, reverse words, longest substring without repeat"],
+["Day 6", "Pattern day", "3Sum, container with most water, frequency maps"],
+["Day 7", "Review Sunday", "Re-solve 3 weak problems, summarize patterns, 1 timed set"]
+]
+},
+{
+title: "Weeks 3–4: Sorting, binary search, sliding window",
+summary: "Essential search & scan patterns—binary search, 2-pointers, sliding window—that underpin half of all interview questions.",
+days: [
+["Day 8", "Sorting recap", "Merge sort, quick sort, counting sort, custom comparators"],
+["Day 9", "Binary search I", "Search in sorted array, rotated array, first/last occurrence"],
+["Day 10", "Binary search II", "Search in 2D matrix, median of two sorted arrays"],
+["Day 11", "BS on answer", "Allocate min pages, aggressive cows, painter's partition"],
+["Day 12", "Sliding window (fixed)", "Max sum subarray, distinct in k window"],
+["Day 13", "Sliding window (variable)", "Longest substring w/ k distinct, min window substring"],
+["Day 14", "Review Sunday", "Mock BS + SW problems, time and debug sessions"]
+]
+},
+{
+title: "Weeks 5–6: Recursion, backtracking, linked lists",
+summary: "Build recursive thinking: backtracking problems (subsets, permutations, N-Queens) and linked list manipulations.",
+days: [
+["Day 15", "Recursion basics", "Factorial, Fibonacci, power(x,n), tower of Hanoi"],
+["Day 16", "Backtracking I", "Subsets, subsets II, combination sum"],
+["Day 17", "Backtracking II", "Permutations, permutations II, palindrome partitioning"],
+["Day 18", "Backtracking III", "N-Queens, sudoku solver, word search"],
+["Day 19", "Linked list I", "Reverse, detect cycle, middle node, merge two lists"],
+["Day 20", "Linked list II", "Flatten, clone random pointer, LRU cache"],
+["Day 21", "Review Sunday", "Re-solve 2 hard backtracking + 1 LL problem"]
+]
+},
+{
+title: "Weeks 7–8: Stack, queue, monotonic patterns, heap",
+summary: "Data structures that optimize local min/max queries, expression parsing, and priority handling.",
+days: [
+["Day 22", "Stack basics", "Valid parentheses, next greater element, asteroid collision"],
+["Day 23", "Monotonic stack", "Largest rectangle histogram, trapping rain water, sliding window max (deque)"],
+["Day 24", "Queue/deque", "Implement queue with stacks, circular queue, sliding window max"],
+["Day 25", "Heap basics", "Kth largest, top k frequent, merge k sorted lists"],
+["Day 26", "Heap applications", "Find median from stream, task scheduler, meeting rooms II"],
+["Day 27", "Mixed review", "Combine stack + heap + sliding patterns in 3 medium problems"],
+["Day 28", "Review Sunday", "Mock set of stack/heap problems, analyze time complexity"]
+]
+},
+{
+title: "Weeks 9–10: Trees and BST",
+summary: "Master binary tree traversals, views, path problems, and binary search tree operations.",
+days: [
+["Day 29", "Traversals", "Inorder/preorder/postorder (recursive + iterative), level order"],
+["Day 30", "Tree properties", "Height, diameter, balanced check, symmetric tree"],
+["Day 31", "Tree views", "Top view, bottom view, left/right view, vertical order traversal"],
+["Day 32", "Path problems", "Root-to-leaf paths, path sum, max path sum, lowest common ancestor"],
+["Day 33", "LCA & build tree", "LCA of binary tree, construct tree from inorder+preorder/postorder"],
+["Day 34", "BST I", "Validate BST, inorder successor, insert/delete in BST, k-th smallest"],
+["Day 35", "Review Sunday", "Tree + BST mashup: solve 3 medium/hard problems"]
+]
+},
+{
+title: "Weeks 11–12: BST advanced, trie, greedy, bit manipulation",
+summary: "Advanced tree structures (BST, Trie), greedy strategies, and bitwise tricks for optimization.",
+days: [
+["Day 36", "BST II", "Ceil/floor in BST, two-sum in BST, recover BST"],
+["Day 37", "Heap + BST blend", "Merge k sorted lists, sliding window median, kth largest in stream"],
+["Day 38", "Trie basics", "Implement trie, insert/search/delete, longest common prefix via trie"],
+["Day 39", "Trie applications", "Word search II, design search autocomplete, replace words"],
+["Day 40", "Greedy I", "Activity selection, fractional knapsack, job sequencing"],
+["Day 41", "Bits", "Count set bits, power of two, single number, XOR tricks, subset generation via bits"],
+["Day 42", "Review Sunday", "Greedy + bit manipulation problems, mini mock"]
+]
+},
+{
+title: "Weeks 13–15: Graph fundamentals to shortest paths",
+summary: "Graph representations, BFS/DFS, topological sort, cycle detection, bipartite checks, and shortest path algorithms.",
+days: [
+["Day 43", "Graph setup", "Adjacency list/matrix, BFS/DFS on generic graph, connected components"],
+["Day 44", "Grid BFS/DFS", "Number of islands, rotten oranges, word ladder, flood fill"],
+["Day 45", "Topo sort", "Course schedule I/II, alien dictionary, task scheduling"],
+["Day 46", "Cycle / bipartite / DSU intro", "Detect cycle (directed/undirected), bipartite check, union-find basics"],
+["Day 47", "Shortest path I", "Dijkstra's algorithm, network delay time, cheapest flights within k stops"],
+["Day 48", "Shortest path II", "Bellman-Ford, Floyd-Warshall, path with minimum effort"],
+["Day 49", "Review Sunday", "Graph problem set: BFS/DFS/topo/shortest path mix"]
+]
+},
+{
+title: "Weeks 16–17: MST, DSU, advanced graphs",
+summary: "Minimum spanning tree, disjoint set union mastery, and advanced graph theory problems.",
+days: [
+["Day 50", "MST", "Kruskal's, Prim's, connecting cities with minimum cost"],
+["Day 51", "DSU mastery", "Path compression, rank by size, account merge, redundant connection"],
+["Day 52", "DSU problems", "Number of provinces, most stones removed, satisfiability of equality equations"],
+["Day 53", "Advanced shortest paths", "A* search concept, bidirectional BFS, 0-1 BFS"],
+["Day 54", "Advanced graph theory", "Articulation points, bridges, strongly connected components (Tarjan/Kosaraju)"],
+["Day 55", "Graph mix", "Solve 3 mixed hard graph problems"],
+["Day 56", "Review Sunday", "Timed graph contest, analyze approaches"]
+]
+},
+{
+title: "Weeks 18–20: Dynamic programming 1D and subsequence",
+summary: "Foundational DP: climb stairs, house robber, coin change, knapsack, subsequence patterns.",
+days: [
+["Day 57", "DP intro", "Fibonacci, climb stairs, min cost climbing stairs, house robber"],
+["Day 58", "1D DP", "House robber II, decode ways, maximum product subarray"],
+["Day 59", "Subsequence DP I", "Longest increasing subsequence (LIS), longest common subsequence (LCS)"],
+["Day 60", "Knapsack family", "0/1 knapsack, subset sum, partition equal subset sum"],
+["Day 61", "Coin change family", "Coin change I/II, minimum coins, combination sum IV"],
+["Day 62", "Decode & break", "Decode ways II, word break, word break II"],
+["Day 63", "Review Sunday", "DP problem set (1D + subsequence), revisit recurrence relations"]
+]
+},
+{
+title: "Weeks 21–22: Dynamic programming 2D, grid, interval",
+summary: "Advanced DP patterns: grid DP, string DP, interval DP, and sequence alignment.",
+days: [
+["Day 64", "Grid DP", "Unique paths I/II, minimum path sum, dungeon game, cherry pickup"],
+["Day 65", "String DP I", "Edit distance, distinct subsequences, interleaving strings"],
+["Day 66", "String DP II", "Wildcard matching, regular expression matching, longest palindromic subsequence"],
+["Day 67", "Interval DP", "Matrix chain multiplication, burst balloons, minimum cost to merge stones"],
+["Day 68", "Advanced sequence DP", "Longest arithmetic subsequence, maximum sum increasing subsequence"],
+["Day 69", "DP consolidation", "Solve 3 hard DP problems covering multiple patterns"],
+["Day 70", "Review Sunday", "DP mock contest, analyze state transitions and optimizations"]
+]
+},
+{
+title: "Weeks 23–24: Math, design basics, SQL, CS core start",
+summary: "Mathematical algorithms, system design class basics, SQL practice, and foundational CS topics.",
+days: [
+["Day 71", "Math / implementation", "Sieve of Eratosthenes, GCD/LCM, modular arithmetic, fast exponentiation"],
+["Day 72", "SQL I", "SELECT, WHERE, JOIN, aggregate functions, GROUP BY, HAVING"],
+["Day 73", "SQL II", "Subqueries, window functions, CTEs, complex JOINs"],
+["Day 74", "OS I", "Process vs thread, scheduling algorithms, deadlock, concurrency primitives"],
+["Day 75", "OS II", "Virtual memory, paging, segmentation, memory management"],
+["Day 76", "DBMS I", "ACID properties, normalization, indexing, B+ trees"],
+["Day 77", "Review Sunday", "CS fundamentals revision, SQL practice problems"]
+]
+},
+{
+title: "Weeks 25–26: Networks, OOP, LLD, system design basics",
+summary: "Computer networks, OOP principles, low-level design, and introduction to system design.",
+days: [
+["Day 78", "CN I", "OSI model, TCP/IP, HTTP/HTTPS, DNS, routing"],
+["Day 79", "CN II", "Congestion control, flow control, network security basics"],
+["Day 80", "OOP", "Classes, inheritance, polymorphism, encapsulation, SOLID principles"],
+["Day 81", "LLD I", "Design patterns: Singleton, Factory, Observer, Strategy, Decorator"],
+["Day 82", "System design I", "CAP theorem, load balancing, caching, CDN, database sharding"],
+["Day 83", "System design II", "Message queues, microservices, API design, rate limiting"],
+["Day 84", "Review Sunday", "Design a real-world system (e.g., URL shortener, parking lot)"]
+]
+},
+{
+title: "Weeks 27–29: Company-style mixed practice and mocks",
+summary: "Simulate real interviews with timed problems, behavioral prep, resume walkthroughs, and company-tagged sets.",
+days: [
+["Day 85", "Mock 1", "2 medium + 1 hard, 90 min timed"],
+["Day 86", "Mock review", "Analyze solutions, alternate approaches, complexity trade-offs"],
+["Day 87", "Company-tagged set", "Solve 5 problems from target companies (Google/Meta/Amazon)"],
+["Day 88", "Mock 2", "3 medium problems, 90 min timed"],
+["Day 89", "Behavior prep", "STAR method, leadership principles, project explanations"],
+["Day 90", "Resume defense", "Walk through projects, explain technical decisions, trade-offs"],
+["Day 91", "Review Sunday", "Reflection: identify weak areas, update study plan"]
+]
+},
+{
+title: "Weeks 30–32: Final revision engine",
+summary: "Intensive revision of core patterns, CS fundamentals, and mock interviews to reach interview-ready state.",
+days: [
+["Day 92", "Blind 75 sprint", "Re-solve 10 must-know problems from Blind 75 list"],
+["Day 93", "Graph + DP retest", "3 graph problems + 3 DP problems, track speed and accuracy"],
+["Day 94", "Tree + heap retest", "3 tree problems + 2 heap problems"],
+["Day 95", "CS core retest", "Revise OS, DBMS, networks, OOP concepts, practice MCQs"],
+["Day 96", "Mock 3", "Full-length mock interview (2 coding + 1 system design)"],
+["Day 97", "Weakness day", "Focus exclusively on your weakest topic identified so far"],
+["Day 98", "Review Sunday", "Weekly meta-analysis: what worked, what didn't, adjust strategy"]
+]
+},
+{
+title: "Weeks 33–? (Month 5 buffer)",
+summary: "Buffer weeks for targeted revision, mock bursts, behavioral prep, system design deep dives, and final company prep.",
+days: [
+["Days 99–110", "Targeted revision", "Revisit weak patterns, solve company-specific problems"],
+["Days 111–120", "Mock burst", "3-4 full mock interviews per week"],
+["Days 121–130", "Behavior + design", "Behavioral interview prep, low-level + high-level design practice"],
+["Days 131–140", "Speed block", "Solve easy/medium problems under time pressure to build speed"],
+["Days 141–145", "Final company prep", "Deep dive into target company's interview style and recent questions"],
+["Days 146–149", "Recovery revision", "Light revision, maintain confidence, rest adequately"],
+["Day 150", "Interview eve", "Final checklist, setup verification, mental prep"]
+]
 }
-function setState(next) {
-    window.trackerState = next;
+];
+
+let globalDayCounter = 0;
+const weeksContainer = document.getElementById('weeks');
+weeks.forEach((week, wi) => {
+const weekCard = document.createElement('div');
+weekCard.className = 'card week-card';
+const daysHtml = week.days.map((d, di) => {
+const isRange = d[0].includes('–');
+const count = isRange ? 0 : 1;
+if (!isRange) globalDayCounter += 1;
+const key = isRange ? `range-${wi}-${di}` : `day-${globalDayCounter}`;
+return `<div class="day" ${isRange ? '' : `data-day-card="${globalDayCounter}"`}>
+<div class="day-top">
+<div>${isRange ? `<div class="day-title">${d[0]}</div>` : `<label style="display:flex;gap:.7rem;align-items:flex-start"><input type="checkbox" data-day="${globalDayCounter}" style="width:18px;height:18px;margin-top:.1rem;accent-color:var(--color-primary)"><span class="day-title">${d[0]}</span></label>`}</div>
+<div class="topic">${d[1]}</div>
+</div>
+<span class="badge">${isRange ? 'Buffer / Planned' : ''}</span>
+<ul><li>${d[2]}</li></ul>
+</div>`;
+}).join('');
+weekCard.innerHTML = `<div class="week-head"><div><h4>${week.title}</h4><p>${week.summary}</p></div><span class="badge">${week.days.length} entries</span></div><div class="days">${daysHtml}</div>`;
+weeksContainer.appendChild(weekCard);
+});
+
+function getState() {
+try {
+const stored = localStorage.getItem('dsa-tracker-state');
+return stored ? JSON.parse(stored) : { days: {}, coverage: {}, notes: '', theme: 'dark' };
+} catch { return { days: {}, coverage: {}, notes: '', theme: 'dark' }; }
+}
+function setState(obj) {
+localStorage.setItem('dsa-tracker-state', JSON.stringify(obj));
 }
 function saveState() {
-    const state = getState();
-    window.savedState = JSON.stringify(state);
-}
-function loadState() {
-    try {
-        const saved = window.savedState ? JSON.parse(window.savedState) : null;
-        if (saved) setState(saved);
-    } catch(e) {}
+const state = getState();
+setState(state);
 }
 function applyState() {
-    const state = getState();
-    document.querySelectorAll('[data-day]').forEach(cb => cb.checked = !!state.days[cb.dataset.day]);
-    document.querySelectorAll('[data-coverage]').forEach(cb => cb.checked = !!state.coverage[cb.dataset.coverage]);
-    notesArea.value = state.notes;
-    if (state.theme) document.documentElement.setAttribute('data-theme', state.theme);
-    updateProgress();
+const state = getState();
+document.querySelectorAll('[data-day]').forEach(cb => cb.checked = !!state.days[cb.dataset.day]);
+document.querySelectorAll('[data-coverage]').forEach(cb => cb.checked = !!state.coverage[cb.dataset.coverage]);
+notesArea.value = state.notes;
+if (state.theme) document.documentElement.setAttribute('data-theme', state.theme);
+updateProgress();
 }
 function updateProgress() {
-    const state = getState();
-    const doneDays = Object.values(state.days).filter(Boolean).length;
-    doneCountEl.textContent = doneDays;
-    progressLabel.textContent = `${doneDays} / 150 days planned`;
-    const pct = Math.min(100, (doneDays / 150) * 100);
-    sidebarProgress.style.width = pct + '%';
-    const firstIncomplete = [...document.querySelectorAll('[data-day]')].find(cb => !cb.checked);
-    todayLabel.textContent = firstIncomplete ? `Day ${firstIncomplete.dataset.day}` : 'Review';
+const state = getState();
+const doneDays = Object.values(state.days).filter(Boolean).length;
+doneCountEl.textContent = `${doneDays} / 150 days planned`;
+progressLabel.textContent = `${doneDays} / 150 days planned`;
+const pct = Math.min(100, (doneDays / 150) * 100);
+sidebarProgress.style.width = pct + '%';
+const firstIncomplete = [...document.querySelectorAll('[data-day]')].find(cb => !cb.checked);
+todayLabel.textContent = firstIncomplete ? `Day ${firstIncomplete.dataset.day}` : 'Review';
 }
-loadState();
+function loadState() {
 applyState();
+}
 document.addEventListener('change', (e) => {
-    const state = getState();
-    if (e.target.matches('[data-day]')) state.days[e.target.dataset.day] = e.target.checked;
-    if (e.target.matches('[data-coverage]')) state.coverage[e.target.dataset.coverage] = e.target.checked;
-    setState(state);
-    saveState();
-    updateProgress();
+const state = getState();
+if (e.target.matches('[data-day]')) state.days[e.target.dataset.day] = e.target.checked;
+if (e.target.matches('[data-coverage]')) state.coverage[e.target.dataset.coverage] = e.target.checked;
+setState(state);
+saveState();
+updateProgress();
 });
-notesArea.addEventListener('input', () => {
-    const state = getState();
-    state.notes = notesArea.value;
-    setState(state);
-    saveState();
-});
-document.querySelectorAll('.template-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const templates = {
-            pattern:`Pattern name: \nSignal: \nForce: \nIdea: \nIdea invariant / mistakes:\n1 problem to revisit: `,
-            problem:`Problem: \nFirst thought: \nBrute force fails: \nPattern: \nEdge cases I would say in interview: \nDate: `,
-            mistakes:`Mistake type: \nTriggered it: \nEdge case / invariant / rule will prevent this next time:\nRe-solve on: `,
-            mock:`Question summary: \nI communicated: \nI got stuck: \nNeeded follow-up: \nQuality for next mock: `
-        };
-        notesArea.value = templates[btn.dataset.template];
-        notesArea.dispatchEvent(new Event('input'));
-    });
+const notesArea = document.querySelector('textarea');
+if (notesArea) notesArea.addEventListener('input', () => {
+const state = getState();
+state.notes = notesArea.value;
+setState(state);
+saveState();
 });
 document.getElementById('resetBtn').addEventListener('click', () => {
-    setState({ days:{}, coverage:{}, notes:'', theme: document.documentElement.getAttribute('data-theme') || 'dark' });
-    saveState();
-    applyState();
-});
-document.getElementById('jumpToday').addEventListener('click', () => {
-    navButtons.forEach(b => b.classList.toggle('active', b.dataset.viewTarget === 'plan'));
-    views.forEach(v => v.classList.toggle('active', v.id === 'plan'));
-    const firstIncomplete = [...document.querySelectorAll('[data-day]')].find(cb => !cb.checked);
-    const target = firstIncomplete?.closest('[data-day-card]') || document.querySelector('[data-day-card="1"]');
-    if (target) target.scrollIntoView({behavior:'smooth', block:'center'});
+setState({ days:{}, coverage:{}, notes:'', theme: document.documentElement.getAttribute('data-theme') || 'dark' });
+saveState();
+applyState();
 });
 document.getElementById('themeToggle').addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme') || 'dark';
-    const next = current === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    const state = getState();
-    state.theme = next;
-    setState(state);
-    saveState();
+const current = document.documentElement.getAttribute('data-theme') || 'dark';
+const next = current === 'dark' ? 'light' : 'dark';
+document.documentElement.setAttribute('data-theme', next);
+const state = getState();
+state.theme = next;
+setState(state);
+saveState();
 });
+document.getElementById('jumpToday').addEventListener('click', () => {
+const navButtons = document.querySelectorAll('.nav-section a');
+const views = document.querySelectorAll('.view');
+navButtons.forEach(b => b.classList.toggle('active', b.dataset.viewTarget === 'plan'));
+views.forEach(v => v.classList.toggle('active', v.id === 'plan'));
+const firstIncomplete = [...document.querySelectorAll('[data-day]')].find(cb => !cb.checked);
+const target = firstIncomplete?.closest('[data-day-card]') || document.querySelector('[data-day-card="1"]');
+if (target) target.scrollIntoView({behavior:'smooth', block:'center'});
+});
+const templates = {
+pattern: `Pattern name: \\nSignal: \\nForce: \\nIdea: \\nIdea invariant / mistakes:\\n1 problem to revisit: `,
+problem: `Problem: \\nFirst thought: \\nBrute force fails: \\nPattern: \\nEdge cases I would say in interview: \\nDate: \\nRe-solve on: `,
+mistakes: `Mistake type: \\nTriggered it: \\nEdge case / invariant / rule will prevent this next time:\\nRe-solve on: `,
+mock: `Question summary: \\nI communicated: \\nI got stuck: \\nNeeded follow-up: \\nQuality for next mock: `
+};
+document.querySelectorAll('.template-btn').forEach(btn => {
+btn.addEventListener('click', () => {
+notesArea.value = templates[btn.dataset.template];
+notesArea.dispatchEvent(new Event('input'));
+});
+});
+loadState();
 </script>
 </body>
 </html>

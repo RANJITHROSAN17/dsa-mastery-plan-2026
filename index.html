@@ -1,103 +1,194 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DSA Mastery Plan — 150 Days | Professional</title>
-  <meta name="description" content="150-day data structures & algorithms mastery plan with curated resources and a daily guided curriculum to prepare for MAANG interviews." />
-  <link rel="stylesheet" href="/assets/pro-style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Mastery — 150 Days | MAANG Interview Prep</title>
+    <meta name="description" content="Master Data Structures & Algorithms in 150 days. Curated curriculum, daily lessons, and progress tracking for MAANG interviews.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%2306b6d4' width='100' height='100' rx='20'/><path d='M30 60l20-30 30 50' stroke='%23fff' stroke-width='4' fill='none' stroke-linecap='round'/></svg>">
+    <link rel="stylesheet" href="/assets/premium-style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-grid">
-      <a class="brand" href="#home">
-        <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0ea5a4"></rect><path d="M6 14l3-5 5 9" stroke="#042f2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-        <span>DSA Mastery — 150</span>
-      </a>
-      <nav class="nav">
-        <a href="#curriculum">Curriculum</a>
-        <a href="#how">How to use</a>
-        <a href="#resources">Resources</a>
-      </nav>
-      <div class="cta">
-        <input id="search" placeholder="Search topics, resources or days" aria-label="Search" />
-        <button id="themeToggle" title="Toggle theme">🌙</button>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section id="home" class="hero">
-      <div class="container hero-grid">
-        <div>
-          <h1>Become interview-ready for MAANG: a practical 150-day DSA plan</h1>
-          <p class="lead">Daily lessons, hand-picked resources, and a structured progression from fundamentals to advanced algorithms. Track progress locally or export your checklist.</p>
-          <p class="actions"><button id="startBtn">Start Day 1</button> <a class="ghost" href="#curriculum">See full curriculum</a></p>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">
+                <svg width="28" height="28" viewBox="0 0 100 100"><rect fill="#06b6d4" width="100" height="100" rx="20"/><path d="M30 60l20-30 30 50" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+                <span>DSA Mastery</span>
+            </a>
+            <div class="nav-links">
+                <a href="#overview" class="nav-link">Overview</a>
+                <a href="#curriculum" class="nav-link">Curriculum</a>
+                <a href="#resources" class="nav-link">Resources</a>
+            </div>
+            <div class="nav-actions">
+                <input type="text" id="globalSearch" class="search-bar" placeholder="Search..." aria-label="Search curriculum">
+                <button id="themeBtn" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         </div>
-        <div class="hero-card">
-          <h3>What you get</h3>
-          <ul>
-            <li>150 daily objectives with clear resources</li>
-            <li>Search, filters, and progress tracking</li>
-            <li>Printable checklist and company-style study structure</li>
-          </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">150-Day DSA Mastery Plan</h1>
+            <p class="hero-subtitle">Master algorithms and data structures with a structured daily curriculum designed for MAANG interviews</p>
+            <div class="hero-actions">
+                <button id="startCurriculumBtn" class="btn btn-primary">Start Learning</button>
+                <button id="viewProgressBtn" class="btn btn-secondary">View Progress</button>
+            </div>
         </div>
-      </div>
     </section>
 
-    <section id="curriculum" class="section container">
-      <div class="section-head">
-        <h2>Curriculum — 150 days</h2>
-        <div class="controls">
-          <label>Topic filter
-            <select id="topicFilter"><option value="all">All topics</option></select>
-          </label>
-          <label>Show
-            <select id="showFilter"><option value="all">All</option><option value="todo">Todo</option><option value="done">Done</option></select>
-          </label>
-          <button id="exportProgress">Export checklist</button>
+    <!-- Stats Dashboard -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Total Days</div>
+                        <div class="stat-value">150</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Completed</div>
+                        <div class="stat-value" id="completedCount">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🔥</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Current Streak</div>
+                        <div class="stat-value" id="streakCount">0</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-info">
+                        <div class="stat-label">Progress</div>
+                        <div class="stat-value" id="progressPercent">0%</div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div id="grid" class="grid"></div>
-
-      <div id="pager" class="pager"></div>
     </section>
 
-    <section id="how" class="section container">
-      <h2>How to use this plan</h2>
-      <ol>
-        <li>Follow one day at a time. Read the concept, try 3–5 problems, then mark done.</li>
-        <li>Weekly: Do mixed mock interviews and revisit weak topics.</li>
-        <li>Before interviews: do timed contests and system design refreshers.</li>
-      </ol>
+    <!-- Overview Section -->
+    <section id="overview" class="overview-section">
+        <div class="container">
+            <h2 class="section-title">Your Learning Path</h2>
+            <div class="progress-wrapper">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="mainProgressBar"></div>
+                </div>
+                <div class="progress-labels">
+                    <span id="progressText">0 of 150 completed</span>
+                </div>
+            </div>
+            <div class="cards-row">
+                <div class="info-card">
+                    <h3>📋 What You'll Learn</h3>
+                    <ul>
+                        <li>Arrays, Strings & Hashing</li>
+                        <li>Linked Lists & Stacks</li>
+                        <li>Trees & Binary Search</li>
+                        <li>Graphs & Dynamic Programming</li>
+                        <li>System Design & Mock Interviews</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🎯 How to Succeed</h3>
+                    <ol>
+                        <li>Do one day's lesson</li>
+                        <li>Solve 3-5 practice problems</li>
+                        <li>Mark day complete</li>
+                        <li>Weekly: Mock interview practice</li>
+                        <li>Before interviews: Timed contests</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="resources" class="section container">
-      <h2>Core resources</h2>
-      <ul>
-        <li><a href="https://leetcode.com" target="_blank">LeetCode</a> — problems & contests</li>
-        <li><a href="https://cp-algorithms.com" target="_blank">CP-Algorithms</a> — algorithm references</li>
-        <li><a href="https://github.com/donnemartin/system-design-primer" target="_blank">System Design Primer</a></li>
-      </ul>
+    <!-- Curriculum Section -->
+    <section id="curriculum" class="curriculum-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Curriculum — 150 Days</h2>
+                <div class="controls">
+                    <select id="topicFilter" class="filter-select">
+                        <option value="">All Topics</option>
+                    </select>
+                    <select id="statusFilter" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="todo">To Do</option>
+                        <option value="done">Completed</option>
+                    </select>
+                    <button id="exportBtn" class="btn btn-small">📥 Export</button>
+                </div>
+            </div>
+            <div id="curriculumGrid" class="curriculum-grid"></div>
+            <div id="pagination" class="pagination"></div>
+        </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div>© 2026 DSA Mastery Plan • Built by <strong>RANJITHROSAN17</strong></div>
-      <div class="small">Progress stored locally in your browser. Open-source — contributions welcome.</div>
+    <!-- Resources Section -->
+    <section id="resources" class="resources-section">
+        <div class="container">
+            <h2 class="section-title">Recommended Resources</h2>
+            <div class="resources-grid">
+                <a href="https://leetcode.com" target="_blank" rel="noopener" class="resource-card">
+                    <div class="resource-icon">💻</div>
+                    <h3>LeetCode</h3>
+                    <p>1000+ coding problems with contests and discussions</p>
+                    <span class="resource-link">Visit →</span>
+                </a>
+                <a href="https://www.geeksforgeeks.org" target="_blank" rel="noopener" class="resource-card">
+                    <div class="resource-icon">📖</div>
+                    <h3>GeeksforGeeks</h3>
+                    <p>In-depth algorithm tutorials and implementations</p>
+                    <span class="resource-link">Visit →</span>
+                </a>
+                <a href="https://cp-algorithms.com" target="_blank" rel="noopener" class="resource-card">
+                    <div class="resource-icon">⚙️</div>
+                    <h3>CP-Algorithms</h3>
+                    <p>Competitive programming algorithm reference</p>
+                    <span class="resource-link">Visit →</span>
+                </a>
+                <a href="https://github.com/donnemartin/system-design-primer" target="_blank" rel="noopener" class="resource-card">
+                    <div class="resource-icon">🏗️</div>
+                    <h3>System Design Primer</h3>
+                    <p>Learn system design patterns and architecture</p>
+                    <span class="resource-link">Visit →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 DSA Mastery Plan. Built with 💙 by <strong>RANJITHROSAN17</strong></p>
+                <p class="footer-meta">Progress saved locally • Open source • <a href="https://github.com/RANJITHROSAN17/dsa-mastery-plan-2026" target="_blank">GitHub</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Day Detail Modal -->
+    <div id="dayModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <div id="dayDetail"></div>
+        </div>
     </div>
-  </footer>
 
-  <!-- Modal for day detail -->
-  <div id="dayModal" class="modal" aria-hidden="true">
-    <div class="modal-panel">
-      <button id="closeModal" class="modal-close">✕</button>
-      <div id="modalContent"></div>
-    </div>
-  </div>
-
-  <script src="/assets/pro-app.js"></script>
+    <script src="/assets/premium-app.js"></script>
 </body>
 </html>

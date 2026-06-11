@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DSA Mastery Plan — 150 Days</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>DSA Mastery Plan — 150 Days</h1>
+      <p class="subtitle">Daily guided plan with topics, descriptions, and curated resources to prepare for MAANG interviews.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <label>Go to day: <input id="dayInput" type="number" min="1" max="150" value="1"></label>
+      <button id="goBtn">Go</button>
+      <input id="search" placeholder="Search topics or resources...">
+      <button id="random">Random day</button>
+    </section>
+
+    <section id="dayDetail" class="card">
+      <!-- Day detail rendered here -->
+    </section>
+
+    <section id="dayList">
+      <!-- Paginated list -->
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Built for <strong>RANJITHROSAN17/dsa-mastery-plan-2026</strong>. Progress is saved locally in your browser.</div>
+  </footer>
+
+  <script src="/assets/plan.js"></script>
+  <script>
+    // render and interactivity
+    const days = window.DSA_PLAN_DAYS;
+    const dayDetail = document.getElementById('dayDetail');
+    const dayList = document.getElementById('dayList');
+    const dayInput = document.getElementById('dayInput');
+    const goBtn = document.getElementById('goBtn');
+    const search = document.getElementById('search');
+    const randomBtn = document.getElementById('random');
+
+    let filtered = days;
+
+    function renderDay(day) {
+      const progressKey = `dsa_progress_${day.day}`;
+      const done = localStorage.getItem(progressKey) === '1';
+      dayDetail.innerHTML = `
+        <h2>Day ${day.day}: ${day.title}</h2>
+        <p class="muted">Topic: ${day.topic}</p>
+        <p>${day.description}</p>
+        <h3>Resources</h3>
+        <ul>
+          ${day.resources.map(r => `<li><a href="${r.url}" target="_blank" rel="noopener">${r.title}</a>${r.note?` — <span class="muted">${r.note}</span>`:''}</li>`).join('')}
+        </ul>
+        <div class="actions">
+          <button id="markDone">${done? 'Mark undone':'Mark done'}</button>
+          <button id="prev">◀ Prev</button>
+          <button id="next">Next ▶</button>
+        </div>
+      `;
+      document.getElementById('markDone').onclick = () => {
+        if(localStorage.getItem(progressKey) === '1') {
+          localStorage.removeItem(progressKey);
+        } else {
+          localStorage.setItem(progressKey, '1');
+        }
+        renderDay(day);
+        renderList(currentPage);
+      };
+      document.getElementById('prev').onclick = () => { if(day.day>1) showDay(day.day-1); };
+      document.getElementById('next').onclick = () => { if(day.day<days.length) showDay(day.day+1); };
+    }
+
+    function showDay(n) {
+      const d = days.find(x=>x.day===n);
+      if(!d) return;
+      renderDay(d);
+      dayInput.value = n;
+      // scroll into view
+      dayDetail.scrollIntoView({behavior:'smooth'});
+    }
+
+    goBtn.onclick = () => showDay(Number(dayInput.value));
+    dayInput.onkeydown = (e)=>{ if(e.key==='Enter') showDay(Number(dayInput.value)); };
+    randomBtn.onclick = ()=> showDay(Math.floor(Math.random()*days.length)+1);
+
+    // list with pagination
+    const pageSize = 15;
+    let currentPage = 1;
+    function renderList(page=1) {
+      currentPage = page;
+      const start = (page-1)*pageSize;
+      const pageDays = filtered.slice(start, start+pageSize);
+      const totalPages = Math.ceil(filtered.length/pageSize);
+      dayList.innerHTML = `
+        <div class="list-grid">
+          ${pageDays.map(d=>{
+            const done = localStorage.getItem(`dsa_progress_${d.day}`) === '1';
+            return `<article class="day-card ${done? 'done':''}" data-day="${d.day}"><h4>Day ${d.day}</h4><strong>${d.title}</strong><p class="muted">${d.topic}</p></article>`
+          }).join('')}
+        </div>
+        <div class="pager">Page ${page} / ${totalPages} <button id="prevPage">◀</button> <button id="nextPage">▶</button></div>
+      `;
+      document.querySelectorAll('.day-card').forEach(el=> el.onclick = () => showDay(Number(el.dataset.day)));
+      document.getElementById('prevPage').onclick = ()=> { if(page>1) renderList(page-1); };
+      document.getElementById('nextPage').onclick = ()=> { if(page<totalPages) renderList(page+1); };
+    }
+
+    search.oninput = (e)=>{
+      const q = e.target.value.trim().toLowerCase();
+      if(!q) filtered = days;
+      else filtered = days.filter(d=> (d.title + ' ' + d.topic + ' ' + d.description + ' ' + d.resources.map(r=>r.title+' '+(r.note||'')).join(' ')).toLowerCase().includes(q));
+      renderList(1);
+    }
+
+    // initial render
+    renderList(1);
+    showDay(1);
+  </script>
+</body>
+</html>

@@ -1,336 +1,359 @@
-# 🚀 DSA Mastery Plan 2026
+# 🚀 DSA Mastery Plan 2026 - Your Complete MAANG Interview Roadmap
 
-## Complete 5-Month DSA Mastery Plan for MAANG Interviews
-
-> **150 Days of Daily Tasks, Resources & Progress Tracking**  
-> Built from Striver's A2Z Sheet, NeetCode 150, Blind 75, Love Babbar 450 & GeeksforGeeks SDE
+> **Transform from beginner to MAANG-ready in 150 days** | Built from Striver's A2Z, NeetCode 150, Blind 75, Love Babbar 450 & GeeksforGeeks SDE
 
 ---
 
-## ✨ Overview
+## 📚 Quick Navigation
 
-A **comprehensive, structured 150-day DSA learning plan** designed specifically for cracking MAANG interviews. Each day includes:
+- **[🎯 Start Learning →](#-quick-start)** Begin your journey
+- **[📊 Interactive Dashboard](https://ranjithrosan17.github.io/dsa-mastery-plan-2026/)** Track your progress
+- **[📖 Complete Resource Library](LEARNING-RESOURCES.md)** All curated resources
+- **[🧠 Pattern Cheatsheet](patterns.md)** Master algorithmic patterns
+- **[📁 Daily Curriculum](curriculum-data.js)** 150-day detailed plan
 
-- 📋 **Specific topics to learn**
-- 🎯 **Curated problems** with direct LeetCode links
-- 📚 **Learning resources** (videos, articles, visualizations)
-- ✅ **Progress tracking** with local storage
-- 📊 **Interactive dashboard** to monitor your journey
+---
+
+## ✨ Why This Plan Works
+
+### 🎓 **Beginner-Friendly Structure**
+Start from absolute basics and progressively build to advanced topics. No prerequisites needed.
+
+### 🏢 **MAANG-Focused**
+Every problem, pattern, and concept is chosen based on real FAANG interview frequencies.
+
+### 📖 **Multiple Learning Paths**
+- **Striver's A2Z Course**: Comprehensive video explanations
+- **NeetCode 150**: Must-solve problems with video solutions
+- **Blind 75**: Essential interview patterns
+- **Love Babbar 450**: Comprehensive practice sheet
+- **GeeksforGeeks**: Company-specific questions
+
+### 🎯 **Daily Actionable Content**
+No vague advice. Each day includes:
+- ✅ Specific topics to learn
+- ✅ Curated video tutorials
+- ✅ Practice problems with direct links
+- ✅ Intuition & pattern recognition tips
+- ✅ Progress tracking
+
+---
+
+## 🗓️ 150-Day Learning Journey
+
+### 📅 **Phase 1: Foundation (Weeks 1-4) - Days 1-28**
+**Master the Basics**
+- Week 1-2: Arrays, Time/Space Complexity, Basic Patterns
+- Week 3-4: Sorting Algorithms, Binary Search Variants
+
+**What You'll Build:**
+- Solid understanding of Big-O notation
+- Array manipulation mastery
+- Search and sort proficiency
+
+### 📅 **Phase 2: Fundamental Data Structures (Weeks 5-8) - Days 29-56**
+**Core Building Blocks**
+- Recursion & Backtracking
+- Linked Lists (Single, Double, Circular)
+- Stacks & Queues
+- Hashing & HashMaps
+
+**What You'll Build:**
+- Recursive thinking
+- Pointer manipulation skills
+- Stack-based problem solving
+
+### 📅 **Phase 3: Trees & Graphs (Weeks 9-14) - Days 57-98**
+**Hierarchical Structures**
+- Binary Trees (All traversals)
+- Binary Search Trees
+- Advanced Trees (Heap, Trie, Segment Tree)
+- Graph Algorithms (DFS, BFS, Dijkstra, etc.)
+
+**What You'll Build:**
+- Tree recursion mastery
+- Graph traversal expertise
+- Shortest path algorithms
+
+### 📅 **Phase 4: Advanced Topics (Weeks 15-20) - Days 99-140**
+**Optimization & Strategy**
+- Dynamic Programming (All patterns)
+- Greedy Algorithms
+- Advanced Graph (Union-Find, Topological Sort)
+- Bit Manipulation
+- Mathematical Algorithms
+
+**What You'll Build:**
+- DP pattern recognition
+- Optimization thinking
+- Problem-solving strategies
+
+### 📅 **Phase 5: Interview Mastery (Weeks 21-22) - Days 141-150**
+**Final Preparation**
+- System Design Basics
+- Mock Interviews
+- Company-Specific Questions
+- Interview Strategies
 
 ---
 
 ## 🎯 Key Features
 
-### 📌 Structured Curriculum
-- **Weeks 1-2**: Foundation & Arrays (7 days)
-- **Weeks 3-4**: Sorting & Binary Search (7 days)  
-- **Weeks 5-6**: Recursion & Backtracking (Coming soon)
-- **Weeks 7-32**: Complete DSA coverage including Trees, Graphs, DP, etc.
+### 📊 **Interactive Progress Dashboard**
+Visit: [https://ranjithrosan17.github.io/dsa-mastery-plan-2026/](https://ranjithrosan17.github.io/dsa-mastery-plan-2026/)
 
-### 🔗 Complete Resource Integration
-- **Striver's A2Z Course** - Full video course explanations
-- **NeetCode 150** - 150 must-solve problems
-- **Blind 75** - Essential interview patterns
-- **LeetCode** - Direct problem links
-- **GeeksforGeeks** - Company interview questions
-- **Love Babbar 450** - Comprehensive practice sheet
+**Features:**
+- ✅ Click to mark days complete
+- 📈 Visual progress bar
+- 📅 Current week indicator
+- 💾 Auto-saves progress (localStorage)
+- 📤 Export progress as JSON
+- 🔄 Reset functionality
+- 📱 Mobile-responsive design
 
-### 📊 Interactive Dashboard
-- Track days completed
-- Visual progress bar
-- Current week indicator
-- Export progress as JSON
-- Reset functionality
+### 🧠 **Pattern Recognition System**
+Check [patterns.md](patterns.md) for a living cheatsheet:
+- Sliding Window
+- Two Pointers
+- Binary Search
+- DFS/BFS
+- Dynamic Programming
+- And 20+ more patterns!
 
-### 💾 Data Persistence
-- All progress saved to browser localStorage
-- Export progress anytime
-- Pick up where you left off
-
-### 🎨 Beautiful UI
-- Modern dark theme optimized for long study sessions
-- Responsive design (mobile, tablet, desktop)
-- Difficulty badges (Easy, Medium, Hard)
-- Quick pattern reference guide
-- Expandable day details
-
----
-
-## 📖 Daily Structure
-
-Each day includes:
-
-1. **Day Title & Topic** - Clear learning objective
-2. **Focus Area** - What you'll learn today
-3. **Key Concepts** - Core ideas to understand
-4. **Problems** - Specific LeetCode/GFG problems with links
-5. **Learning Resources** - Video tutorials, articles, visualizations
-6. **Difficulty** - Marked as Easy, Medium, or Hard
-
-### Example Day (Day 1)
-```
-📅 Day 1: Setup & Big-O Complexity
-
-🎯 Concepts:
-  - Time Complexity
-  - Space Complexity  
-  - Big-O Analysis
-  - Recursion Trees
-
-🔗 Problems:
-  - Basic Template Setup (Easy)
-  - Understanding Complexity (Easy)
-
-📚 Resources:
-  - Striver's A2Z Course
-  - Big O Analysis Video
-  - Algorithm Visualization
-```
+### 📚 **Comprehensive Resource Library**
+See [LEARNING-RESOURCES.md](LEARNING-RESOURCES.md) for:
+- Video tutorial playlists
+- Article collections
+- Visualization tools
+- Practice platforms
+- Interview prep guides
 
 ---
 
 ## 🚀 Quick Start
 
-### 1. **Open the Interactive Dashboard**
+### Step 1: Open the Dashboard
+```bash
+# Visit the live dashboard
+https://ranjithrosan17.github.io/dsa-mastery-plan-2026/
+
+# Or open locally
+git clone https://github.com/RANJITHROSAN17/dsa-mastery-plan-2026.git
+cd dsa-mastery-plan-2026
+open index.html
 ```
-Simply open index.html in your browser:
-https://ranjithrosan17.github.io/dsa-mastery-plan-2026
+
+### Step 2: Start Day 1
+1. Click on **Day 1** card
+2. Read the learning objectives
+3. Watch the video tutorials
+4. Solve the practice problems
+5. Mark as complete ✅
+
+### Step 3: Track Your Patterns
+As you learn new patterns:
+1. Open [patterns.md](patterns.md)
+2. Note the pattern name and key idea
+3. Mark which day you learned it
+4. Reference it for similar problems
+
+### Step 4: Daily Routine
+**Recommended: 3-4 hours/day**
+
+**Morning (1.5 hours):**
+- Watch video tutorials
+- Read concept articles
+- Take notes on patterns
+
+**Afternoon (1.5 hours):**
+- Solve 2-3 problems
+- Write clean code
+- Analyze time/space complexity
+
+**Evening (30 mins):**
+- Review mistakes
+- Update pattern tracker
+- Mark day complete
+
+---
+
+## 📖 Daily Structure Explained
+
+Each of the 150 days includes:
+
+### 1. **Clear Learning Objective**
+Example: "Master Two Pointer Technique"
+
+### 2. **Focus Areas**
+What specific skills you'll develop today
+
+### 3. **Core Concepts**
+Key ideas and intuitions behind the topic
+
+### 4. **Curated Problems**
+- 2-4 problems with difficulty levels
+- Direct LeetCode/GFG links
+- Pattern tags
+
+### 5. **Learning Resources**
+- Striver's video for the topic
+- NeetCode explanation (if applicable)
+- Visualization tools
+- Related articles
+
+### 6. **Pattern Tags**
+Which algorithmic patterns this day covers
+
+### Example: Day 3 - Two Pointers
+```
+📅 Day 3: Two Pointer Technique
+
+🎯 Focus: Master opposite and same direction two pointers
+
+📚 Concepts:
+- Opposite direction pointers
+- Same direction pointers  
+- When to use which approach
+
+🔗 Problems:
+1. Two Sum II (Easy) - LeetCode 167
+2. Container With Most Water (Medium) - LeetCode 11
+3. 3Sum (Medium) - LeetCode 15
+
+📺 Resources:
+- Striver's Two Pointer Playlist
+- NeetCode Two Pointer Guide
+- Visual Algorithm Simulator
+
+✅ Mark Complete
 ```
 
-### 2. **Start Learning**
-- Click on any day card to see detailed information
-- Links direct you to LeetCode problems and resources
-- Mark days complete using the checkbox
+---
 
-### 3. **Track Progress**
-- See overall completion percentage
-- Current week indicator
-- Export progress as JSON file
+## 🎨 Beautiful, Functional UI
 
-### 4. **Use Pattern Reference**
-- Scroll to see 8+ essential DSA patterns
-- Each pattern includes:
-  - Core concept explanation
-  - When to use it
-  - Real problem example
+### Design Highlights:
+- 🌙 **Dark Theme**: Optimized for long study sessions
+- 📱 **Responsive**: Works on phone, tablet, desktop
+- 🎨 **Color-Coded**: Easy (Green), Medium (Orange), Hard (Red)
+- 🔍 **Expandable Cards**: Click to see full details
+- 📊 **Progress Visualization**: See how far you've come
+- ⚡ **Fast & Smooth**: Optimized performance
 
 ---
 
-## 📚 Learning Path Overview
+## 💡 Pro Tips for Success
 
-### Phase 1: Foundation (Weeks 1-4)
-- Arrays & Strings
-- Sorting & Searching
-- Complexity Analysis
+### 📝 **Take Notes**
+- Use [patterns.md](patterns.md) as your cheatsheet
+- Note pattern variations
+- Keep track of tricky edge cases
 
-### Phase 2: Core Data Structures (Weeks 5-12)
-- Recursion & Backtracking
-- Linked Lists
-- Stacks & Queues
-- Trees & BST
-- Tries
+### 🔄 **Consistent Practice**
+- Study 3-4 hours daily
+- Don't skip fundamentals
+- Review previous patterns weekly
 
-### Phase 3: Advanced Topics (Weeks 13-22)
-- Graphs & Shortest Paths
-- Dynamic Programming
-- Greedy Algorithms
+### 🤔 **Understand, Don't Memorize**
+- Focus on "why" not just "how"
+- Draw diagrams for complex problems
+- Explain solutions out loud
 
-### Phase 4: Interview Prep (Weeks 23-30)
-- System Design Basics
-- CS Fundamentals
-- Mock Interviews
-- Company-specific practice
+### 🎯 **Pattern Recognition**
+- Identify patterns before coding
+- Group similar problems
+- Build your pattern library
 
-### Phase 5: Final Polish (Weeks 31-32)
-- Targeted revision
-- Mock contests
-- Behavioral prep
+### 🧪 **Test Thoroughly**
+- Test edge cases
+- Dry run on paper first
+- Verify time/space complexity
 
----
-
-## 🎓 Resource Links
-
-| Resource | Link | Best For |
-|----------|------|----------|
-| **Striver's A2Z** | https://takeuforward.org/dsa | Complete course with videos |
-| **NeetCode 150** | https://neetcode.io/practice | Curated problems + solutions |
-| **Blind 75** | https://leetcode.com/studyplan/leetcode-75 | Must-know patterns |
-| **LeetCode** | https://leetcode.com | Vast problem bank |
-| **GeeksforGeeks** | https://www.geeksforgeeks.org | Company questions |
-| **Love Babbar 450** | https://450dsa.com | Comprehensive practice |
+### 📈 **Track Progress**
+- Use the dashboard daily
+- Export progress weekly
+- Celebrate milestones
 
 ---
 
-## 🎯 Essential DSA Patterns
-
-1. **Sliding Window** - Contiguous subarray problems
-2. **Two Pointers** - Sorted arrays, pairs, palindromes
-3. **Prefix Sum** - Range queries, subarray problems
-4. **Binary Search** - Sorted input, monotonic answers
-5. **DFS** - Connectivity, paths, all solutions
-6. **BFS** - Shortest path, level traversal
-7. **Monotonic Stack** - Next greater element problems
-8. **Union-Find (DSU)** - Cycle detection, connectivity
-
----
-
-## 💡 Tips for Success
-
-✅ **Do this daily:**
-- Spend 60-90 minutes on the assigned day
-- Learn the concept (10-20 min)
-- Solve the assigned problems (40-60 min)
-- Review a previous problem from memory (10 min)
-
-✅ **Track patterns:**
-- Keep a running list of patterns you learn
-- Note when to use each pattern
-- Review periodically
-
-✅ **Debug systematically:**
-- Create postmortems for problems you struggle with
-- Root cause analysis: pattern misidentified? Edge case? Wrong data structure?
-- Use this to improve
-
-✅ **Mock interviews:**
-- Use weeks 27-30 for timed mock contests
-- Simulate real interview conditions
-- Practice under pressure
-
----
-
-## 📁 Repository Structure
+## 📂 Repository Structure
 
 ```
 dsa-mastery-plan-2026/
-├── index.html              # Main interactive dashboard
-├── README.md              # This file
-├── patterns.md            # Pattern tracker template
-├── logs/                  # Daily log entries (Day 1, 2, ...)
-├── postmortems/           # Deep dives on hard problems
-└── styles.css            # CSS styling (included in index.html)
+├── index.html              # Interactive dashboard
+├── styles.css              # Beautiful UI styling
+├── curriculum-data.js      # Complete 150-day plan
+├── README.md               # This file - Complete guide
+├── LEARNING-RESOURCES.md   # All learning resources
+├── patterns.md             # Pattern tracker & cheatsheet
+├── logs/                   # Your practice logs (optional)
+└── postmortems/            # Problem analysis (optional)
 ```
 
 ---
 
-## 🔄 How to Use This Repo
+## 🌟 What Makes This Different?
 
-### 1. **View the Dashboard**
-Open `index.html` in your browser to see the interactive learning plan.
+### ❌ **Not Another Generic DSA List**
+✅ **Day-by-day structured roadmap**
+✅ **Beginner to advanced progression**
+✅ **Multiple trusted sources integrated**
+✅ **Interactive progress tracking**
+✅ **Pattern-focused learning**
 
-### 2. **Track Progress**
-- Click checkboxes to mark days complete
-- Progress automatically saves to browser
-- Export your progress anytime
-
-### 3. **Create Daily Logs** (Optional)
-Create files in `logs/` directory:
-```markdown
-# Day 1 - Setup & Complexity
-
-**Date:** 2026-06-09
-**Time spent:** 75 mins
-
-## Concepts Learned
-- Big-O notation for time and space
-- How to calculate complexity
-
-## Problems Solved
-1. Two Sum (Easy) - ✅ Completed
-2. Best Time to Buy Stock (Easy) - ✅ Completed
-
-## Mistakes
-- [ ] Off-by-one errors
-- [ ] Wrong complexity analysis
-- [ ] Missed edge cases
-
-## Tomorrow's Focus
-- More array problems
-- Prefix sum technique
-```
-
-### 4. **Record Postmortems** (For Hard Problems)
-Create files in `postmortems/` directory for problems you struggled with:
-```markdown
-# Postmortem: Merge Intervals
-
-**Problem:** Merge Intervals (Medium)
-**Date:** 2026-06-09
-
-## What I Did Wrong
-- Initial approach: tried to sort by start time only
-- Problem: didn't handle overlaps correctly
-
-## Root Cause
-- Misunderstood the sorting requirement
-- Didn't consider all edge cases
-
-## Correct Approach
-1. Sort by start time
-2. Merge if current start <= previous end
-3. Handle non-overlapping intervals
-
-## Key Insight
-Always sort the input first for interval problems!
-```
+### ❌ **Not Just Problem Links**
+✅ **Video tutorials for each topic**
+✅ **Concept explanations**
+✅ **Intuition and patterns**
+✅ **Real interview questions**
+✅ **Progress persistence**
 
 ---
 
-## 🎯 Success Metrics
+## 🏆 After 150 Days, You Will:
 
-By the end of 150 days, you should:
-
-✅ **Complete all 98 core days** (Days 1-98 available)
-✅ **Solve 150+ problems** with multiple passes
-✅ **Master 20+ DSA patterns**
-✅ **Understand complexity analysis deeply**
-✅ **Pass multiple mock interviews**
-✅ **Be ready for MAANG interviews**
+✅ Have solved **400+ curated problems**
+✅ Master **30+ algorithmic patterns**
+✅ Understand **all core DSA topics**
+✅ Be ready for **FAANG interviews**
+✅ Have a **personal progress record**
+✅ Build **problem-solving intuition**
 
 ---
 
 ## 🤝 Contributing
 
-This is your personal learning roadmap. Feel free to:
-- Adjust the pace based on your learning speed
-- Add more problems to any day
-- Create additional resources in logs/ and postmortems/
-- Customize to your target companies
-
----
-
-## 📝 License
-
-Open source learning material. Use freely for interview preparation.
-
----
-
-## 👨‍💻 Author
-
-**RANJITHROSAN17** - Cybersecurity Researcher & DSA Enthusiast
-
----
-
-## 🙏 Acknowledgments
-
-- **Striver** - For the comprehensive A2Z DSA course
-- **NeetCode** - For curated problem selections
-- **LeetCode** - For the vast problem database
-- **GeeksforGeeks** - For interview question collections
-- **Love Babbar** - For the 450 problem sheet
+Found a better resource? Have a suggestion?
+1. Fork this repository
+2. Add your improvements
+3. Submit a pull request
 
 ---
 
 ## 📞 Support
 
-If you face issues:
-1. Check browser console for errors (F12)
-2. Clear localStorage and reload
-3. Verify JavaScript is enabled
-4. Try a different browser
+Stuck on a problem? Have questions?
+- Open an [Issue](https://github.com/RANJITHROSAN17/dsa-mastery-plan-2026/issues)
+- Check the [LEARNING-RESOURCES.md](LEARNING-RESOURCES.md) for additional help
+- Review [patterns.md](patterns.md) for pattern guidance
 
 ---
 
-**Built with ❤️ for cracking MAANG interviews**
+## ⭐ Show Your Support
 
-*Start your journey to become a DSA expert today!* 🚀
+If this roadmap helps you:
+- ⭐ Star this repository
+- 🍴 Fork it to customize
+- 📢 Share with friends preparing for interviews
+
+---
+
+## 📜 License
+
+Free to use for your interview prep journey. Good luck! 🚀
+
+---
+
+**Ready to start?** → [Open Dashboard](https://ranjithrosan17.github.io/dsa-mastery-plan-2026/) | [View Resources](LEARNING-RESOURCES.md) | [Check Patterns](patterns.md)
+
+**Master DSA. Crack MAANG. Change Your Life.** 💪

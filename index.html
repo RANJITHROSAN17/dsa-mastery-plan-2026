@@ -22,7 +22,6 @@
             --accent-purple: #8b5cf6;
             --accent-green: #34d399;
             --accent-orange: #fb923c;
-            --accent-pink: #ec4899;
             --success: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
@@ -61,6 +60,69 @@
             max-width: 1600px;
             margin: 0 auto;
             padding: 20px;
+        }
+        
+        /* Navigation Bar */
+        nav {
+            background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--tertiary-bg) 100%);
+            padding: 15px 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5em;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-brand i {
+            color: var(--accent-green);
+            -webkit-text-fill-color: var(--accent-green);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            padding: 8px 16px;
+            background: rgba(79, 158, 255, 0.1);
+            border: 1px solid rgba(79, 158, 255, 0.3);
+            color: var(--accent-blue);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .nav-link:hover {
+            background: rgba(79, 158, 255, 0.2);
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
         }
         
         /* Header */
@@ -152,6 +214,50 @@
         .header-stat-text p {
             color: #a0aac4;
             font-size: 0.9em;
+        }
+        
+        /* Quick Access Cards */
+        .quick-access {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .access-card {
+            background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--tertiary-bg) 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .access-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 15px 40px rgba(79, 158, 255, 0.2);
+            background: linear-gradient(135deg, rgba(79, 158, 255, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+        }
+        
+        .access-card-icon {
+            font-size: 2em;
+        }
+        
+        .access-card-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+        
+        .access-card-desc {
+            font-size: 0.9em;
+            color: var(--text-secondary);
         }
         
         /* Dashboard Grid */
@@ -267,712 +373,37 @@
             margin-top: 10px;
         }
         
-        /* Filter Tabs */
-        .filter-section {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        
-        .filter-btn {
-            padding: 10px 20px;
-            background: linear-gradient(135deg, rgba(79, 158, 255, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.95em;
-        }
-        
-        .filter-btn:hover,
-        .filter-btn.active {
-            color: var(--accent-blue);
-            border-color: var(--accent-blue);
-            background: linear-gradient(135deg, rgba(79, 158, 255, 0.2) 0%, rgba(139, 92, 246, 0.1) 100%);
-        }
-        
-        /* Week Container */
-        .week-container {
-            background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--tertiary-bg) 100%);
-            padding: 40px;
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 40px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .week-header {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--border-color);
-        }
-        
-        .week-header h2 {
-            font-size: 2em;
-            margin-bottom: 12px;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .week-summary {
-            color: var(--text-secondary);
-            font-size: 1.05em;
-            line-height: 1.8;
-        }
-        
-        .week-badge {
-            display: inline-block;
-            padding: 6px 14px;
-            background: rgba(79, 158, 255, 0.2);
-            color: var(--accent-blue);
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 600;
-            margin-right: 10px;
-            margin-top: 10px;
-        }
-        
-        .week-badge.core {
-            background: rgba(16, 185, 129, 0.2);
-            color: var(--success);
-        }
-        
-        .week-badge.intermediate {
-            background: rgba(168, 85, 247, 0.2);
-            color: #d8b4fe;
-        }
-        
-        .week-badge.advanced {
-            background: rgba(239, 68, 68, 0.2);
-            color: var(--danger);
-        }
-        
-        .week-badge.revision {
-            background: rgba(251, 146, 60, 0.2);
-            color: var(--accent-orange);
-        }
-        
-        /* Days Grid */
-        .days-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 25px;
-        }
-        
-        .day-card {
-            background: linear-gradient(135deg, #1f2635 0%, #252d3d 100%);
-            border: 1px solid var(--border-color);
+        /* Info Section */
+        .info-section {
+            background: linear-gradient(135deg, rgba(79, 158, 255, 0.08) 0%, rgba(139, 92, 246, 0.04) 100%);
+            border: 1px solid rgba(79, 158, 255, 0.2);
             border-radius: 12px;
             padding: 25px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-        
-        .day-card::before {
-            content: '';
-            position: absolute;
-            top: -100%;
-            left: 0;
-            right: 0;
-            height: 100%;
-            background: linear-gradient(135deg, transparent, rgba(79, 158, 255, 0.1), transparent);
-            transform: skewX(-20deg);
-            transition: all 0.6s ease;
-        }
-        
-        .day-card:hover::before {
-            top: 0;
-        }
-        
-        .day-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            border-color: var(--accent-blue);
-            box-shadow: 0 25px 50px rgba(79, 158, 255, 0.25);
-        }
-        
-        .day-card.completed {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
-            border-color: var(--success);
-        }
-        
-        .day-checkbox {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-            appearance: none;
-            background: var(--tertiary-bg);
-            border: 2px solid var(--border-color);
-            border-radius: 6px;
-            transition: all 0.3s ease;
-        }
-        
-        .day-checkbox:hover {
-            border-color: var(--accent-green);
-        }
-        
-        .day-checkbox:checked {
-            background: var(--accent-green);
-            border-color: var(--accent-green);
-            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
-        }
-        
-        .day-checkbox:checked::after {
-            content: '✓';
-            position: absolute;
-            top: -3px;
-            left: 4px;
-            color: white;
-            font-weight: bold;
-            font-size: 1.1em;
-        }
-        
-        .day-card > * {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .day-number {
-            font-size: 0.9em;
-            color: var(--text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-        
-        .day-title {
-            font-size: 1.4em;
-            font-weight: 700;
-            margin-bottom: 12px;
-            margin-right: 30px;
-        }
-        
-        .day-difficulty {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.75em;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            margin-right: 8px;
-        }
-        
-        .difficulty-beginner {
-            background: rgba(16, 185, 129, 0.2);
-            color: var(--success);
-        }
-        
-        .difficulty-intermediate {
-            background: rgba(168, 85, 247, 0.2);
-            color: #d8b4fe;
-        }
-        
-        .difficulty-advanced {
-            background: rgba(239, 68, 68, 0.2);
-            color: var(--danger);
-        }
-        
-        .day-description {
-            color: var(--text-secondary);
-            font-size: 0.95em;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        
-        .day-stats {
-            display: flex;
-            gap: 20px;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid var(--border-color);
-            flex-wrap: wrap;
-        }
-        
-        .day-stat {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9em;
-            color: var(--text-secondary);
-        }
-        
-        .day-stat i {
-            color: var(--accent-blue);
-        }
-        
-        .day-stat-value {
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 20, 25, 0.8);
-            backdrop-filter: blur(4px);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            animation: fadeIn 0.3s ease;
-            overflow-y: auto;
-        }
-        
-        .modal.active {
-            display: flex;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .modal-content {
-            background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--tertiary-bg) 100%);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            width: 100%;
-            max-width: 1000px;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 0;
-            animation: slideUp 0.3s ease;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            margin: auto;
-        }
-        
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        .modal-header {
-            padding: 30px 40px;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            background: linear-gradient(135deg, var(--secondary-bg) 0%, rgba(79, 158, 255, 0.1) 100%);
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-        
-        .modal-header-content h2 {
-            font-size: 1.8em;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        
-        .modal-close {
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            font-size: 1.8em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            flex-shrink: 0;
-        }
-        
-        .modal-close:hover {
-            background: rgba(79, 158, 255, 0.1);
-            color: var(--accent-blue);
-        }
-        
-        .modal-body {
-            padding: 40px;
-        }
-        
-        .modal-section {
             margin-bottom: 40px;
         }
         
-        .modal-section:last-child {
-            margin-bottom: 0;
-        }
-        
-        .modal-section-title {
-            font-size: 1.5em;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--accent-blue);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--border-color);
-        }
-        
-        .modal-section-title i {
-            font-size: 1.2em;
-        }
-        
-        /* Resource Table */
-        .resource-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-        
-        .resource-table thead th {
-            background: linear-gradient(135deg, rgba(79, 158, 255, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-            border-bottom: 2px solid var(--border-color);
-            color: var(--accent-blue);
-            font-size: 0.95em;
-        }
-        
-        .resource-table tbody tr {
-            border-bottom: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-        
-        .resource-table tbody tr:hover {
-            background: rgba(79, 158, 255, 0.05);
-        }
-        
-        .resource-table td {
-            padding: 15px;
-            font-size: 0.95em;
-        }
-        
-        .resource-name {
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        
-        .resource-type {
-            display: inline-block;
-            padding: 3px 8px;
-            background: rgba(79, 158, 255, 0.2);
-            color: var(--accent-blue);
-            border-radius: 4px;
-            font-size: 0.8em;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-        
-        .resource-type.video {
-            background: rgba(239, 68, 68, 0.2);
-            color: var(--danger);
-        }
-        
-        .resource-type.article {
-            background: rgba(168, 85, 247, 0.2);
-            color: #d8b4fe;
-        }
-        
-        .resource-type.interactive {
-            background: rgba(34, 197, 94, 0.2);
-            color: var(--accent-green);
-        }
-        
-        .resource-link {
-            color: var(--accent-blue);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .resource-link:hover {
-            color: var(--accent-purple);
-            gap: 12px;
-        }
-        
-        .quality-badge {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-        
-        .quality-best {
-            background: rgba(16, 185, 129, 0.2);
-            color: var(--success);
-        }
-        
-        .quality-good {
-            background: rgba(79, 158, 255, 0.2);
-            color: var(--accent-blue);
-        }
-        
-        .quality-okay {
-            background: rgba(245, 158, 11, 0.2);
-            color: var(--warning);
-        }
-        
-        /* Concepts Grid */
-        .concept-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .concept-item {
-            background: linear-gradient(135deg, rgba(79, 158, 255, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
-            border: 1px solid rgba(79, 158, 255, 0.2);
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 0.95em;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        .concept-item:hover {
-            border-color: var(--accent-blue);
-            background: linear-gradient(135deg, rgba(79, 158, 255, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(79, 158, 255, 0.1);
-        }
-        
-        .concept-name {
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-        
-        .concept-desc {
-            color: var(--text-secondary);
-            font-size: 0.85em;
-            line-height: 1.5;
-        }
-        
-        /* Problems List */
-        .problem-list {
-            display: grid;
-            gap: 12px;
-            margin-top: 15px;
-        }
-        
-        .problem-item {
-            background: linear-gradient(135deg, rgba(79, 158, 255, 0.08) 0%, rgba(139, 92, 246, 0.04) 100%);
-            border: 1px solid rgba(79, 158, 255, 0.15);
-            padding: 15px;
-            border-radius: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-        
-        .problem-item:hover {
-            border-color: var(--accent-blue);
-            background: linear-gradient(135deg, rgba(79, 158, 255, 0.15) 0%, rgba(139, 92, 246, 0.08) 100%);
-            transform: translateX(5px);
-        }
-        
-        .problem-info {
-            flex: 1;
-        }
-        
-        .problem-name {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 5px;
-        }
-        
-        .problem-link {
-            color: var(--accent-blue);
-            text-decoration: none;
-            font-size: 0.9em;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.3s ease;
-        }
-        
-        .problem-link:hover {
-            color: var(--accent-purple);
-        }
-        
-        .problem-diff {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.8em;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-left: 12px;
-            white-space: nowrap;
-        }
-        
-        .diff-easy {
-            background: rgba(16, 185, 129, 0.2);
-            color: var(--success);
-        }
-        
-        .diff-medium {
-            background: rgba(245, 158, 11, 0.2);
-            color: var(--warning);
-        }
-        
-        .diff-hard {
-            background: rgba(239, 68, 68, 0.2);
-            color: var(--danger);
-        }
-        
-        /* Learning Guide */
-        .learning-guide {
-            background: linear-gradient(135deg, rgba(79, 158, 255, 0.08) 0%, rgba(139, 92, 246, 0.04) 100%);
-            border: 1px solid rgba(79, 158, 255, 0.2);
-            border-radius: 12px;
-            padding: 20px;
-            line-height: 1.8;
-        }
-        
-        .learning-guide h4 {
-            font-size: 1.2em;
+        .info-section h3 {
+            font-size: 1.3em;
             color: var(--accent-blue);
             margin-bottom: 15px;
-            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        .learning-guide h5 {
-            font-size: 1.05em;
-            color: var(--text-primary);
-            margin: 15px 0 10px 0;
-        }
-        
-        .learning-guide p {
+        .info-section p {
             color: var(--text-secondary);
+            line-height: 1.8;
             margin-bottom: 10px;
         }
         
-        .learning-guide ul,
-        .learning-guide ol {
+        .info-section ul {
             margin-left: 20px;
             color: var(--text-secondary);
-            margin-bottom: 10px;
         }
         
-        .learning-guide li {
+        .info-section li {
             margin-bottom: 8px;
-        }
-        
-        .learning-guide pre {
-            background: var(--primary-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 12px;
-            overflow-x: auto;
-            color: var(--accent-green);
-            font-size: 0.85em;
-            margin: 10px 0;
-        }
-        
-        /* Patterns Section */
-        .patterns-section {
-            background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--tertiary-bg) 100%);
-            padding: 40px;
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 40px;
-        }
-        
-        .section-title {
-            font-size: 2em;
-            font-weight: 700;
-            margin-bottom: 30px;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .patterns-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        
-        .pattern-card {
-            background: linear-gradient(135deg, #1f2635 0%, #252d3d 100%);
-            border: 1px solid var(--border-color);
-            padding: 25px;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .pattern-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            transition: all 0.5s ease;
-        }
-        
-        .pattern-card:hover::before {
-            top: -30%;
-            right: -30%;
-        }
-        
-        .pattern-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent-purple);
-            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.2);
-        }
-        
-        .pattern-card > * {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .pattern-name {
-            font-size: 1.3em;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--accent-purple);
-        }
-        
-        .pattern-content {
-            font-size: 0.95em;
-            line-height: 1.7;
-            color: var(--text-secondary);
-        }
-        
-        .pattern-content strong {
-            color: var(--text-primary);
-            display: block;
-            margin-top: 10px;
-            margin-bottom: 5px;
         }
         
         /* Footer */
@@ -984,750 +415,243 @@
             margin-top: 60px;
         }
         
-        /* Animations */
-        @keyframes slideInLeft {
-            from { transform: translateX(-20px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+        footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
         }
         
-        .animate-in {
-            animation: slideInLeft 0.5s ease;
-        }
-        
-        /* Empty State */
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--text-tertiary);
-            font-size: 1.1em;
+        footer a:hover {
+            text-decoration: underline;
         }
         
         /* Responsive */
-        @media (max-width: 1024px) {
-            .dashboard { grid-template-columns: repeat(2, 1fr); }
-            .days-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
-            .patterns-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
-        }
-        
         @media (max-width: 768px) {
-            h1 { font-size: 2.2em; }
-            header { padding: 40px 20px; }
-            .container { padding: 15px; }
-            .dashboard { grid-template-columns: 1fr; }
-            .days-grid { grid-template-columns: 1fr; }
-            .patterns-grid { grid-template-columns: 1fr; }
-            .week-container { padding: 20px; }
-            .modal-body { padding: 20px; }
-            .modal-content { max-height: 95vh; }
-            .modal-header {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            nav {
                 flex-direction: column;
-                gap: 15px;
+                align-items: flex-start;
             }
-            .modal-close {
-                align-self: flex-start;
+            
+            .nav-links {
+                width: 100%;
             }
-        }
-        
-        @media (max-width: 480px) {
-            h1 { font-size: 1.8em; }
-            .header-stats { gap: 15px; }
-            .filter-section { flex-direction: column; }
-            .filter-btn { width: 100%; }
-            .resource-table {
-                font-size: 0.85em;
-            }
-            .resource-table td {
-                padding: 10px;
+            
+            header {
+                padding: 40px 20px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <div class="nav-brand">
+                <i class="fas fa-bolt"></i> DSA Mastery 2026
+            </div>
+            <div class="nav-links">
+                <a href="https://github.com/RANJITHROSAN17/dsa-mastery-plan-2026" class="nav-link" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="README.md" class="nav-link">
+                    <i class="fas fa-book"></i> Docs
+                </a>
+                <a href="GETTING-STARTED.md" class="nav-link">
+                    <i class="fas fa-play"></i> Get Started
+                </a>
+                <a href="patterns.md" class="nav-link">
+                    <i class="fas fa-puzzle-piece"></i> Patterns
+                </a>
+                <a href="LEARNING-RESOURCES.md" class="nav-link">
+                    <i class="fas fa-graduation-cap"></i> Resources
+                </a>
+            </div>
+        </nav>
+        
         <!-- Header -->
         <header>
-            <h1>⚡ DSA Mastery 2026</h1>
-            <p class="header-subtitle">Complete 5-Month Elite MAANG Interview Preparation Platform</p>
+            <h1>🚀 DSA Mastery Plan 2026</h1>
+            <p class="header-subtitle">Transform from beginner to MAANG-ready in 150 days</p>
+            
             <div class="header-stats">
                 <div class="header-stat">
-                    <div class="header-stat-icon">📚</div>
+                    <div class="header-stat-icon">📅</div>
                     <div class="header-stat-text">
-                        <h3>150</h3>
-                        <p>Days of Structured Learning</p>
+                        <h3>150 Days</h3>
+                        <p>Structured Learning Path</p>
                     </div>
                 </div>
                 <div class="header-stat">
                     <div class="header-stat-icon">🎯</div>
                     <div class="header-stat-text">
-                        <h3>20+</h3>
-                        <p>Core DSA Topics</p>
+                        <h3>400+ Problems</h3>
+                        <p>Hand-Picked Selection</p>
                     </div>
                 </div>
                 <div class="header-stat">
-                    <div class="header-stat-icon">⭐</div>
+                    <div class="header-stat-icon">🧠</div>
                     <div class="header-stat-text">
-                        <h3>500+</h3>
-                        <p>Curated Resources</p>
+                        <h3>30+ Patterns</h3>
+                        <p>Master All Core Algorithms</p>
+                    </div>
+                </div>
+                <div class="header-stat">
+                    <div class="header-stat-icon">🏢</div>
+                    <div class="header-stat-text">
+                        <h3>MAANG Focused</h3>
+                        <p>Real Interview Questions</p>
                     </div>
                 </div>
             </div>
         </header>
         
-        <!-- Dashboard Cards -->
+        <!-- Quick Access -->
+        <h2 style="font-size: 2em; margin-bottom: 20px; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Quick Access</h2>
+        
+        <div class="quick-access">
+            <a href="https://ranjithrosan17.github.io/dsa-mastery-plan-2026/" class="access-card" target="_blank">
+                <div class="access-card-icon">📊</div>
+                <div class="access-card-title">Interactive Dashboard</div>
+                <div class="access-card-desc">Track your 150-day progress visually</div>
+            </a>
+            
+            <a href="GETTING-STARTED.md" class="access-card">
+                <div class="access-card-icon">🎯</div>
+                <div class="access-card-title">Getting Started Guide</div>
+                <div class="access-card-desc">Step-by-step setup and daily routine</div>
+            </a>
+            
+            <a href="LEARNING-RESOURCES.md" class="access-card">
+                <div class="access-card-icon">📚</div>
+                <div class="access-card-title">Complete Resources</div>
+                <div class="access-card-desc">All curated video, articles, and links</div>
+            </a>
+            
+            <a href="patterns.md" class="access-card">
+                <div class="access-card-icon">🧩</div>
+                <div class="access-card-title">Pattern Cheatsheet</div>
+                <div class="access-card-desc">Reference your algorithmic patterns</div>
+            </a>
+            
+            <a href="REPOSITORY-STRUCTURE.md" class="access-card">
+                <div class="access-card-icon">🗂️</div>
+                <div class="access-card-title">Repository Guide</div>
+                <div class="access-card-desc">Understand project organization</div>
+            </a>
+            
+            <a href="CONTRIBUTING.md" class="access-card">
+                <div class="access-card-icon">🤝</div>
+                <div class="access-card-title">Contribute to Project</div>
+                <div class="access-card-desc">Help improve DSA Mastery Plan</div>
+            </a>
+        </div>
+        
+        <!-- Key Features -->
         <div class="dashboard">
             <div class="dashboard-card">
-                <div class="card-icon">✅</div>
-                <div class="card-title">Days Completed</div>
-                <div class="card-value" id="daysCompleted">0</div>
-                <div class="card-subtitle">Keep your momentum going</div>
+                <div class="card-icon">🌟</div>
+                <div class="card-title">Comprehensive</div>
+                <div class="card-subtitle">Complete curriculum from basics to advanced algorithms</div>
             </div>
+            
             <div class="dashboard-card">
                 <div class="card-icon">📈</div>
-                <div class="card-title">Overall Progress</div>
-                <div class="card-value" id="progressPct">0%</div>
-                <div class="card-subtitle">You're on track</div>
+                <div class="card-title">Progressive</div>
+                <div class="card-subtitle">Structured 5-phase learning with clear milestones</div>
             </div>
+            
             <div class="dashboard-card">
-                <div class="card-icon">🔥</div>
-                <div class="card-title">Current Phase</div>
-                <div class="card-value" id="currentPhase">Phase 1</div>
-                <div class="card-subtitle">Foundations</div>
+                <div class="card-icon">🎓</div>
+                <div class="card-title">Beginner-Friendly</div>
+                <div class="card-subtitle">Start from zero, no prerequisites needed</div>
+            </div>
+            
+            <div class="dashboard-card">
+                <div class="card-icon">💻</div>
+                <div class="card-title">Interactive Dashboard</div>
+                <div class="card-subtitle">Beautiful UI to track 150-day progress</div>
+            </div>
+            
+            <div class="dashboard-card">
+                <div class="card-icon">🔗</div>
+                <div class="card-title">Multi-Source</div>
+                <div class="card-subtitle">Striver, NeetCode, Abdul Bari + more</div>
+            </div>
+            
+            <div class="dashboard-card">
+                <div class="card-icon">🎯</div>
+                <div class="card-title">Interview Ready</div>
+                <div class="card-subtitle">Focused on real MAANG interview questions</div>
             </div>
         </div>
         
-        <!-- Progress Bar -->
+        <!-- Learning Phases -->
+        <div class="info-section">
+            <h3><i class="fas fa-map"></i> Your 150-Day Learning Journey</h3>
+            <ul>
+                <li><strong>Phase 1 (Days 1-30):</strong> Foundation - Arrays, Sorting, Binary Search</li>
+                <li><strong>Phase 2 (Days 31-60):</strong> Core Structures - Linked Lists, Recursion, Backtracking</li>
+                <li><strong>Phase 3 (Days 61-90):</strong> Advanced - Trees, Graphs, BSTs, Tries</li>
+                <li><strong>Phase 4 (Days 91-120):</strong> Algorithms - DP, Greedy, Advanced Graphs, Heaps</li>
+                <li><strong>Phase 5 (Days 121-150):</strong> Mastery - System Design, Mock Interviews, Company-Specific</li>
+            </ul>
+        </div>
+        
+        <!-- Why It Works -->
+        <div class="info-section">
+            <h3><i class="fas fa-lightbulb"></i> Why This Plan Works</h3>
+            <ul>
+                <li>✅ <strong>Structured:</strong> Clear day-by-day curriculum</li>
+                <li>✅ <strong>Curated:</strong> 400+ hand-picked problems from top interview sources</li>
+                <li>✅ <strong>Pattern-Based:</strong> Learn to recognize and apply algorithmic patterns</li>
+                <li>✅ <strong>Multi-Source:</strong> Video + articles + problems + visualizations</li>
+                <li>✅ <strong>Trackable:</strong> Visual progress dashboard with local storage</li>
+                <li>✅ <strong>Actionable:</strong> Daily specific objectives and practice problems</li>
+            </ul>
+        </div>
+        
+        <!-- Quick Start -->
         <div class="progress-section">
-            <div class="progress-header">
-                <h3>Your 5-Month Journey</h3>
-                <span id="progressLabel" style="color: var(--accent-blue); font-weight: 700;">0 / 150</span>
-            </div>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressBar"></div>
-            </div>
-            <p class="progress-text">📊 Follow the structured curriculum to transform into a DSA expert ready for MAANG interviews!</p>
+            <h3 style="color: var(--accent-blue); margin-bottom: 15px;"><i class="fas fa-rocket"></i> Quick Start (5 minutes)</h3>
+            <ol style="margin-left: 20px; color: var(--text-secondary);">
+                <li style="margin-bottom: 10px;">Read <a href="README.md" style="color: var(--accent-blue);">README.md</a> for overview</li>
+                <li style="margin-bottom: 10px;">Check <a href="GETTING-STARTED.md" style="color: var(--accent-blue);">GETTING-STARTED.md</a> for setup</li>
+                <li style="margin-bottom: 10px;">Open <a href="https://ranjithrosan17.github.io/dsa-mastery-plan-2026/" style="color: var(--accent-blue);" target="_blank">interactive dashboard</a></li>
+                <li style="margin-bottom: 10px;">Start Day 1 from <a href="LEARNING-RESOURCES.md" style="color: var(--accent-blue);">LEARNING-RESOURCES.md</a></li>
+                <li>Create your first log in <code style="background: var(--tertiary-bg); padding: 4px 8px; border-radius: 4px;">logs/day-1.md</code></li>
+            </ol>
         </div>
         
-        <!-- Weeks Container -->
-        <div id="weeksContainer"></div>
-        
-        <!-- Patterns Section -->
-        <div class="patterns-section">
-            <h2 class="section-title">📋 Essential DSA Patterns & Techniques</h2>
-            <div class="patterns-grid" id="patternsContainer"></div>
+        <!-- Call to Action -->
+        <div class="info-section" style="text-align: center; background: linear-gradient(135deg, rgba(79, 158, 255, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%); border: 2px solid var(--accent-blue);">
+            <h3 style="font-size: 1.8em; text-align: center;"><i class="fas fa-star"></i> Ready to Transform Your DSA Skills?</h3>
+            <p style="font-size: 1.1em; margin-bottom: 20px;">Start your 150-day journey to MAANG interviews today!</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="GETTING-STARTED.md" style="padding: 12px 30px; background: var(--gradient-primary); color: white; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-play"></i> Start Learning Now
+                </a>
+                <a href="https://github.com/RANJITHROSAN17/dsa-mastery-plan-2026" target="_blank" style="padding: 12px 30px; background: rgba(79, 158, 255, 0.1); border: 2px solid var(--accent-blue); color: var(--accent-blue); border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="fab fa-github"></i> Star on GitHub
+                </a>
+            </div>
         </div>
         
         <!-- Footer -->
         <footer>
-            <p>🚀 Built for cracking MAANG interviews | DSA Mastery 2026 © | Follow the curriculum, achieve excellence!</p>
+            <p>🎉 <strong>Master DSA. Crack MAANG. Change Your Life.</strong> 💪</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                Built with ❤️ for interview prep | 
+                <a href="https://github.com/RANJITHROSAN17/dsa-mastery-plan-2026" target="_blank">GitHub</a> | 
+                <a href="CONTRIBUTING.md">Contribute</a> | 
+                <a href="README.md">Docs</a>
+            </p>
+            <p style="margin-top: 10px; font-size: 0.85em; color: var(--text-tertiary);">
+                © 2026 DSA Mastery Plan | HTML: 53.7% | JavaScript: 42.1% | CSS: 4.2%
+            </p>
         </footer>
     </div>
-    
-    <!-- Modal -->
-    <div class="modal" id="dayModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-header-content">
-                    <h2 id="modalTitle"></h2>
-                    <p id="modalPhase" style="color: var(--text-secondary); font-size: 0.95em; margin: 0;"></p>
-                </div>
-                <button class="modal-close" onclick="closeModal()">×</button>
-            </div>
-            <div class="modal-body" id="dayDetails"></div>
-        </div>
-    </div>
-    
-    <script>
-        const DSA_CURRICULUM = {
-            phases: [
-                {
-                    phase: 1,
-                    title: "Phase 1: Foundations (Weeks 1-4, Days 1-28)",
-                    duration: "Weeks 1-4",
-                    description: "Build solid foundations with arrays, strings, and basic algorithms. Master time/space complexity analysis.",
-                    difficulty: "beginner",
-                    tagType: "core",
-                    weeks: [
-                        {
-                            weekNum: 1,
-                            title: "Week 1: Big-O & Arrays Fundamentals",
-                            summary: "Master complexity analysis and array operations. These form the foundation for all DSA problems.",
-                            days: [
-                                {
-                                    day: 1,
-                                    title: "Big-O Complexity Analysis",
-                                    description: "Learn time and space complexity, Big-O notation, and how to analyze algorithm efficiency.",
-                                    difficulty: "beginner",
-                                    phase: "Phase 1: Foundations",
-                                    concepts: [
-                                        { name: "Time Complexity", desc: "How runtime grows with input size" },
-                                        { name: "Space Complexity", desc: "How memory usage grows with input" },
-                                        { name: "Big-O Notation", desc: "Worst-case scenario analysis" },
-                                        { name: "Asymptotic Analysis", desc: "Upper, lower bounds" },
-                                        { name: "Recurrence Relations", desc: "Analyzing recursive algorithms" }
-                                    ],
-                                    resources: [
-                                        {
-                                            name: "Big-O in 100 Seconds",
-                                            type: "video",
-                                            source: "Fireship",
-                                            quality: "best",
-                                            link: "https://www.youtube.com/watch?v=g2o22C3CRfU",
-                                            duration: "100 sec",
-                                            why: "Quick overview of Big-O concepts"
-                                        },
-                                        {
-                                            name: "Big-O Complexity Analysis Complete Guide",
-                                            type: "article",
-                                            source: "GeeksforGeeks",
-                                            quality: "best",
-                                            link: "https://www.geeksforgeeks.org/analysis-of-algorithms-set-1-asymptotic-analysis/",
-                                            duration: "20-30 min read",
-                                            why: "Comprehensive with examples and comparisons"
-                                        },
-                                        {
-                                            name: "CS50 Time Complexity Lecture",
-                                            type: "video",
-                                            source: "Harvard CS50",
-                                            quality: "best",
-                                            link: "https://www.youtube.com/watch?v=onQdxGGPQvs",
-                                            duration: "45 min",
-                                            why: "Professional explanation with real-world examples"
-                                        },
-                                        {
-                                            name: "Big-O Cheat Sheet",
-                                            type: "article",
-                                            source: "NeetCode",
-                                            quality: "good",
-                                            link: "https://neetcode.io/",
-                                            duration: "Quick reference",
-                                            why: "Quick reference guide for common complexities"
-                                        },
-                                        {
-                                            name: "Complexity Analysis - TakeUForward",
-                                            type: "article",
-                                            source: "TakeUForward",
-                                            quality: "best",
-                                            link: "https://takeuforward.org/data-structure/analysis-of-algorithms/",
-                                            duration: "25-35 min read",
-                                            why: "Interview-focused explanation with DSA context"
-                                        }
-                                    ],
-                                    problems: [
-                                        {
-                                            name: "Analyze Algorithm Time Complexity",
-                                            difficulty: "easy",
-                                            link: "https://leetcode.com/problems/analyze-user-website-visit-pattern/",
-                                            why: "Apply Big-O concepts to real problems"
-                                        },
-                                        {
-                                            name: "Write Functions with Specified Time Complexity",
-                                            difficulty: "easy",
-                                            link: "https://www.geeksforgeeks.org/complexity-analysis-of-recursive-programs/",
-                                            why: "Understand recursive complexity"
-                                        }
-                                    ],
-                                    learningGuide: `
-                                        <div class="learning-guide">
-                                            <h4>📚 Complete Big-O Mastery Guide</h4>
-                                            
-                                            <h5>1. What is Big-O Notation?</h5>
-                                            <p>Big-O describes how an algorithm's runtime or space grows as input size increases. It focuses on worst-case scenario.</p>
-                                            <p><strong>Example:</strong> Searching in an array of n elements takes O(n) time in worst case (linear search).</p>
-                                            
-                                            <h5>2. Common Time Complexities (Best to Worst):</h5>
-                                            <ul>
-                                                <li><strong>O(1)</strong> - Constant: Access array[i], hash table lookup</li>
-                                                <li><strong>O(log n)</strong> - Logarithmic: Binary search, divide & conquer</li>
-                                                <li><strong>O(n)</strong> - Linear: Single loop through array</li>
-                                                <li><strong>O(n log n)</strong> - Linearithmic: Efficient sorting (Merge Sort, Quick Sort)</li>
-                                                <li><strong>O(n²)</strong> - Quadratic: Nested loops (Bubble Sort, Selection Sort)</li>
-                                                <li><strong>O(n³)</strong> - Cubic: Triple nested loops</li>
-                                                <li><strong>O(2^n)</strong> - Exponential: Recursive algorithms, subsets</li>
-                                                <li><strong>O(n!)</strong> - Factorial: Generating permutations</li>
-                                            </ul>
-                                            
-                                            <h5>3. Space Complexity Examples:</h5>
-                                            <ul>
-                                                <li><strong>O(1)</strong> - In-place algorithms, no extra space</li>
-                                                <li><strong>O(n)</strong> - Recursive call stack or auxiliary array</li>
-                                                <li><strong>O(n²)</strong> - 2D DP array</li>
-                                            </ul>
-                                            
-                                            <h5>4. How to Calculate Complexity:</h5>
-                                            <ol>
-                                                <li>Count the loops - each nested loop multiplies</li>
-                                                <li>Drop constants - O(2n) becomes O(n)</li>
-                                                <li>Keep fastest growing term - O(n² + n) becomes O(n²)</li>
-                                                <li>Consider operations inside loops</li>
-                                                <li>Account for recursive depth</li>
-                                            </ol>
-                                            
-                                            <h5>5. Interview Tips:</h5>
-                                            <ul>
-                                                <li>✅ Always mention BOTH time and space complexity</li>
-                                                <li>✅ Explain your reasoning step-by-step</li>
-                                                <li>✅ Think about best, average, and worst case</li>
-                                                <li>✅ Know why merge sort is O(n log n) but uses O(n) space</li>
-                                                <li>✅ Understand space-time tradeoff</li>
-                                            </ul>
-                                        </div>
-                                    `
-                                },
-                                {
-                                    day: 2,
-                                    title: "Array Basics & Two Pointers",
-                                    description: "Master array manipulation and the powerful two-pointer technique for finding pairs and solving sorted array problems.",
-                                    difficulty: "beginner",
-                                    phase: "Phase 1: Foundations",
-                                    concepts: [
-                                        { name: "Array Indexing", desc: "O(1) access, O(n) insertion/deletion" },
-                                        { name: "Two Pointer Technique", desc: "Converging and diverging approaches" },
-                                        { name: "Linear Search", desc: "O(n) searching in unsorted arrays" },
-                                        { name: "In-place Operations", desc: "Modifying arrays without extra space" },
-                                        { name: "Pair Finding", desc: "Using pointers to find target pairs" }
-                                    ],
-                                    resources: [
-                                        {
-                                            name: "Two Pointers Technique Explained",
-                                            type: "video",
-                                            source: "NeetCode",
-                                            quality: "best",
-                                            link: "https://www.youtube.com/watch?v=Z0UZd-8F2Ow",
-                                            duration: "15 min",
-                                            why: "Clear visualization of two-pointer approach"
-                                        },
-                                        {
-                                            name: "Two Pointers Complete Guide",
-                                            type: "article",
-                                            source: "TakeUForward",
-                                            quality: "best",
-                                            link: "https://takeuforward.org/arrays/two-pointers/",
-                                            duration: "20-25 min read",
-                                            why: "All patterns with code examples"
-                                        },
-                                        {
-                                            name: "Array Problems Playlist",
-                                            type: "video",
-                                            source: "Striver",
-                                            quality: "best",
-                                            link: "https://www.youtube.com/watch?v=gZOm-p1eVnI&list=PLgUwDviBIf0rPG3Ictpu74YSCA-qksAqY",
-                                            duration: "2-3 hours",
-                                            why: "Comprehensive array problem solving"
-                                        },
-                                        {
-                                            name: "LeetCode Two Pointers Problems",
-                                            type: "interactive",
-                                            source: "LeetCode",
-                                            quality: "good",
-                                            link: "https://leetcode.com/tag/two-pointers/",
-                                            duration: "Practice",
-                                            why: "Practice problems with solutions"
-                                        }
-                                    ],
-                                    problems: [
-                                        {
-                                            name: "Two Sum",
-                                            difficulty: "easy",
-                                            link: "https://leetcode.com/problems/two-sum/",
-                                            why: "Fundamental pair-finding problem"
-                                        },
-                                        {
-                                            name: "Valid Palindrome",
-                                            difficulty: "easy",
-                                            link: "https://leetcode.com/problems/valid-palindrome/",
-                                            why: "Classic two-pointer converging pattern"
-                                        },
-                                        {
-                                            name: "3Sum",
-                                            difficulty: "medium",
-                                            link: "https://leetcode.com/problems/3sum/",
-                                            why: "Advanced pair finding with sorting"
-                                        }
-                                    ],
-                                    learningGuide: `
-                                        <div class="learning-guide">
-                                            <h4>📚 Arrays & Two Pointers Mastery</h4>
-                                            
-                                            <h5>1. Array Operations:</h5>
-                                            <ul>
-                                                <li><strong>Access:</strong> O(1) - direct index</li>
-                                                <li><strong>Insert/Delete:</strong> O(n) - need to shift elements</li>
-                                                <li><strong>Search Sorted:</strong> O(log n) - binary search</li>
-                                                <li><strong>Search Unsorted:</strong> O(n) - linear search</li>
-                                            </ul>
-                                            
-                                            <h5>2. Why Two Pointers?</h5>
-                                            <p>Reduces space complexity from O(n) to O(1) when working with sorted arrays.</p>
-                                            <p><strong>Example:</strong> Two Sum - Hash map O(n) space vs Two pointers O(1) space</p>
-                                            
-                                            <h5>3. Two Pointer Patterns:</h5>
-                                            <p><strong>Pattern 1: Converging</strong> - Start at both ends, move towards center</p>
-                                            <ul>
-                                                <li>Use for: Palindrome check, container with most water, 3Sum, Two Sum in sorted array</li>
-                                                <li>Key: Array must be sorted</li>
-                                            </ul>
-                                            
-                                            <p><strong>Pattern 2: Diverging</strong> - Start at center, move outward</p>
-                                            <ul>
-                                                <li>Use for: Expanding around center for palindromes</li>
-                                            </ul>
-                                            
-                                            <p><strong>Pattern 3: Same Direction</strong> - Both pointers move in same direction</p>
-                                            <ul>
-                                                <li>Use for: Sliding window, duplicate removal, partition</li>
-                                            </ul>
-                                            
-                                            <h5>4. Interview Strategy:</h5>
-                                            <ul>
-                                                <li>✅ Always ask: "Is the array sorted?"</li>
-                                                <li>✅ Mention multiple approaches (brute force, hash map, two pointers)</li>
-                                                <li>✅ Explain space-time tradeoff</li>
-                                                <li>✅ Code the most optimal solution</li>
-                                                <li>✅ Test edge cases (single element, duplicates, etc.)</li>
-                                            </ul>
-                                        </div>
-                                    `
-                                },
-                                {
-                                    day: 3,
-                                    title: "Strings Fundamentals & Hashing",
-                                    description: "Understand string operations, pattern matching, and hash-based algorithms for efficient string processing.",
-                                    difficulty: "beginner",
-                                    phase: "Phase 1: Foundations",
-                                    concepts: [
-                                        { name: "String Indexing", desc: "Character access and iteration" },
-                                        { name: "Anagrams", desc: "Detecting same characters in different order" },
-                                        { name: "String Hashing", desc: "Converting strings to hash values" },
-                                        { name: "Pattern Matching", desc: "Finding substrings efficiently" },
-                                        { name: "Character Frequency", desc: "Counting character occurrences" }
-                                    ],
-                                    resources: [
-                                        {
-                                            name: "String Algorithms & Techniques",
-                                            type: "video",
-                                            source: "Striver",
-                                            quality: "best",
-                                            link: "https://www.youtube.com/watch?v=EU_-CjjB4aA&list=PLgUwDviBIf0rPG3Ictpu74YSCA-qksAqY",
-                                            duration: "2-3 hours",
-                                            why: "Complete string algorithms playlist"
-                                        },
-                                        {
-                                            name: "Group Anagrams Solution Explained",
-                                            type: "article",
-                                            source: "TakeUForward",
-                                            quality: "best",
-                                            link: "https://takeuforward.org/string/group-anagrams/",
-                                            duration: "15 min read",
-                                            why: "Multiple approaches explained"
-                                        },
-                                        {
-                                            name: "String Hashing Technique",
-                                            type: "article",
-                                            source: "GeeksforGeeks",
-                                            quality: "good",
-                                            link: "https://www.geeksforgeeks.org/string-hashing-using-polynomial-rolling-hash/",
-                                            duration: "20 min read",
-                                            why: "Rolling hash for pattern matching"
-                                        }
-                                    ],
-                                    problems: [
-                                        {
-                                            name: "Valid Anagram",
-                                            difficulty: "easy",
-                                            link: "https://leetcode.com/problems/valid-anagram/",
-                                            why: "Fundamental character frequency problem"
-                                        },
-                                        {
-                                            name: "Group Anagrams",
-                                            difficulty: "medium",
-                                            link: "https://leetcode.com/problems/group-anagrams/",
-                                            why: "Combine hashing and grouping logic"
-                                        }
-                                    ],
-                                    learningGuide: `
-                                        <div class="learning-guide">
-                                            <h4>📚 String Algorithms Complete Guide</h4>
-                                            
-                                            <h5>1. Anagram Detection:</h5>
-                                            <p><strong>Definition:</strong> Two strings with same characters in different order.</p>
-                                            <p><strong>Approach 1:</strong> Sort and compare - O(n log n) time, O(1) space</p>
-                                            <p><strong>Approach 2:</strong> Character frequency - O(n) time, O(1) space (26 letters max)</p>
-                                            
-                                            <h5>2. Group Anagrams:</h5>
-                                            <p><strong>Strategy:</strong> Use sorted string as key in hash map</p>
-                                            <ul>
-                                                <li>Sort each word</li>
-                                                <li>Use sorted word as dictionary key</li>
-                                                <li>Group all anagrams together</li>
-                                            </ul>
-                                            <p><strong>Time:</strong> O(n * k log k) where k = max word length</p>
-                                            <p><strong>Space:</strong> O(n) for hash map</p>
-                                            
-                                            <h5>3. String Hashing:</h5>
-                                            <p>Convert strings to numbers for fast comparison.</p>
-                                            <p><strong>Use Cases:</strong></p>
-                                            <ul>
-                                                <li>Pattern matching (KMP, Rolling hash)</li>
-                                                <li>Duplicate detection</li>
-                                                <li>Anagram verification</li>
-                                            </ul>
-                                        </div>
-                                    `
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ],
-            patterns: [
-                {
-                    name: "🪟 Sliding Window",
-                    content: `<strong>Concept:</strong> Maintain a window, expand/contract based on condition<br><strong>When:</strong> Subarray/substring with constraint<br><strong>Example:</strong> Max sum of k consecutive, longest substring without repeat`
-                },
-                {
-                    name: "👉👈 Two Pointers",
-                    content: `<strong>Concept:</strong> Two pointers move toward/away from each other<br><strong>When:</strong> Sorted arrays, finding pairs, palindromes<br><strong>Example:</strong> Valid palindrome - check from both ends`
-                },
-                {
-                    name: "➕ Prefix Sum",
-                    content: `<strong>Concept:</strong> Precompute cumulative sum for O(1) queries<br><strong>When:</strong> Range sum queries, subarray problems<br><strong>Example:</strong> Subarray sum equals K`
-                },
-                {
-                    name: "🔍 Binary Search",
-                    content: `<strong>Concept:</strong> Eliminate half the search space each iteration<br><strong>When:</strong> Sorted input or monotonic answer space<br><strong>Example:</strong> Search rotated array, find peak`
-                },
-                {
-                    name: "📊 BFS",
-                    content: `<strong>Concept:</strong> Level-order traversal using queue<br><strong>When:</strong> Shortest path in unweighted graphs<br><strong>Example:</strong> Word ladder, level order traversal`
-                },
-                {
-                    name: "📈 DFS",
-                    content: `<strong>Concept:</strong> Deep exploration using recursion/stack<br><strong>When:</strong> All paths, connectivity, permutations<br><strong>Example:</strong> Number of islands, path sum`
-                },
-                {
-                    name: "📚 Hash Map",
-                    content: `<strong>Concept:</strong> Key-value pairs for O(1) lookup<br><strong>When:</strong> Frequency counting, complement finding<br><strong>Example:</strong> Two sum, anagrams, LRU cache`
-                },
-                {
-                    name: "⬆️ Monotonic Stack",
-                    content: `<strong>Concept:</strong> Stack maintains elements in order<br><strong>When:</strong> Next greater/smaller elements<br><strong>Example:</strong> Daily temperatures, largest rectangle`
-                }
-            ]
-        };
-        
-        let state = {
-            completed: {},
-            currentPhase: 1
-        };
-        
-        function loadState() {
-            const saved = localStorage.getItem('dsa-curriculum-state');
-            if (saved) state = JSON.parse(saved);
-        }
-        
-        function saveState() {
-            localStorage.setItem('dsa-curriculum-state', JSON.stringify(state));
-        }
-        
-        function renderWeeks() {
-            const container = document.getElementById('weeksContainer');
-            container.innerHTML = '';
-            
-            DSA_CURRICULUM.phases.forEach((phase, phaseIdx) => {
-                phase.weeks.forEach((week, weekIdx) => {
-                    const weekEl = document.createElement('div');
-                    weekEl.className = 'week-container animate-in';
-                    weekEl.style.animationDelay = `${weekIdx * 0.1}s`;
-                    
-                    const daysHTML = week.days.map(day => `
-                        <div class="day-card ${state.completed[day.day] ? 'completed' : ''}" onclick="openDayModal(${day.day})">
-                            <input type="checkbox" class="day-checkbox" 
-                                onchange="toggleDay(${day.day}, event)" 
-                                ${state.completed[day.day] ? 'checked' : ''}
-                                onclick="event.stopPropagation()">
-                            <div class="day-number">Day ${day.day}</div>
-                            <div class="day-title">${day.title}</div>
-                            <div class="day-difficulty difficulty-${day.difficulty}">${day.difficulty}</div>
-                            <div class="day-description">${day.description}</div>
-                            <div class="day-stats">
-                                <div class="day-stat">
-                                    <i class="fas fa-lightbulb"></i>
-                                    <span class="day-stat-value">${day.concepts.length}</span> Concepts
-                                </div>
-                                <div class="day-stat">
-                                    <i class="fas fa-link"></i>
-                                    <span class="day-stat-value">${day.resources.length}</span> Resources
-                                </div>
-                                <div class="day-stat">
-                                    <i class="fas fa-code"></i>
-                                    <span class="day-stat-value">${day.problems.length}</span> Problems
-                                </div>
-                            </div>
-                        </div>
-                    `).join('');
-                    
-                    weekEl.innerHTML = `
-                        <div class="week-header">
-                            <h2>${week.title} <span class="week-badge ${phase.tagType}">${phase.difficulty.toUpperCase()}</span></h2>
-                            <p class="week-summary">${week.summary}</p>
-                        </div>
-                        <div class="days-grid">
-                            ${week.days.length > 0 ? daysHTML : '<div class="empty-state">Coming Soon...</div>'}
-                        </div>
-                    `;
-                    
-                    container.appendChild(weekEl);
-                });
-            });
-            
-            updateStats();
-        }
-        
-        function renderPatterns() {
-            const container = document.getElementById('patternsContainer');
-            container.innerHTML = DSA_CURRICULUM.patterns.map(p => `
-                <div class="pattern-card">
-                    <div class="pattern-name">${p.name}</div>
-                    <div class="pattern-content">${p.content}</div>
-                </div>
-            `).join('');
-        }
-        
-        function toggleDay(dayNum, event) {
-            event.stopPropagation();
-            state.completed[dayNum] = !state.completed[dayNum];
-            saveState();
-            renderWeeks();
-        }
-        
-        function openDayModal(dayNum) {
-            const dayData = DSA_CURRICULUM.phases.flatMap(p => p.weeks).flatMap(w => w.days).find(d => d.day === dayNum);
-            if (!dayData) return;
-            
-            const resourcesHTML = dayData.resources.map(r => `
-                <tr>
-                    <td>
-                        <div class="resource-name">${r.name}</div>
-                        <div style="font-size: 0.9em; color: var(--text-secondary); margin-top: 3px;">${r.source} • ${r.duration}</div>
-                    </td>
-                    <td><span class="resource-type ${r.type}">${r.type}</span></td>
-                    <td>${r.why}</td>
-                    <td><span class="quality-badge quality-${r.quality}">${r.quality}</span></td>
-                    <td><a href="${r.link}" target="_blank" class="resource-link">Open <i class="fas fa-external-link-alt"></i></a></td>
-                </tr>
-            `).join('');
-            
-            const problemsHTML = dayData.problems.map(p => `
-                <div class="problem-item">
-                    <div class="problem-info">
-                        <div class="problem-name">${p.name}</div>
-                        <a href="${p.link}" target="_blank" class="problem-link">Solve on LeetCode <i class="fas fa-arrow-right"></i></a>
-                        <div style="font-size: 0.9em; color: var(--text-secondary); margin-top: 5px;">${p.why}</div>
-                    </div>
-                    <span class="problem-diff diff-${p.difficulty}">${p.difficulty}</span>
-                </div>
-            `).join('');
-            
-            const detailsHTML = `
-                <div class="modal-section">
-                    <p style="color: var(--text-secondary); font-size: 1.05em; line-height: 1.8;">${dayData.description}</p>
-                </div>
-                
-                <div class="modal-section">
-                    <h3 class="modal-section-title">
-                        <i class="fas fa-lightbulb"></i>
-                        Key Concepts (${dayData.concepts.length})
-                    </h3>
-                    <div class="concept-list">
-                        ${dayData.concepts.map(c => `
-                            <div class="concept-item">
-                                <div class="concept-name">📌 ${c.name}</div>
-                                <div class="concept-desc">${c.desc}</div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-                
-                ${dayData.learningGuide ? `
-                    <div class="modal-section">
-                        <h3 class="modal-section-title">
-                            <i class="fas fa-graduation-cap"></i>
-                            Complete Learning Guide
-                        </h3>
-                        ${dayData.learningGuide}
-                    </div>
-                ` : ''}
-                
-                <div class="modal-section">
-                    <h3 class="modal-section-title">
-                        <i class="fas fa-book"></i>
-                        Curated Learning Resources (${dayData.resources.length})
-                    </h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 15px; font-size: 0.95em;">👇 Best resources ranked by quality - Start with "BEST" resources, then explore GOOD ones</p>
-                    <table class="resource-table">
-                        <thead>
-                            <tr>
-                                <th>Resource</th>
-                                <th>Type</th>
-                                <th>Why This?</th>
-                                <th>Quality</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${resourcesHTML}
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="modal-section">
-                    <h3 class="modal-section-title">
-                        <i class="fas fa-code"></i>
-                        Practice Problems (${dayData.problems.length})
-                    </h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 15px; font-size: 0.95em;">💡 Solve these on LeetCode to practice the concepts</p>
-                    <div class="problem-list">
-                        ${problemsHTML}
-                    </div>
-                </div>
-            `;
-            
-            document.getElementById('modalTitle').textContent = `Day ${dayNum}: ${dayData.title}`;
-            document.getElementById('modalPhase').textContent = dayData.phase;
-            document.getElementById('dayDetails').innerHTML = detailsHTML;
-            document.getElementById('dayModal').classList.add('active');
-        }
-        
-        function closeModal() {
-            document.getElementById('dayModal').classList.remove('active');
-        }
-        
-        function updateStats() {
-            const completed = Object.values(state.completed).filter(Boolean).length;
-            const total = 3; // Current number of days
-            const pct = total > 0 ? Math.round((completed / 150) * 100) : 0;
-            
-            document.getElementById('daysCompleted').textContent = completed;
-            document.getElementById('progressPct').textContent = pct + '%';
-            document.getElementById('progressLabel').textContent = `${completed} / 150`;
-            document.getElementById('progressBar').style.width = pct + '%';
-            
-            if (completed < 30) document.getElementById('currentPhase').textContent = 'Phase 1';
-            else if (completed < 60) document.getElementById('currentPhase').textContent = 'Phase 2';
-            else if (completed < 90) document.getElementById('currentPhase').textContent = 'Phase 3';
-            else if (completed < 120) document.getElementById('currentPhase').textContent = 'Phase 4';
-            else document.getElementById('currentPhase').textContent = 'Phase 5';
-        }
-        
-        // Initialize
-        loadState();
-        renderWeeks();
-        renderPatterns();
-        
-        // Close modal on outside click
-        document.getElementById('dayModal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
-    </script>
 </body>
 </html>

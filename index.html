@@ -3,126 +3,101 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DSA Mastery Plan — 150 Days</title>
-  <link rel="stylesheet" href="/assets/style.css">
+  <title>DSA Mastery Plan — 150 Days | Professional</title>
+  <meta name="description" content="150-day data structures & algorithms mastery plan with curated resources and a daily guided curriculum to prepare for MAANG interviews." />
+  <link rel="stylesheet" href="/assets/pro-style.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>DSA Mastery Plan — 150 Days</h1>
-      <p class="subtitle">Daily guided plan with topics, descriptions, and curated resources to prepare for MAANG interviews.</p>
+  <header class="site-header">
+    <div class="container header-grid">
+      <a class="brand" href="#home">
+        <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0ea5a4"></rect><path d="M6 14l3-5 5 9" stroke="#042f2f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        <span>DSA Mastery — 150</span>
+      </a>
+      <nav class="nav">
+        <a href="#curriculum">Curriculum</a>
+        <a href="#how">How to use</a>
+        <a href="#resources">Resources</a>
+      </nav>
+      <div class="cta">
+        <input id="search" placeholder="Search topics, resources or days" aria-label="Search" />
+        <button id="themeToggle" title="Toggle theme">🌙</button>
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <section class="controls">
-      <label>Go to day: <input id="dayInput" type="number" min="1" max="150" value="1"></label>
-      <button id="goBtn">Go</button>
-      <input id="search" placeholder="Search topics or resources...">
-      <button id="random">Random day</button>
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Become interview-ready for MAANG: a practical 150-day DSA plan</h1>
+          <p class="lead">Daily lessons, hand-picked resources, and a structured progression from fundamentals to advanced algorithms. Track progress locally or export your checklist.</p>
+          <p class="actions"><button id="startBtn">Start Day 1</button> <a class="ghost" href="#curriculum">See full curriculum</a></p>
+        </div>
+        <div class="hero-card">
+          <h3>What you get</h3>
+          <ul>
+            <li>150 daily objectives with clear resources</li>
+            <li>Search, filters, and progress tracking</li>
+            <li>Printable checklist and company-style study structure</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section id="dayDetail" class="card">
-      <!-- Day detail rendered here -->
+    <section id="curriculum" class="section container">
+      <div class="section-head">
+        <h2>Curriculum — 150 days</h2>
+        <div class="controls">
+          <label>Topic filter
+            <select id="topicFilter"><option value="all">All topics</option></select>
+          </label>
+          <label>Show
+            <select id="showFilter"><option value="all">All</option><option value="todo">Todo</option><option value="done">Done</option></select>
+          </label>
+          <button id="exportProgress">Export checklist</button>
+        </div>
+      </div>
+
+      <div id="grid" class="grid"></div>
+
+      <div id="pager" class="pager"></div>
     </section>
 
-    <section id="dayList">
-      <!-- Paginated list -->
+    <section id="how" class="section container">
+      <h2>How to use this plan</h2>
+      <ol>
+        <li>Follow one day at a time. Read the concept, try 3–5 problems, then mark done.</li>
+        <li>Weekly: Do mixed mock interviews and revisit weak topics.</li>
+        <li>Before interviews: do timed contests and system design refreshers.</li>
+      </ol>
+    </section>
+
+    <section id="resources" class="section container">
+      <h2>Core resources</h2>
+      <ul>
+        <li><a href="https://leetcode.com" target="_blank">LeetCode</a> — problems & contests</li>
+        <li><a href="https://cp-algorithms.com" target="_blank">CP-Algorithms</a> — algorithm references</li>
+        <li><a href="https://github.com/donnemartin/system-design-primer" target="_blank">System Design Primer</a></li>
+      </ul>
     </section>
   </main>
 
-  <footer>
-    <div class="container">Built for <strong>RANJITHROSAN17/dsa-mastery-plan-2026</strong>. Progress is saved locally in your browser.</div>
+  <footer class="site-footer">
+    <div class="container">
+      <div>© 2026 DSA Mastery Plan • Built by <strong>RANJITHROSAN17</strong></div>
+      <div class="small">Progress stored locally in your browser. Open-source — contributions welcome.</div>
+    </div>
   </footer>
 
-  <script src="/assets/plan.js"></script>
-  <script>
-    // render and interactivity
-    const days = window.DSA_PLAN_DAYS;
-    const dayDetail = document.getElementById('dayDetail');
-    const dayList = document.getElementById('dayList');
-    const dayInput = document.getElementById('dayInput');
-    const goBtn = document.getElementById('goBtn');
-    const search = document.getElementById('search');
-    const randomBtn = document.getElementById('random');
+  <!-- Modal for day detail -->
+  <div id="dayModal" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <button id="closeModal" class="modal-close">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
 
-    let filtered = days;
-
-    function renderDay(day) {
-      const progressKey = `dsa_progress_${day.day}`;
-      const done = localStorage.getItem(progressKey) === '1';
-      dayDetail.innerHTML = `
-        <h2>Day ${day.day}: ${day.title}</h2>
-        <p class="muted">Topic: ${day.topic}</p>
-        <p>${day.description}</p>
-        <h3>Resources</h3>
-        <ul>
-          ${day.resources.map(r => `<li><a href="${r.url}" target="_blank" rel="noopener">${r.title}</a>${r.note?` — <span class="muted">${r.note}</span>`:''}</li>`).join('')}
-        </ul>
-        <div class="actions">
-          <button id="markDone">${done? 'Mark undone':'Mark done'}</button>
-          <button id="prev">◀ Prev</button>
-          <button id="next">Next ▶</button>
-        </div>
-      `;
-      document.getElementById('markDone').onclick = () => {
-        if(localStorage.getItem(progressKey) === '1') {
-          localStorage.removeItem(progressKey);
-        } else {
-          localStorage.setItem(progressKey, '1');
-        }
-        renderDay(day);
-        renderList(currentPage);
-      };
-      document.getElementById('prev').onclick = () => { if(day.day>1) showDay(day.day-1); };
-      document.getElementById('next').onclick = () => { if(day.day<days.length) showDay(day.day+1); };
-    }
-
-    function showDay(n) {
-      const d = days.find(x=>x.day===n);
-      if(!d) return;
-      renderDay(d);
-      dayInput.value = n;
-      // scroll into view
-      dayDetail.scrollIntoView({behavior:'smooth'});
-    }
-
-    goBtn.onclick = () => showDay(Number(dayInput.value));
-    dayInput.onkeydown = (e)=>{ if(e.key==='Enter') showDay(Number(dayInput.value)); };
-    randomBtn.onclick = ()=> showDay(Math.floor(Math.random()*days.length)+1);
-
-    // list with pagination
-    const pageSize = 15;
-    let currentPage = 1;
-    function renderList(page=1) {
-      currentPage = page;
-      const start = (page-1)*pageSize;
-      const pageDays = filtered.slice(start, start+pageSize);
-      const totalPages = Math.ceil(filtered.length/pageSize);
-      dayList.innerHTML = `
-        <div class="list-grid">
-          ${pageDays.map(d=>{
-            const done = localStorage.getItem(`dsa_progress_${d.day}`) === '1';
-            return `<article class="day-card ${done? 'done':''}" data-day="${d.day}"><h4>Day ${d.day}</h4><strong>${d.title}</strong><p class="muted">${d.topic}</p></article>`
-          }).join('')}
-        </div>
-        <div class="pager">Page ${page} / ${totalPages} <button id="prevPage">◀</button> <button id="nextPage">▶</button></div>
-      `;
-      document.querySelectorAll('.day-card').forEach(el=> el.onclick = () => showDay(Number(el.dataset.day)));
-      document.getElementById('prevPage').onclick = ()=> { if(page>1) renderList(page-1); };
-      document.getElementById('nextPage').onclick = ()=> { if(page<totalPages) renderList(page+1); };
-    }
-
-    search.oninput = (e)=>{
-      const q = e.target.value.trim().toLowerCase();
-      if(!q) filtered = days;
-      else filtered = days.filter(d=> (d.title + ' ' + d.topic + ' ' + d.description + ' ' + d.resources.map(r=>r.title+' '+(r.note||'')).join(' ')).toLowerCase().includes(q));
-      renderList(1);
-    }
-
-    // initial render
-    renderList(1);
-    showDay(1);
-  </script>
+  <script src="/assets/pro-app.js"></script>
 </body>
 </html>

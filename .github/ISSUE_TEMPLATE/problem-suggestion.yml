@@ -1,0 +1,24 @@
+name: Suggest a problem or day change
+description: Propose a better problem for a day, a missing pattern, or a sequencing fix.
+labels: [curriculum]
+body:
+  - type: input
+    id: day
+    attributes:
+      label: Day (or pattern) affected
+      placeholder: "Day 42 / monotonic-stack"
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Proposed change
+      description: Which problem(s) to add/replace and why. Problems must be free on LeetCode.
+      placeholder: "Replace 496 with 503 because the circular variant teaches the modulo trick…"
+    validations:
+      required: true
+  - type: input
+    id: links
+    attributes:
+      label: LeetCode links
+      placeholder: "https://leetcode.com/problems/next-greater-element-ii/"

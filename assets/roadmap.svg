@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="372" viewBox="0 0 1200 372" role="img" aria-label="Roadmap of the five phases">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#94a3b8"/></marker>
+</defs>
+<rect width="1200" height="372" rx="16" fill="#f8fafc"/>
+<line x1="236" y1="110" x2="980" y2="110" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="6 6"/>
+<rect x="20" y="28" width="216" height="316" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+<rect x="20" y="28" width="216" height="8" rx="4" fill="#2563eb"/>
+<circle cx="50" cy="72" r="18" fill="#2563eb"/>
+<text x="50" y="78" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#ffffff">1</text>
+<text x="78" y="68" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" fill="#64748b">DAYS 1–30</text>
+<text x="78" y="86" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#64748b">94 problems · 9 patterns</text>
+<text x="36" y="122" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="800" fill="#0f172a">Foundations</text>
+<circle cx="42" cy="146" r="3" fill="#2563eb"/>
+<text x="52" y="150" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Arrays &amp; Hashing</text>
+<circle cx="42" cy="165" r="3" fill="#2563eb"/>
+<text x="52" y="169" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Two Pointers</text>
+<circle cx="42" cy="184" r="3" fill="#2563eb"/>
+<text x="52" y="188" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Sliding Window</text>
+<circle cx="42" cy="203" r="3" fill="#2563eb"/>
+<text x="52" y="207" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Prefix Sum</text>
+<circle cx="42" cy="222" r="3" fill="#2563eb"/>
+<text x="52" y="226" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Binary Search</text>
+<circle cx="42" cy="241" r="3" fill="#2563eb"/>
+<text x="52" y="245" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Sorting &amp; Selection</text>
+<circle cx="42" cy="260" r="3" fill="#2563eb"/>
+<text x="52" y="264" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">String Fundamentals</text>
+<circle cx="42" cy="279" r="3" fill="#2563eb"/>
+<text x="52" y="283" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Intervals</text>
+<circle cx="42" cy="298" r="3" fill="#2563eb"/>
+<text x="52" y="302" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Math &amp; Simulation</text>
+<line x1="238" y1="110" x2="258" y2="110" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="260" y="28" width="216" height="316" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+<rect x="260" y="28" width="216" height="8" rx="4" fill="#7c3aed"/>
+<circle cx="290" cy="72" r="18" fill="#7c3aed"/>
+<text x="290" y="78" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#ffffff">2</text>
+<text x="318" y="68" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" fill="#64748b">DAYS 31–60</text>
+<text x="318" y="86" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#64748b">94 problems · 6 patterns</text>
+<text x="276" y="122" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="800" fill="#0f172a">Linked Lists,</text>
+<text x="276" y="142" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="800" fill="#0f172a">Stacks, Recursion</text>
+<text x="276" y="162" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="800" fill="#0f172a">&amp; Bits</text>
+<circle cx="282" cy="186" r="3" fill="#7c3aed"/>
+<text x="292" y="190" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Linked Lists</text>
+<circle cx="282" cy="205" r="3" fill="#7c3aed"/>
+<text x="292" y="209" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Stacks &amp; Queues</text>
+<circle cx="282" cy="224" r="3" fill="#7c3aed"/>
+<text x="292" y="228" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Monotonic Stack / Deque</text>
+<circle cx="282" cy="243" r="3" fill="#7c3aed"/>
+<text x="292" y="247" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Recursion</text>
+<circle cx="282" cy="262" r="3" fill="#7c3aed"/>
+<text x="292" y="266" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Backtracking</text>
+<circle cx="282" cy="281" r="3" fill="#7c3aed"/>
+<text x="292" y="285" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Bit Manipulation</text>
+<line x1="478" y1="110" x2="498" y2="110" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="500" y="28" width="216" height="316" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+<rect x="500" y="28" width="216" height="8" rx="4" fill="#059669"/>
+<circle cx="530" cy="72" r="18" fill="#059669"/>
+<text x="530" y="78" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#ffffff">3</text>
+<text x="558" y="68" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" fill="#64748b">DAYS 61–90</text>
+<text x="558" y="86" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#64748b">96 problems · 8 patterns</text>
+<text x="516" y="122" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="800" fill="#0f172a">Trees &amp; Graphs</text>
+<circle cx="522" cy="146" r="3" fill="#059669"/>
+<text x="532" y="150" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Binary Trees</text>
+<circle cx="522" cy="165" r="3" fill="#059669"/>
+<text x="532" y="169" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Binary Search Trees</text>
+<circle cx="522" cy="184" r="3" fill="#059669"/>
+<text x="532" y="188" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Heaps / Priority Queues</text>
+<circle cx="522" cy="203" r="3" fill="#059669"/>
+<text x="532" y="207" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Tries</text>
+<circle cx="522" cy="222" r="3" fill="#059669"/>
+<text x="532" y="226" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Graph BFS / DFS</text>
+<circle cx="522" cy="241" r="3" fill="#059669"/>
+<text x="532" y="245" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Topological Sort</text>
+<circle cx="522" cy="260" r="3" fill="#059669"/>
+<text x="532" y="264" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Union-Find</text>
+<circle cx="522" cy="279" r="3" fill="#059669"/>
+<text x="532" y="283" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Shortest Paths &amp; MST</text>
+<line x1="718" y1="110" x2="738" y2="110" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="740" y="28" width="216" height="316" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+<rect x="740" y="28" width="216" height="8" rx="4" fill="#d97706"/>
+<circle cx="770" cy="72" r="18" fill="#d97706"/>
+<text x="770" y="78" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#ffffff">4</text>
+<text x="798" y="68" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" fill="#64748b">DAYS 91–120</text>
+<text x="798" y="86" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#64748b">89 problems · 5 patterns</text>
+<text x="756" y="122" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="800" fill="#0f172a">Greedy, Design &amp;</text>
+<text x="756" y="142" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="800" fill="#0f172a">Advanced</text>
+<text x="756" y="162" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="800" fill="#0f172a">Techniques</text>
+<circle cx="762" cy="186" r="3" fill="#d97706"/>
+<text x="772" y="190" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Greedy</text>
+<circle cx="762" cy="205" r="3" fill="#d97706"/>
+<text x="772" y="209" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Divide &amp; Conquer</text>
+<circle cx="762" cy="224" r="3" fill="#d97706"/>
+<text x="772" y="228" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Design</text>
+<circle cx="762" cy="243" r="3" fill="#d97706"/>
+<text x="772" y="247" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">String Algorithms</text>
+<circle cx="762" cy="262" r="3" fill="#d97706"/>
+<text x="772" y="266" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Sweep Line</text>
+<line x1="958" y1="110" x2="978" y2="110" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="980" y="28" width="216" height="316" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+<rect x="980" y="28" width="216" height="8" rx="4" fill="#dc2626"/>
+<circle cx="1010" cy="72" r="18" fill="#dc2626"/>
+<text x="1010" y="78" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#ffffff">5</text>
+<text x="1038" y="68" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" fill="#64748b">DAYS 121–150</text>
+<text x="1038" y="86" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#64748b">95 problems · 5 patterns</text>
+<text x="996" y="122" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="800" fill="#0f172a">Dynamic</text>
+<text x="996" y="142" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="800" fill="#0f172a">Programming &amp;</text>
+<text x="996" y="162" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="800" fill="#0f172a">Mastery</text>
+<circle cx="1002" cy="186" r="3" fill="#dc2626"/>
+<text x="1012" y="190" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">1-D Dynamic Programming</text>
+<circle cx="1002" cy="205" r="3" fill="#dc2626"/>
+<text x="1012" y="209" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">2-D &amp; Knapsack DP</text>
+<circle cx="1002" cy="224" r="3" fill="#dc2626"/>
+<text x="1012" y="228" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">String DP</text>
+<circle cx="1002" cy="243" r="3" fill="#dc2626"/>
+<text x="1012" y="247" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Interval, Tree, Bitmask &amp;…</text>
+<circle cx="1002" cy="262" r="3" fill="#dc2626"/>
+<text x="1012" y="266" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Mixed Practice</text>
+<text x="600" y="362" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#94a3b8">Each phase: 4 weeks of new patterns + a 2-day mock set and retro · 75 core problems form the 6-week fast track</text>
+</svg>

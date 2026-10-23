@@ -1,65 +1,33 @@
 # Postmortems
 
-This folder contains deep-dive analyses of problems you got wrong, found hard, or needed to look up.
+Write one when you were **confidently wrong** — a misidentified pattern, a wrong complexity claim, or a bug you did not catch while tracing. One file per problem: `postmortems/<slug>.md`.
 
-Create one file per problem: `problem-name.md`
-
----
-
-## Postmortem Template
-
-When you struggle on a problem or get it wrong, create `postmortems/problem-name.md`:
+## Template
 
 ```markdown
-# Postmortem: [Problem Name]
+# Postmortem: <Problem title> (LC <id>)
 
-**LeetCode Link:** 
-**Difficulty:** Easy / Medium / Hard
-**Date:** YYYY-MM-DD
-**Day in plan:** Day XX
+**Link:** https://leetcode.com/problems/<slug>/ · **Day:** NNN · **Date:** YYYY-MM-DD · **Pattern:** <pattern>
 
-## What I Did Wrong
+## What I did
+Approach tried, in two or three sentences.
 
-- Approach tried:
-- Why it failed:
+## Why it failed
+- [ ] Misidentified the pattern (thought X, actually Y)
+- [ ] Wrong invariant / state definition
+- [ ] Edge case missed (empty, single element, duplicates, negatives, overflow)
+- [ ] Off-by-one
+- [ ] Complexity too high for the constraints
+- [ ] Ran out of time / started coding too early
 
-## Root Cause
+## The correct idea
+The key sentence an interviewer would want to hear.
 
-> Like a bug root cause analysis — what was the actual core mistake?
+## What I will do differently
+A rule you can actually apply next time ("when I see 'contiguous' and 'longest', I say the window invariant out loud before coding").
 
-- [ ] Pattern misidentified (thought it was X, actually Y)
-- [ ] Wrong data structure chosen
-- [ ] Off-by-one / boundary condition
-- [ ] Overcomplicated the solution
-- [ ] Didn't consider edge case:
-- [ ] Time/space complexity miscalculated
-
-## Correct Approach
-
-- Pattern/technique:
-- Key insight I was missing:
-- Pseudocode:
-
-```
-// write the key logic here
+## Re-solve
+- [ ] +3 days   - [ ] +7 days   - [ ] +21 days
 ```
 
-## What I'll Remember
-
-- One-liner takeaway:
-- When to use this pattern:
-
-## Similar Problems to Practice
-
-1.
-2.
-3.
-```
-
----
-
-## Index
-
-| Problem | Difficulty | Root Cause | Date |
-|---------|------------|------------|------|
-| (add entries here as you go) | | | |
+Patterns that collect two or more postmortems deserve an extra review day — schedule it.

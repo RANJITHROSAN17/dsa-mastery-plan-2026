@@ -1,0 +1,20 @@
+name: Bug report (tracker or docs)
+description: Something is broken in the tracker, a link is dead, or a generated file is wrong.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      placeholder: "The fast-track toggle does not persist after reload on Safari…"
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      placeholder: "https://ranjithrosan17.github.io/dsa-mastery-plan-2026/#/day/12 or patterns/heap.md"
+  - type: input
+    id: env
+    attributes:
+      label: Browser / OS (for tracker bugs)

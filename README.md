@@ -31,6 +31,15 @@
 
 ---
 
+## Your first session
+
+1. [Open the tracker](https://ranjithrosan17.github.io/dsa-mastery-plan-2026/); no account or install is needed.
+2. Pick the full plan or **Fast track** based on available time. Start with one pattern and one linked problem rather than trying to finish the roadmap today.
+3. Solve, record what you learned, and mark the problem complete. Revisit it later without hints.
+4. Use the tracker’s JSON export to keep a backup before changing devices or clearing browser storage. Progress belongs to that browser/origin; it is not a cloud-synced account.
+
+This is a study structure, not an interview-outcome guarantee. External problem availability can change after a verification snapshot; report a changed or paywalled link with its title and URL.
+
 ## Why this plan
 
 - **Every problem is real and free.** All 466 problems were checked against LeetCode's problem index — no premium questions, no dead links, no made-up titles.

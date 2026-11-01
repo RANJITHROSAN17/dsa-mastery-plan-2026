@@ -166,6 +166,10 @@ Found a better problem for a day, a broken link, or a clearer template? Edit `da
 
 The problem selection stands on the shoulders of [NeetCode 150](https://neetcode.io/practice), the original [Blind 75](https://www.techinterviewhandbook.org/grind75/), [Striver's A2Z sheet](https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/), [Sean Prashad's LeetCode Patterns](https://seanprashad.com/leetcode-patterns/) and the [Tech Interview Handbook](https://www.techinterviewhandbook.org/). Theory links go to [cp-algorithms](https://cp-algorithms.com/) and the [USACO Guide](https://usaco.guide/). Problems are the property of [LeetCode](https://leetcode.com); this project is not affiliated with it.
 
+## Maintainer
+
+**[Ranjith Rosan](https://github.com/RANJITHROSAN17)** maintains DSA Mastery Plan, the pattern-first study roadmap and browser progress tracker. Linked problems and learning resources remain the work of their respective authors.
+
 ## License
 
 [MIT](LICENSE) — use it, fork it, teach with it.

@@ -31,6 +31,15 @@
 
 ---
 
+## Your first session
+
+1. [Open the tracker](https://ranjithrosan17.github.io/dsa-mastery-plan-2026/); no account or install is needed.
+2. Pick the full plan or **Fast track** based on available time. Start with one pattern and one linked problem rather than trying to finish the roadmap today.
+3. Solve, record what you learned, and mark the problem complete. Revisit it later without hints.
+4. Use the tracker’s JSON export to keep a backup before changing devices or clearing browser storage. Progress belongs to that browser/origin; it is not a cloud-synced account.
+
+This is a study structure, not an interview-outcome guarantee. External problem availability can change after a verification snapshot; report a changed or paywalled link with its title and URL.
+
 ## Why this plan
 
 - **Every problem is real and free.** All 466 problems were checked against LeetCode's problem index — no premium questions, no dead links, no made-up titles.
@@ -156,6 +165,10 @@ Found a better problem for a day, a broken link, or a clearer template? Edit `da
 ## Acknowledgements
 
 The problem selection stands on the shoulders of [NeetCode 150](https://neetcode.io/practice), the original [Blind 75](https://www.techinterviewhandbook.org/grind75/), [Striver's A2Z sheet](https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/), [Sean Prashad's LeetCode Patterns](https://seanprashad.com/leetcode-patterns/) and the [Tech Interview Handbook](https://www.techinterviewhandbook.org/). Theory links go to [cp-algorithms](https://cp-algorithms.com/) and the [USACO Guide](https://usaco.guide/). Problems are the property of [LeetCode](https://leetcode.com); this project is not affiliated with it.
+
+## Maintainer
+
+**[Ranjith Rosan](https://github.com/RANJITHROSAN17)** maintains DSA Mastery Plan, the pattern-first study roadmap and browser progress tracker. Linked problems and learning resources remain the work of their respective authors.
 
 ## License
 
